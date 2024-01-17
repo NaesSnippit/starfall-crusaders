@@ -5,8 +5,8 @@ body {
 }
 
 header {
-    background-color: #333;
-    color: white;
+    background-color: #89CFF0;
+    color: cyan;
     text-align: center;
     padding: 1em;
 }
@@ -24,7 +24,7 @@ nav ul li {
 
 nav a {
     text-decoration: none;
-    color: white;
+    color: cyan;
 }
 
 #main-content {
@@ -32,8 +32,8 @@ nav a {
 }
 
 footer {
-    background-color: #333;
-    color: white;
+    background-color: #89CFF0;
+    color: cyan;
     text-align: center;
     padding: 1em;
     position: fixed;
