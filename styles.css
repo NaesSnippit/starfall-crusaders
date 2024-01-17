@@ -6,7 +6,7 @@ body {
 
 header {
     background-color: #89CFF0;
-    color: cyan;
+    color: blue;
     text-align: center;
     padding: 1em;
 }
@@ -33,7 +33,7 @@ nav a {
 
 footer {
     background-color: #89CFF0;
-    color: cyan;
+    color: blue;
     text-align: center;
     padding: 1em;
     position: fixed;
