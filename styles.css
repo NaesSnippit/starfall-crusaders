@@ -1,15 +1,25 @@
 body {
-    font-family: 'Sans Mono', monospace; /* Use Sans Mono as the primary font */
+    font-family: 'Sans Mono', monospace;
     margin: 0;
     padding: 0;
-    background-color: #f0f5f5; /* Light blue background color */
+    background-color: #003366; /* Updated to dark blue background color */
+    color: white; /* Set default text color to white */
 }
 
 header {
-    background-color: #003366; /* Dark blue header background color */
-    color: white;
+    background-color: #001a33; /* Slightly darker blue for the header */
     text-align: center;
     padding: 1em;
+}
+
+header h1 a {
+    text-decoration: none;
+    color: white;
+    font-size: 24px;
+}
+
+header h1 a:hover {
+    color: #66b3ff;
 }
 
 nav ul {
@@ -30,20 +40,20 @@ nav a {
 }
 
 nav a:hover {
-    color: #66b3ff; /* Light blue color on hover */
+    color: #66b3ff;
 }
 
 nav a.active {
-    color: #66b3ff; /* Light blue color for active link */
+    color: #66b3ff;
 }
 
 #main-content {
     padding: 20px;
+    background-color: #000; /* Set the inner content background to black */
 }
 
 footer {
-    background-color: #003366; /* Dark blue footer background color */
-    color: white;
+    background-color: #001a33; /* Slightly darker blue for the footer */
     text-align: center;
     padding: 1em;
     position: fixed;
@@ -51,7 +61,6 @@ footer {
     width: 100%;
 }
 
-/* Game Demo specific styling */
 #main-content h2 {
-    color: #003366; /* Dark blue heading color */
+    color: #66b3ff; /* Light blue heading color for contrast */
 }
