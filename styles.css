@@ -1,12 +1,13 @@
 body {
-    font-family: 'Comic Sans', sans-mono;
+    font-family: 'Sans Mono', monospace; /* Use Sans Mono as the primary font */
     margin: 0;
     padding: 0;
+    background-color: #f0f5f5; /* Light blue background color */
 }
 
 header {
-    background-color: #00008B;
-    color: blue;
+    background-color: #003366; /* Dark blue header background color */
+    color: white;
     text-align: center;
     padding: 1em;
 }
@@ -24,7 +25,16 @@ nav ul li {
 
 nav a {
     text-decoration: none;
-    color: blue;
+    color: white;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #66b3ff; /* Light blue color on hover */
+}
+
+nav a.active {
+    color: #66b3ff; /* Light blue color for active link */
 }
 
 #main-content {
@@ -32,11 +42,16 @@ nav a {
 }
 
 footer {
-    background-color: #00008B;
-    color: blue;
+    background-color: #003366; /* Dark blue footer background color */
+    color: white;
     text-align: center;
     padding: 1em;
     position: fixed;
     bottom: 0;
     width: 100%;
+}
+
+/* Game Demo specific styling */
+#main-content h2 {
+    color: #003366; /* Dark blue heading color */
 }
