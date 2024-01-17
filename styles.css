@@ -5,7 +5,7 @@ body {
 }
 
 header {
-    background-color: #89CFF0;
+    background-color: #00008B;
     color: blue;
     text-align: center;
     padding: 1em;
@@ -32,7 +32,7 @@ nav a {
 }
 
 footer {
-    background-color: #89CFF0;
+    background-color: #00008B;
     color: blue;
     text-align: center;
     padding: 1em;
