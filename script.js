@@ -13,3 +13,22 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+    // Get all clickable elements
+    var clickableElements = document.querySelectorAll('.clickable');
+
+    // Add click event listener to each clickable element
+    clickableElements.forEach(function (element) {
+        element.addEventListener('click', function () {
+            // Play the click sound
+            playClickSound();
+        });
+    });
+
+    // Function to play the click sound
+    function playClickSound() {
+        var clickSound = new Audio('click-sound.mp3');
+        clickSound.play();
+    }
+});
