@@ -42,7 +42,7 @@ nav ul {
     width: auto;
     text-align: center;
     padding: 0;
-    background-color: #001a33; /* Slightly darker blue for the footer */
+    background-color: #001a33; /* Slightly darker blue for the list */
     border-radius: 6px;
 }
 
@@ -80,6 +80,25 @@ nav a.active {
     border-radius: 4px;
     width: 85vw;
 }
+
+#main-content ul {
+    display: inline-block;
+    list-style-type: none;
+    margin: 0;
+    width: auto;
+    text-align: center;
+    padding: 0;
+}
+
+#main-content ul li {
+    display: inline;
+    margin-right: 7px;
+    margin-left: 7px;
+}
+
+#main-content ul li a:link {
+    text-decoration: none;
+  }
 
 footer {
     background-color: #003366; /* Updated to dark blue background color */
