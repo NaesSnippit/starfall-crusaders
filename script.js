@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Function to play the click sound
     function playClickSound() {
-        var clickSound = new Audio('click-sound.mp3');
+        var clickSound = new Audio('snd_select.wav');
         clickSound.play();
     }
 });
