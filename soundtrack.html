@@ -9,32 +9,48 @@
 <body>
     <header>
         <h1>
-            <img src="images/StarfallLogoFullHoriz.png"
-            height="100">
+            <img src="images/StarfallLogoFullHoriz.png" height="100" alt="Starfall Logo">
         </h1>
         <nav>
             <ul>
-               <li><a href="index.html">Home</a></li>
-                <li><a href="demo.html">Game Demo</a></li>
-                <li><a href="fanart.html">Fanart</a></li>
-                <li><a href="trivia.html">Characters</a></li>
-                <li><a href="soundtrack.html">Soundtrack</a></li>
-                <li class="active"><a href="https://www.tumblr.com/projectstarfallcrusaders/">Tumblr</a></li>
-                <li><a href="https://twitter.com/StarfallCSaders">Twitter</a></li>
-                <li><a href="https://www.youtube.com/@projectstarfallcrusaders">YouTube</a></li>
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="demo.html" class="nav-link">Game Demo</a></li>
+                <li><a href="fanart.html" class="nav-link">Fanart</a></li>
+                <li><a href="trivia.html" class="nav-link">Characters</a></li>
+                <li><a href="soundtrack.html" class="nav-link">Soundtrack</a></li>
+                <li class="active"><a href="https://www.tumblr.com/projectstarfallcrusaders/" class="nav-link">Tumblr</a></li>
+                <li><a href="https://twitter.com/StarfallCSaders" class="nav-link">Twitter</a></li>
+                <li><a href="https://www.youtube.com/@projectstarfallcrusaders" class="nav-link">YouTube</a></li>
             </ul>
         </nav>
     </header>
     <br>
     <section id="main-content">
-        <h2>Soundtrack</h2>
-        <!-- Add content related to the game demo -->
+        <!-- Your main content goes here -->
+        <p>Insert fanart here heehee</p>
+        <!-- Add more content as needed -->
     </section>
 
     <footer>
-        <p>&copy; 2024 Starfall Crusaders. All rights reserved.</p>
+        <p>&copy; 2024 Starfall Crusaders. All rights reserved. Made with Love.</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        function playSound() {
+            console.log('Sound function called');
+            try {
+                var audio = new Audio('selectsfx.wav');
+                audio.play();
+            } catch (error) {
+                console.error('Error playing sound:', error);
+            }
+        }
+
+        // Attach event listener to all links with class 'nav-link'
+        var navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(function(link) {
+            link.addEventListener('click', playSound);
+        });
+    </script>
 </body>
 </html>
