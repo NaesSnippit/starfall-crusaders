@@ -14,14 +14,14 @@
         </h1>
         <nav>
             <ul>
-               <li><a href="index.html">Home</a></li>
-                <li><a href="demo.html">Game Demo</a></li>
-                <li><a href="fanart.html">Fanart</a></li>
-                <li><a href="trivia.html">Characters</a></li>
-                <li><a href="soundtrack.html">Soundtrack</a></li>
-                <li class="active"><a href="https://www.tumblr.com/projectstarfallcrusaders/">Tumblr</a></li>
-                <li><a href="https://twitter.com/StarfallCSaders">Twitter</a></li>
-                <li><a href="https://www.youtube.com/@projectstarfallcrusaders">YouTube</a></li>
+               <li><a href="index.html" onclick="playSound()">Home</a></li>
+                <li><a href="demo.html" onclick="playSound()">Game Demo</a></li>
+                <li><a href="fanart.html" onclick="playSound()">Fanart</a></li>
+                <li><a href="trivia.html" onclick="playSound()">Characters</a></li>
+                <li><a href="soundtrack.html" onclick="playSound()">Soundtrack</a></li>
+                <li class="active"><a href="https://www.tumblr.com/projectstarfallcrusaders/" onclick="playSound()">Tumblr</a></li>
+                <li><a href="https://twitter.com/StarfallCSaders" onclick="playSound()">Twitter</a></li>
+                <li><a href="https://www.youtube.com/@projectstarfallcrusaders" onclick="playSound()">YouTube</a></li>
             </ul>
         </nav>
     </header>
@@ -36,8 +36,10 @@
         <p>&copy; 2024 Starfall Crusaders. All rights reserved. Made with Love.</p>
     </footer>
 
-    <script type="text/javascript">
-        const audio = new Audio();
-        sound1.src = "selectsfx.wav";
+    <script>
+        function playSound() {
+      var audio = new Audio(selectsfx.wav);
+      audio.play();
+    </script>
 </body>
 </html>
