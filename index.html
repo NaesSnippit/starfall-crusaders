@@ -48,9 +48,12 @@
 
         // Check if the link is an external link
         if (event.target.getAttribute('href').startsWith('http') || event.target.getAttribute('target') === '_blank') {
-            // Prevent the default behavior for external links or links with target="_blank"
-            event.preventDefault();
+            // Allow default behavior for external links or links with target="_blank"
+            return;
         }
+
+        // For internal links, prevent the default behavior
+        event.preventDefault();
     }
 
     // Attach event listener to all links with class 'nav-link'
