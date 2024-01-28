@@ -45,9 +45,10 @@
         } catch (error) {
             console.error('Error playing sound:', error);
         }
+
         // Check if the link is an external link
-        if (event.target.getAttribute('href').startsWith('http')) {
-            // Prevent the default behavior for external links
+        if (event.target.getAttribute('href').startsWith('http') || event.target.getAttribute('target') === '_blank') {
+            // Prevent the default behavior for external links or links with target="_blank"
             event.preventDefault();
         }
     }
