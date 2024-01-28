@@ -76,11 +76,18 @@
         } catch (error) {
             console.error('Error playing sound:', error);
         }
+
         // Check if the link is an external link
-        if (event.target.getAttribute('href').startsWith('http')) {
-            // Prevent the default behavior for external links
-            event.preventDefault();
+        var href = event.target.getAttribute('href');
+        var isExternalLink = href.startsWith('http') || href.startsWith('//');
+
+        // Allow default behavior for external links or links with target="_blank"
+        if (isExternalLink || event.target.getAttribute('target') === '_blank') {
+            return;
         }
+
+        // For internal links, prevent the default behavior
+        event.preventDefault();
     }
 
     // Attach event listener to all links with class 'nav-link'
