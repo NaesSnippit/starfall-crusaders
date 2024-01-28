@@ -35,22 +35,29 @@
         <p>&copy; 2024 Starfall Crusaders. All rights reserved. Made with Love.</p>
     </footer>
 
-    <script>
-        function playSound() {
-            console.log('Sound function called');
-            try {
-                var audio = new Audio('selectsfx.wav');
-                audio.play();
-            } catch (error) {
-                console.error('Error playing sound:', error);
-            }
+<script>
+    function playSound(event) {
+        console.log('Sound function called');
+        try {
+            var audio = new Audio('selectsfx.wav');
+            audio.play();
+        } catch (error) {
+            console.error('Error playing sound:', error);
         }
 
-        // Attach event listener to all links with class 'nav-link'
-        var navLinks = document.querySelectorAll('.nav-link');
-        navLinks.forEach(function(link) {
-            link.addEventListener('click', playSound);
-        });
-    </script>
+        // Check if the link is an external link
+        if (event.target.getAttribute('href').startsWith('http')) {
+            // Prevent the default behavior for external links
+            event.preventDefault();
+        }
+    }
+
+    // Attach event listener to all links with class 'nav-link'
+    var navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(function(link) {
+        link.addEventListener('click', playSound);
+    });
+</script>
+
 </body>
 </html>
