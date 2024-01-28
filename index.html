@@ -37,33 +37,33 @@
 
 <script>
     function playSound(event) {
-        console.log('Sound function called');
-        try {
-            // Use an absolute path to the audio file
-            var audio = new Audio('selectsfx.wav');
-            audio.play();
-        } catch (error) {
-            console.error('Error playing sound:', error);
-        }
-
-        // Check if the link is an external link
-        var href = event.target.getAttribute('href');
-        var isExternalLink = href.startsWith('http') || href.startsWith('//');
-
-        // Allow default behavior for external links or links with target="_blank"
-        if (isExternalLink || event.target.getAttribute('target') === '_blank') {
-            return;
-        }
-
-        // For internal links, prevent the default behavior
-        event.preventDefault();
+    console.log('Sound function called');
+    try {
+        // Use an absolute path to the audio file
+        var audio = new Audio('selectsfx.wav');
+        audio.play();
+    } catch (error) {
+        console.error('Error playing sound:', error);
     }
 
-    // Attach event listener to all links with class 'nav-link'
-    var navLinks = document.querySelectorAll('.nav-link');
-    navLinks.forEach(function(link) {
-        link.addEventListener('click', playSound);
-    });
+    // Check if the link is an external link
+    var href = event.target.getAttribute('href');
+    var isExternalLink = href.startsWith('http') || href.startsWith('//');
+
+    // Allow default behavior for external links or links with target="_blank"
+    if (isExternalLink || event.target.getAttribute('target') === '_blank') {
+        return;
+    }
+
+    // Use a timeout to delay the navigation slightly after playing the sound
+    setTimeout(function () {
+        // Navigate to the specified URL
+        window.location.href = href;
+    }, 100); // Adjust the delay as needed
+
+    // Prevent the default behavior immediately to avoid double-click issues
+    event.preventDefault();
+}
 </script>
 </body>
 </html>
