@@ -76,6 +76,11 @@
         } catch (error) {
             console.error('Error playing sound:', error);
         }
+        // Check if the link is an external link
+        if (event.target.getAttribute('href').startsWith('http')) {
+            // Prevent the default behavior for external links
+            event.preventDefault();
+        }
     }
 
     // Attach event listener to all links with class 'nav-link'
