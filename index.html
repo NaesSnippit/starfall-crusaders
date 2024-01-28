@@ -47,8 +47,11 @@
         }
 
         // Check if the link is an external link
-        if (event.target.getAttribute('href').startsWith('http') || event.target.getAttribute('target') === '_blank') {
-            // Allow default behavior for external links or links with target="_blank"
+        var href = event.target.getAttribute('href');
+        var isExternalLink = href.startsWith('http') || href.startsWith('//');
+
+        // Allow default behavior for external links or links with target="_blank"
+        if (isExternalLink || event.target.getAttribute('target') === '_blank') {
             return;
         }
 
