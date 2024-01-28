@@ -39,6 +39,7 @@
     function playSound(event) {
         console.log('Sound function called');
         try {
+            // Use an absolute path to the audio file
             var audio = new Audio('selectsfx.wav');
             audio.play();
         } catch (error) {
