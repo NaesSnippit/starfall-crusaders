@@ -1,1 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css"> <!-- You can link your stylesheet here if needed -->
+    <title>Nae</title>
+    <style>
+        body {
+            background-image: img src='YellowBG.png';
+            background-size: cover;
+            color: white;
+            font-family: 'pmfont', sans-serif;
+            text-align: center;
+        }
+
+        #back-button {
+            margin-top: 20px;
+        }
+
+        #nae-image {
+            max-width: 100%;
+            height: auto;
+            margin-top: 30px;
+        }
+
+        #blurb {
+            margin-top: 30px;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <h1>Nae</h1>
+    
+    <a href="trivia.html" id="back-button">&larr; Back</a>
+
+    <img src="Nae.png" alt="Nae" id="nae-image">
+
+    <div id="blurb">
+        <p>A plucky scientist with a knack for trying anything once, Naethan (Nae) Odom is fierce when it comes to using his imagination.</p>
+        <p>Calling his skills unparalleled, he’d claim, would be an understatement for those who also indulge in his many hobbies.</p>
+        <p>One of said hobbies is none other than hypnosis, which at one point he used to attempt to cure his insomnia.</p>
+        <p>Although it didn’t work, he’s eager to learn what other magic there is out there to offer.</p>
+    </div>
+  
+  <script>
+    function playSound(event) {
+    console.log('Sound function called');
+    try {
+        // Use an absolute path to the audio file
+        var audio = new Audio('selectsfx.wav');
+
+        // Add an event listener to navigate when the sound ends
+        audio.addEventListener('ended', function () {
+            // Check if the link is an external link
+            var href = event.target.getAttribute('href');
+            var isExternalLink = href.startsWith('http') || href.startsWith('//');
+
+            // Allow default behavior for external links or links with target="_blank"
+            if (isExternalLink || event.target.getAttribute('target') === '_blank') {
+                return;
+            }
+
+            // Navigate to the specified URL
+            window.location.href = href;
+        });
+
+        audio.play();
+    } catch (error) {
+        console.error('Error playing sound:', error);
+
+        // If there's an error, proceed with default behavior
+        var href = event.target.getAttribute('href');
+        window.location.href = href;
+    }
+
+    // Prevent the default behavior immediately to avoid double-click issues
+    event.preventDefault();
+}
+</script>
+</body>
+</html>
 
