@@ -70,7 +70,7 @@
         <p>&copy; 2024 Starfall Crusaders. All rights reserved. Made with Love.</p>
     </footer>
 
-    <script>
+   <script>
     function playSound(event) {
         console.log('Sound function called');
         try {
@@ -81,7 +81,10 @@
         }
 
         // Check if the link is an external link
-        if (event.target.getAttribute('href').startsWith('http')) {
+        var currentHostname = window.location.hostname;
+        var targetHostname = new URL(event.target.href).hostname;
+
+        if (currentHostname !== targetHostname) {
             // Prevent the default behavior for external links
             event.preventDefault();
         }
@@ -92,6 +95,6 @@
     navLinks.forEach(function(link) {
         link.addEventListener('click', playSound);
     });
-    </script>
+</script>
 </body>
 </html>
