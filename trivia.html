@@ -82,9 +82,15 @@
 
         // Check if the link is an external link
         var currentHostname = window.location.hostname;
-        var targetHostname = new URL(event.target.href).hostname;
+        var targetHostname;
 
-        if (currentHostname !== targetHostname) {
+        try {
+            targetHostname = new URL(event.target.href).hostname;
+        } catch (error) {
+            console.error('Error getting target hostname:', error);
+        }
+
+        if (targetHostname && currentHostname !== targetHostname) {
             // Prevent the default behavior for external links
             event.preventDefault();
         }
