@@ -1,1 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Nae</title>
+    <style>
+        body {
+            background-image: url('images/PurpleBG.PNG');
+            background-size: cover;
+            color: white;
+            font-family: 'pmfont', sans-serif;
+            text-align: center;
+        }
+        #blurb {
+            margin-top: 30px;
+            line-height: 1.5;
+        }
+        #nae-image {
+            max-width: 100%;
+            height: auto;
+            margin-top: 30px;
+        }
+        #back-button {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>O' Wish Dragon</h1>
+    
+    <a href="trivia.html" id="back-button">&larr; Back</a>
+
+    <div id="blurb">
+        <p>Stellar is lorem ipsum blah blah blah</p>
+        
+    </div>
+    
+    <!-- Corrected the image source paths -->
+    <img src="images/Stellar.png" alt="Stellar" id="stellar-image">
+  
+    <script>
+        function playSound(event) {
+            console.log('Sound function called');
+            try {
+                // Use an absolute path to the audio file
+                var audio = new Audio('selectsfx.wav');
+
+                // Add an event listener to navigate when the sound ends
+                audio.addEventListener('ended', function () {
+                    // Check if the link is an external link
+                    var href = event.target.getAttribute('href');
+                    var isExternalLink = href.startsWith('http') || href.startsWith('//');
+
+                    // Allow default behavior for external links or links with target="_blank"
+                    if (isExternalLink || event.target.getAttribute('target') === '_blank') {
+                        return;
+                    }
+
+                    // Navigate to the specified URL
+                    window.location.href = href;
+                });
+
+                audio.play();
+            } catch (error) {
+                console.error('Error playing sound:', error);
+
+                // If there's an error, proceed with default behavior
+                var href = event.target.getAttribute('href');
+                window.location.href = href;
+            }
+
+            // Prevent the default behavior immediately to avoid double-click issues
+            event.preventDefault();
+        }
+    </script>
+</body>
+</html>
+
 
