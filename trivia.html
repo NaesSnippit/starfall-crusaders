@@ -86,5 +86,32 @@
     event.preventDefault();
 }
 </script>
+      <script>
+    let clickCount = 0;
+
+    function handleRedirect(event) {
+      event.preventDefault(); // prevent default link behavior
+      clickCount++;
+
+      // Increase base probability slightly with more clicks
+      const baseChance = 0.01; // 1%
+      const chanceMultiplier = Math.min(clickCount * 0.005, 0.05); // Max 5%
+
+      const random = Math.random();
+
+      if (random < baseChance + chanceMultiplier) {
+        // Redirect to Page A (e.g., 70% of special cases)
+        if (Math.random() < 0.7) {
+          window.location.href = "nae.html";
+        } else {
+          // Redirect to Page B (30% of special cases)
+          window.location.href = "rosemarie.html";
+        }
+      } else {
+        // Normal redirect
+        window.location.href = "stellar.html";
+      }
+    }
+  </script>
 </body>
 </html>
