@@ -1,0 +1,59 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #fff8f8;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 700px;
+  margin: 50px auto;
+  padding: 30px;
+  background-color: #ffeef0;
+  border: 2px solid #f88da0;
+  border-radius: 10px;
+}
+
+h1 {
+  color: #c0392b;
+  text-align: center;
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+h2 {
+  text-align: center;
+  color: #555;
+}
+
+.date-missing {
+  font-size: 1.1em;
+  margin-top: 20px;
+}
+
+.medical-warning {
+  color: #b30000;
+  font-weight: bold;
+  background-color: #fff0f0;
+  padding: 10px;
+  border: 2px solid #ff9999;
+  border-radius: 6px;
+  margin-top: 15px;
+}
+
+.authorities {
+  margin-top: 20px;
+  background-color: #fce4ec;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.contact-box {
+  margin-top: 30px;
+  background-color: #fff6fa;
+  border: 1px dashed #ff6f91;
+  padding: 15px;
+  text-align: center;
+  font-weight: bold;
+}
