@@ -19,7 +19,7 @@ body {
 }
 
 header {
-    background-color: #003366; /* Updated to dark blue background color */
+    background-color: black; /* Updated to dark blue background color */
     text-align: center;
     padding: 0.5em;
 }
@@ -32,7 +32,7 @@ header h1 a {
 }
 
 header h1 a:hover {
-    color: #66b3ff;
+    color: black;
 }
 
 nav ul {
@@ -42,7 +42,7 @@ nav ul {
     width: auto;
     text-align: center;
     padding: 0;
-    background-color: #001a33; /* Slightly darker blue for the list */
+    background-color: black; /* Slightly darker blue for the list */
     border-radius: 6px;
 }
 
@@ -101,7 +101,7 @@ nav a.active {
   }
 
 footer {
-    background-color: #003366; /* Updated to dark blue background color */
+    background-color: #black; /* Updated to dark blue background color */
     text-align: center;
     padding: 0;
     position: fixed;
@@ -111,5 +111,5 @@ footer {
 }
 
 #main-content h2 {
-    color: #66b3ff; /* Light blue heading color for contrast */
+    color: #black; /* Light blue heading color for contrast */
 }
