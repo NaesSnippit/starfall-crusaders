@@ -48,7 +48,7 @@ h1 {
 
 #charles-image {
   width: 25%; /* Smaller size for the gif */
-  max-width: 100%;
+  max-width: 50%;
   border: 2px solid var(--neon-green);
   border-radius: 10px;
   box-shadow: 0 0 15px var(--neon-green);
