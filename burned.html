@@ -3,89 +3,60 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>The Inventor</title>
-  <link rel="stylesheet" href="cracked-terminal.css" />
+  <title>Branding Protocol: The Inventor</title>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
 
   <style>
-    @font-face {
-      font-family: 'Share Tech Mono';
-      src: url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap') format('monospace');
-    }
-
     body {
-      background-image: url('images/HauntedBG.jpg');
-      background-size: cover;
-      color: white;
-      font-family: 'https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap', sans-serif;
-      text-align: center;
-      animation: flicker 10s infinite;
+      background-color: black;
+      color: #33FF33;
+      font-family: 'Share Tech Mono', monospace;
+      padding: 2rem;
+      text-align: left;
       overflow: hidden;
+      animation: flicker 8s infinite;
+      user-select: none;
     }
 
     h1 {
-      font-size: 4em;
-      color: #EDC33F;
-      text-shadow: 0 0 5px #EDC33F, 0 0 10px #EDC33F;
-      animation: glitch-effect 1.5s infinite linear;
+      font-size: 1.8em;
+      color: #00FF00;
+      text-shadow: 0 0 10px #33FF33, 0 0 20px #00FF00;
+      animation: glitch-effect 1.3s infinite linear;
+      margin-bottom: 2rem;
     }
 
     #blurb {
-      margin-top: 30px;
-      line-height: 1.6;
-      color: rgba(255, 255, 255, 0.8);
-      font-size: 1.2em;
-      animation: text-flicker 2s infinite;
-      max-width: 90%;
-      margin-left: auto;
-      margin-right: auto;
+      white-space: pre-wrap;
+      font-size: 1.1em;
+      animation: text-flicker 3s infinite;
+      line-height: 1.5;
     }
 
     #nae-image {
-      max-width: 100%;
+      display: block;
+      max-width: 40%;
       height: auto;
-      margin-top: 30px;
-      animation: image-glitch 2s infinite;
+      margin: 3rem auto;
+      animation: image-glitch 1.5s infinite;
+      filter: grayscale(70%) brightness(1.2) contrast(1.4);
+      border: 2px solid #00FF00;
+      box-shadow: 0 0 15px #33FF33;
     }
 
     #back-button {
       display: inline-block;
-      margin-top: 20px;
-      font-size: 1.5em;
-      color: #EDC33F;
+      font-size: 1em;
+      color: #33FF33;
       text-decoration: none;
-      transition: transform 0.3s, color 0.3s;
+      margin-top: 2rem;
+      animation: text-flicker 2s infinite;
+      border-bottom: 1px dashed #33FF33;
     }
 
     #back-button:hover {
-      color: #4D1136;
-      transform: scale(1.2) rotate(10deg);
-    }
-
-    @keyframes flicker {
-      0%, 100% { color: rgba(255, 255, 255, 0.9); }
-      25%, 75% { color: #EDC33F; }
-      50% { color: rgba(255, 255, 255, 0.9); }
-    }
-
-    @keyframes glitch-effect {
-      0%   { text-shadow: 2px 0 #EDC33F, -2px 0 #4D1136; }
-      20%  { text-shadow: -2px -2px #EDC33F, 2px 2px #4D1136; }
-      40%  { text-shadow: 2px 2px #EDC33F, -2px -2px #4D1136; }
-      60%  { text-shadow: -2px 0 #EDC33F, 2px 0 #4D1136; }
-      80%  { text-shadow: 2px 0 #EDC33F, -2px 0 #4D1136; }
-      100% { text-shadow: 2px 0 #EDC33F, -2px 0 #4D1136; }
-    }
-
-    @keyframes text-flicker {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.2; }
-    }
-
-    @keyframes image-glitch {
-      0%, 100% { transform: translate(0, 0); }
-      25% { transform: translate(5px, -5px); }
-      50% { transform: translate(-5px, 5px); }
-      75% { transform: translate(5px, 0); }
+      color: #FF0033;
+      transform: scale(1.05);
     }
 
     footer {
@@ -95,32 +66,73 @@
       position: fixed;
       bottom: 0;
       width: 100%;
-      color: #EDC33F;
-      font-size: 1em;
+      color: #33FF33;
+      font-size: 0.9em;
+      border-top: 1px solid #33FF33;
+    }
+
+    @keyframes flicker {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.85; }
+    }
+
+    @keyframes glitch-effect {
+      0%, 100% { text-shadow: 2px 0 #33FF33, -2px 0 #00FF00; }
+      50% { text-shadow: -2px -2px #33FF33, 2px 2px #00FF00; }
+    }
+
+    @keyframes text-flicker {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.25; }
+    }
+
+    @keyframes image-glitch {
+      0%, 100% { transform: translate(0, 0); }
+      20% { transform: translate(-3px, 2px); }
+      40% { transform: translate(2px, -3px); }
+      60% { transform: translate(-2px, -2px); }
+      80% { transform: translate(1px, 3px); }
     }
   </style>
 </head>
 <body>
 
-  <h1>The One Burned By the Dark</h1>
-
-  <a href="trivia.html" id="back-button">← Back</a>
+  <h1>[ TRANSMISSION BEGIN // WISH DRAGON PROTOCOL_4.0 ]</h1>
 
   <div id="blurb">
-    <p>O', here, wish Dragon of Past and Present. Take this sacrifice with pride. Of virgin flesh, and blood,</p>
-    <p>Take this mistake and purify it as it bears your mark of forgiveness. O', wish Dragon, oh trusting and true...</p>
-    <p>Feel our fatigue lessen as we attribute to you. O', mighty wish Dragon of legend... Take our blessings, as we</p>
-    <p>Christen another with your prophecy. We beheld our sacrilege, and BEG you take this youngest blood... and endue it with your</p>
-    <p>Magicks, bless us with your riches...!</p>
-    <br>
-    <p>'To mark the youngest blood, our offspring as they come of age... the wish Dragon will finally bless our people with the</p>
-    <p>Magicks of the Four Kings before us.'</p>
+> INTRUSION ACCEPTED...  
+> SOUL IDENTIFIED: ███████████████  
+> STATUS: UNBRANDED  
+>  
+> BEGINNING BRANDING SEQUENCE...  
+> LOADING: ARCANE PATHWAYS ██░░░░░░░░░░░ 17%  
+>  
+>  
+> 🜏 O’ WISH DRAGON OF THE SHATTERED ALTAR —  
+>     WE INVOKE YOUR ANCIENT RIGHT.  
+>     THIS FLESH, THIS MIND, THIS LINEAGE:  
+>     IT IS OUR GIFT. OUR ERROR. OUR SACRIFICE.  
+>  
+>     CLEANSE THE VIRGIN CODE.  
+>     BURN THE UNBRANDED.  
+>     IMPRINT YOUR HEX UPON THIS CHILD OF LIGHT.  
+>  
+> 🜏 THE FLESH STIRS. THE EYES BLINK.  
+>     IT *SEES*. IT *KNOWS*.  
+>     BEGIN REWRITING OF CORE FUNCTIONS...  
+>  
+>  
+> > [I.N.V.E.N.T.O.R. IDENTIFIED]  
+> > [IMAGE FILE FOUND]  
+> > [SOUL BOND INITIATED — THIS MAY NOT BE REVERSED]
   </div>
 
   <img src="images/Nae.png" alt="Nae" id="nae-image" />
 
+  <a href="trivia.html" id="back-button">← RETURN TO COVEN INDEX</a>
+
   <footer>
-    <p>&copy; 2025 Starfall Crusaders. Enter if you dare...</p>
+    &copy; 2025 Starfall Crusaders — SYSTEM CONTAMINATION: ACCEPTED
   </footer>
 
   <script>
@@ -141,4 +153,3 @@
 
 </body>
 </html>
-
