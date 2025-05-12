@@ -1,81 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>Percy</title>
-    <style>
-        body {
-            background-image: url('images/PurpleBG.PNG');
-            background-size: cover;
-            color: white;
-            font-family: 'pmfont', sans-serif;
-            text-align: center;
-        }
-        #blurb {
-            margin-top: 30px;
-            line-height: 1.5;
-        }
-        #nae-image {
-            max-width: 100%;
-            height: auto;
-            margin-top: 30px;
-        }
-        #back-button {
-            margin-top: 20px;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Percy Feliguire — Starfall Crusaders</title>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="percy.css"> <!-- Updated to a Percy-specific CSS -->
 </head>
-<body>
-    <h1>The Outlier</h1>
-    
-    <a href="trivia.html" id="back-button">&larr; Back</a>
+<body style="color: #ff073a;"> <!-- Neon red text -->
 
+  <h1>PERCY FELIGUIRE: STARFALL CRUSADER</h1>
+
+  <a href="trivia.html" id="back-button" onclick="playSound(event)" style="color: #ff073a;">&larr; RETURN</a>
+
+  <div class="container">
     <div id="blurb">
-        <p>Percy is lorem ipsum blah blah blah</p>
-        
+      <p><strong>Percival "Percy" Feliguire</strong>, 19. He/Him. Bisexual. Gaoyama exile from the shattered realm of Aegis Mountain.</p>
+
+      <p>Cast out from his home dimension for reasons he won't fully explain (and you probably wouldn’t believe), Percy now drifts with the Starfall Crusaders, claiming it’s “temporary” — though he’s been here longer than most.</p>
+
+      <p>Armed with razor wit and a perpetual smirk, he challenges everyone — not because he’s malicious, but because arguing is the closest thing he has to joy. If he's not picking apart your logic, he's probably asleep or bored.</p>
+
+      <p>He's convinced Stellar’s going to stab them all in the back. He’ll say it with a laugh, but there’s steel behind the joke. Underneath the sarcasm is someone who's been betrayed one too many times… and isn't ready to trust again.</p>
+
+      <p>He fights like he talks: clever, unpredictable, and never quite where you expect him to be. Whether he's an ally or a liability depends entirely on the day — and your tolerance for snark.</p>
     </div>
-    
-    <!-- Corrected the image source paths -->
-    <img src="images/Untitled1778_20250510201130.png" alt="Percy" id="percy-image">
-  
-    <script>
-        function playSound(event) {
-            console.log('Sound function called');
-            try {
-                // Use an absolute path to the audio file
-                var audio = new Audio('selectsfx.wav');
 
-                // Add an event listener to navigate when the sound ends
-                audio.addEventListener('ended', function () {
-                    // Check if the link is an external link
-                    var href = event.target.getAttribute('href');
-                    var isExternalLink = href.startsWith('http') || href.startsWith('//');
+    <img src="images/PercyWalking.gif" alt="Percy Walking" id="percy-image" />
+  </div>
 
-                    // Allow default behavior for external links or links with target="_blank"
-                    if (isExternalLink || event.target.getAttribute('target') === '_blank') {
-                        return;
-                    }
+  <script>
+    function playSound(event) {
+      event.preventDefault();
+      const href = event.target.getAttribute('href');
+      const audio = new Audio('selectsfx.wav');
 
-                    // Navigate to the specified URL
-                    window.location.href = href;
-                });
+      audio.addEventListener('ended', () => {
+        window.location.href = href;
+      });
 
-                audio.play();
-            } catch (error) {
-                console.error('Error playing sound:', error);
-
-                // If there's an error, proceed with default behavior
-                var href = event.target.getAttribute('href');
-                window.location.href = href;
-            }
-
-            // Prevent the default behavior immediately to avoid double-click issues
-            event.preventDefault();
-        }
-    </script>
+      audio.play().catch(() => {
+        window.location.href = href;
+      });
+    }
+  </script>
 </body>
 </html>
-
-
