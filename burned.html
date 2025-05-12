@@ -1,179 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>The Inventor</title>
-    <style>
-        /* Eerie, ominous background */
-        body {
-            background-image: url('images/HauntedBG.jpg'); /* Dark and eerie image */
-            background-size: cover;
-            color: white;
-            font-family: 'pmfont', sans-serif;
-            text-align: center;
-            animation: flicker 3s infinite;
-            overflow: hidden;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Inventor</title>
+  <link rel="stylesheet" href="styles.css" />
 
-        /* Glitchy text effect */
-        h1 {
-            font-size: 4em;
-            color: red;
-            text-shadow: 0 0 5px rgba(255, 0, 0, 0.8), 0 0 10px rgba(255, 0, 0, 0.6);
-            animation: glitch-effect 1.5s infinite linear;
-        }
+  <style>
+    @font-face {
+      font-family: 'pmfont';
+      src: url('pmfont.otf') format('opentype');
+    }
 
-        /* Fluctuating glitch for description */
-        #blurb {
-            margin-top: 30px;
-            line-height: 1.6;
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 1.2em;
-            animation: text-flicker 2s infinite;
-            max-width: 90%;
-            margin-left: auto;
-            margin-right: auto;
-        }
+    body {
+      background-image: url('images/HauntedBG.jpg');
+      background-size: cover;
+      color: white;
+      font-family: 'pmfont', sans-serif;
+      text-align: center;
+      animation: flicker 3s infinite;
+      overflow: hidden;
+    }
 
-        /* Eerie, flickering image of Nae */
-        #nae-image {
-            max-width: 100%;
-            height: auto;
-            margin-top: 30px;
-            animation: image-glitch 2s infinite;
-        }
+    h1 {
+      font-size: 4em;
+      color: red;
+      text-shadow: 0 0 5px rgba(255, 0, 0, 0.8), 0 0 10px rgba(255, 0, 0, 0.6);
+      animation: glitch-effect 1.5s infinite linear;
+    }
 
-        /* Back button with spooky hover effect */
-        #back-button {
-            margin-top: 20px;
-            font-size: 1.5em;
-            color: #ff4c4c;
-            text-decoration: none;
-            transition: transform 0.3s, color 0.3s;
-        }
+    #blurb {
+      margin-top: 30px;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 1.2em;
+      animation: text-flicker 2s infinite;
+      max-width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+    }
 
-        #back-button:hover {
-            color: white;
-            transform: scale(1.2) rotate(10deg);
-        }
+    #nae-image {
+      max-width: 100%;
+      height: auto;
+      margin-top: 30px;
+      animation: image-glitch 2s infinite;
+    }
 
-        /* Animation for flickering text */
-        @keyframes flicker {
-            0% { color: rgba(255, 255, 255, 0.9); }
-            25% { color: rgba(255, 0, 0, 0.7); }
-            50% { color: rgba(255, 255, 255, 0.9); }
-            75% { color: rgba(255, 0, 0, 0.7); }
-            100% { color: rgba(255, 255, 255, 0.9); }
-        }
+    #back-button {
+      display: inline-block;
+      margin-top: 20px;
+      font-size: 1.5em;
+      color: #ff4c4c;
+      text-decoration: none;
+      transition: transform 0.3s, color 0.3s;
+    }
 
-        /* Glitch effect on text */
-        @keyframes glitch-effect {
-            0% {
-                text-shadow: 2px 0 red, -2px 0 blue;
-            }
-            20% {
-                text-shadow: -2px -2px red, 2px 2px blue;
-            }
-            40% {
-                text-shadow: 2px 2px red, -2px -2px blue;
-            }
-            60% {
-                text-shadow: -2px 0 red, 2px 0 blue;
-            }
-            80% {
-                text-shadow: 2px 0 red, -2px 0 blue;
-            }
-            100% {
-                text-shadow: 2px 0 red, -2px 0 blue;
-            }
-        }
+    #back-button:hover {
+      color: white;
+      transform: scale(1.2) rotate(10deg);
+    }
 
-        /* Flickering text animation for description */
-        @keyframes text-flicker {
-            0% { opacity: 1; }
-            50% { opacity: 0.2; }
-            100% { opacity: 1; }
-        }
+    @keyframes flicker {
+      0%, 100% { color: rgba(255, 255, 255, 0.9); }
+      25%, 75% { color: rgba(255, 0, 0, 0.7); }
+      50% { color: rgba(255, 255, 255, 0.9); }
+    }
 
-        /* Image glitch effect */
-        @keyframes image-glitch {
-            0% { transform: translate(0, 0); }
-            25% { transform: translate(5px, -5px); }
-            50% { transform: translate(-5px, 5px); }
-            75% { transform: translate(5px, 0); }
-            100% { transform: translate(0, 0); }
-        }
+    @keyframes glitch-effect {
+      0%   { text-shadow: 2px 0 red, -2px 0 blue; }
+      20%  { text-shadow: -2px -2px red, 2px 2px blue; }
+      40%  { text-shadow: 2px 2px red, -2px -2px blue; }
+      60%  { text-shadow: -2px 0 red, 2px 0 blue; }
+      80%  { text-shadow: 2px 0 red, -2px 0 blue; }
+      100% { text-shadow: 2px 0 red, -2px 0 blue; }
+    }
 
-        /* Dark footer to complement the theme */
-        footer {
-            background-color: black;
-            text-align: center;
-            padding: 10px;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            color: #ff4c4c;
-            font-size: 1em;
-        }
-    </style>
+    @keyframes text-flicker {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.2; }
+    }
+
+    @keyframes image-glitch {
+      0%, 100% { transform: translate(0, 0); }
+      25% { transform: translate(5px, -5px); }
+      50% { transform: translate(-5px, 5px); }
+      75% { transform: translate(5px, 0); }
+    }
+
+    footer {
+      background-color: black;
+      text-align: center;
+      padding: 10px;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      color: #ff4c4c;
+      font-size: 1em;
+    }
+  </style>
 </head>
 <body>
-    <h1>The One Burned By the Dark</h1>
-    
-    <a href="trivia.html" id="back-button">&larr; Back</a>
 
-    <div id="blurb">
-        <p>O', here, wish Dragon of Past and Present. Take this sacrifice with pride. Of virgin flesh, and blood,</p>
-        <p>Take this mistake and purify it as it bears your mark of forgiveness. O', wish Dragon, oh trusting and true...</p>
-        <p>Feel our fatigue lessen as we attribute to you. O', mighty wish Dragon of legend... Take our blessings, as we</p>
-        <p>Christen another with your prophecy.We behled our sacrilege, and BEG you take this youngest blood... and indue it with your</p>
-        <p>Magicks, bless us with your riches...!</p>
-        <p>'To mark the youngest blood, our offspring as they come of age... the wish Dragon will finally bless our people with the</p>
-        <p>Magicks of the Four Kings before us.'</p>
-    </div>
-    
-    <img src="images/Nae.png" alt="Nae" id="nae-image">
+  <h1>The One Burned By the Dark</h1>
 
-    <script>
-        function playSound(event) {
-            console.log('Sound function called');
-            try {
-                // Use an absolute path to the audio file
-                var audio = new Audio('images/haunted_sound.mp3'); // Example eerie sound
+  <a href="trivia.html" id="back-button">← Back</a>
 
-                // Add an event listener to navigate when the sound ends
-                audio.addEventListener('ended', function () {
-                    // Check if the link is an external link
-                    var href = event.target.getAttribute('href');
-                    var isExternalLink = href.startsWith('http') || href.startsWith('//');
+  <div id="blurb">
+    <p>O', here, wish Dragon of Past and Present. Take this sacrifice with pride. Of virgin flesh, and blood,</p>
+    <p>Take this mistake and purify it as it bears your mark of forgiveness. O', wish Dragon, oh trusting and true...</p>
+    <p>Feel our fatigue lessen as we attribute to you. O', mighty wish Dragon of legend... Take our blessings, as we</p>
+    <p>Christen another with your prophecy. We beheld our sacrilege, and BEG you take this youngest blood... and endue it with your</p>
+    <p>Magicks, bless us with your riches...!</p>
+    <p>'To mark the youngest blood, our offspring as they come of age... the wish Dragon will finally bless our people with the</p>
+    <p>Magicks of the Four Kings before us.'</p>
+  </div>
 
-                    // Allow default behavior for external links or links with target="_blank"
-                    if (isExternalLink || event.target.getAttribute('target') === '_blank') {
-                        return;
-                    }
+  <img src="images/Nae.png" alt="Nae" id="nae-image" />
 
-                    // Navigate to the specified URL
-                    window.location.href = href;
-                });
+  <footer>
+    <p>&copy; 2025 Starfall Crusaders. Enter if you dare...</p>
+  </footer>
 
-                audio.play();
-            } catch (error) {
-                console.error('Error playing sound:', error);
+  <script>
+    document.getElementById('back-button').addEventListener('click', function (event) {
+      event.preventDefault();
+      var href = this.getAttribute('href');
+      var audio = new Audio('images/haunted_sound.mp3');
 
-                // If there's an error, proceed with default behavior
-                var href = event.target.getAttribute('href');
-                window.location.href = href;
-            }
+      audio.addEventListener('ended', function () {
+        window.location.href = href;
+      });
 
-            // Prevent the default behavior immediately to avoid double-click issues
-            event.preventDefault();
-        }
-    </script>
-    
-    <footer>
-        <p>&copy; 2025 Starfall Crusaders. Enter if you dare...</p>
-    </footer>
+      audio.play().catch(function () {
+        window.location.href = href;
+      });
+    });
+  </script>
+
 </body>
 </html>
