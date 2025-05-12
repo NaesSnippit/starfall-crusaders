@@ -9,7 +9,7 @@ body {
   background-size: cover;
   font-family: 'Share Tech Mono', monospace;
   color: var(--neon-green);
-  overflow: hidden;
+  /* Removed overflow: hidden so nothing gets clipped */
 }
 
 h1 {
@@ -21,15 +21,17 @@ h1 {
 
 .container {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: flex-start;
   padding: 3rem;
   gap: 3rem;
   flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 #blurb {
-  width: 50%;
+  flex: 1 1 300px;
   line-height: 1.6;
   font-size: 1.1em;
   background: rgba(0, 0, 0, 0.65);
@@ -37,7 +39,6 @@ h1 {
   border: 1px solid var(--neon-green);
   box-shadow: 0 0 20px var(--neon-green);
   border-radius: 15px;
-  transform-style: preserve-3d;
   transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
@@ -47,11 +48,13 @@ h1 {
 }
 
 #charles-image {
-  width: 25%; /* Smaller size for the gif */
-  max-width: 25%;
+  flex: 1 1 250px;
+  max-width: 100%;
+  height: auto;
   border: 2px solid var(--neon-green);
   border-radius: 10px;
   box-shadow: 0 0 15px var(--neon-green);
+  object-fit: contain;
 }
 
 #back-button {
