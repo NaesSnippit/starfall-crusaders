@@ -147,7 +147,7 @@
       "> SYSTEM MALFUNCTION… VOICE SAMPLE DETECTED",
       "> [DOWNLOADING INVENTOR VOICE SAMPLE]",
       "> [SAMPLE: THE INVENTOR]",
-      "SAMPLE READY: [CLICK TO DOWNLOAD]"
+      "SAMPLE READY: [AUTOMATIC DOWNLOAD]"
     ];
 
     function getRandomLine(rarity) {
@@ -171,14 +171,13 @@
       return rarityTypes[Math.floor(Math.random() * rarityTypes.length)];
     }
 
-    function showVoiceSample() {
-      const voiceSampleLink = document.createElement("a");
-      voiceSampleLink.href = "path/to/inventor_voice_sample.mp3"; // Path to the Inventor's voice recording
-      voiceSampleLink.download = "Inventor_Voice_Sample.mp3";
-      voiceSampleLink.innerText = "Download Voice Sample";
-      voiceSampleLink.style.color = "#EDC33F";
-      voiceSampleLink.style.marginTop = "1rem";
-      document.body.appendChild(voiceSampleLink);
+    function downloadVoiceSample() {
+      const a = document.createElement("a");
+      a.href = "path/to/inventor_voice_sample.mp3"; // Path to the Inventor's voice recording
+      a.download = "Inventor_Voice_Sample.mp3";
+      document.body.appendChild(a);
+      a.click();  // Trigger download automatically
+      document.body.removeChild(a);  // Clean up
     }
 
     let i = 0;
@@ -193,7 +192,7 @@
       terminal.innerHTML += line + "\n";
 
       if (selectedRarity === "superRare") {
-        showVoiceSample();
+        downloadVoiceSample();  // Automatically trigger the download
       }
 
       i++;
