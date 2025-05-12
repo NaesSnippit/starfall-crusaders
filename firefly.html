@@ -6,14 +6,22 @@
   <title>Hestia "Firefly" Abrams — Starfall Crusaders</title>
   <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="firefly.css">
+  <style>
+    body {
+      background: url('images/Untitled1782_20250511160449.png') no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Share Tech Mono', monospace;
+    }
+  </style>
 </head>
-<body style="background: url('images/Untitled1782_20250511160449.png') no-repeat center center fixed; background-size: cover;">
+<body>
 
-  <h1>HESTIA “FIREFLY” ABRAMS: STARFALL CRUSADER</h1>
+  <header>
+    <h1>HESTIA “FIREFLY” ABRAMS: STARFALL CRUSADER</h1>
+    <a href="trivia.html" id="back-button" onclick="playSound(event)">&larr; RETURN</a>
+  </header>
 
-  <a href="trivia.html" id="back-button" onclick="playSound(event)">&larr; RETURN</a>
-
-  <div class="container">
+  <main class="container">
     <div id="blurb">
       <p><strong>Hestia “Firefly” Abrams</strong>, <strong>19</strong>. She/Her. Elfling. Fire-born and steel-bound.</p>
 
@@ -26,13 +34,15 @@
       <p>Don’t try to put her out. Just try to keep up.</p>
     </div>
 
-    <img src="images/Firefly.png" alt="Firefly Portrait" id="firefly-image" />
-  </div>
+    <div class="image-container">
+      <img src="images/Firefly.png" alt="Portrait of Hestia 'Firefly' Abrams" id="firefly-image" />
+    </div>
+  </main>
 
   <script>
     function playSound(event) {
       event.preventDefault();
-      const href = event.target.getAttribute('href');
+      const href = event.currentTarget.getAttribute('href');
       const audio = new Audio('selectsfx.wav');
 
       audio.addEventListener('ended', () => {
