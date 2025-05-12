@@ -13,6 +13,7 @@ body {
   background-color: #ffeef0;
   border: 2px solid #f88da0;
   border-radius: 10px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
@@ -25,6 +26,21 @@ h1 {
 h2 {
   text-align: center;
   color: #555;
+  margin-top: 0;
+}
+
+.image-container {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.image-container img {
+  max-width: 250px;
+  width: 100%;
+  height: auto;
+  border: 2px solid #f88da0;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
 .date-missing {
@@ -56,17 +72,4 @@ h2 {
   padding: 15px;
   text-align: center;
   font-weight: bold;
-}
-.image-container {
-  text-align: center;
-  margin: 20px 0;
-}
-
-.image-container img {
-  max-width: 250px;
-  width: 100%;
-  height: auto;
-  border: 2px solid #f88da0;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
