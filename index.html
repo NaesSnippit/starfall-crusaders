@@ -1,74 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>Starfall Crusaders</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="styles.css" />
+  <title>Starfall Crusaders</title>
 </head>
 <body>
-    <header>
-        <h1>
-            <img src="images/StarfallLogoFullHoriz.png" height="100" alt="Starfall Logo">
-        </h1>
-        <nav>
-            <ul>
-                <li><a href="index.html" class="nav-link">Home</a></li>
-                <li><a href="demo.html" class="nav-link">Game Demo</a></li>
-                <li><a href="fanart.html" class="nav-link">Fanart</a></li>
-                <li><a href="trivia.html" class="nav-link">Characters</a></li>
-                <li><a href="soundtrack.html" class="nav-link">Soundtrack</a></li>
-                <li class="active"><a href="https://www.tumblr.com/projectstarfallcrusaders/" class="nav-link">Tumblr</a></li>
-                <li><a href="https://twitter.com/StarfallCSaders" class="nav-link">Twitter</a></li>
-                <li><a href="https://www.youtube.com/@projectstarfallcrusaders" class="nav-link">YouTube</a></li>
-            </ul>
-        </nav>
-    </header>
-    <br>
-    <section id="main-content">
-        <!-- Your main content goes here -->
-        <p>Welcome to Starfall Crusaders, an indie RPG inspired by the Mario & Luigi series, EarthBound, and UNDERTALE.</p>
-        <!-- Add more content as needed -->
-    </section>
+  <header>
+    <h1>
+      <img src="images/StarfallLogoFullHoriz.png" height="100" alt="Starfall Logo">
+    </h1>
+    <nav>
+      <ul>
+        <li><a href="index.html" class="nav-link internal">Home</a></li>
+        <li><a href="demo.html" class="nav-link internal">Game Demo</a></li>
+        <li><a href="fanart.html" class="nav-link internal">Fanart</a></li>
+        <li><a href="trivia.html" class="nav-link internal">Characters</a></li>
+        <li><a href="soundtrack.html" class="nav-link internal">Soundtrack</a></li>
+        <li class="active"><a href="https://www.tumblr.com/projectstarfallcrusaders/" class="nav-link" target="_blank">Tumblr</a></li>
+        <li><a href="https://twitter.com/StarfallCSaders" class="nav-link" target="_blank">Twitter</a></li>
+        <li><a href="https://www.youtube.com/@projectstarfallcrusaders" class="nav-link" target="_blank">YouTube</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <footer>
-        <p>&copy; 2025 Starfall Crusaders. All rights reserved. Made with Love.</p>
-    </footer>
+  <main id="main-content">
+    <p>Welcome to <strong>Starfall Crusaders</strong>, an indie RPG inspired by the Mario & Luigi series, EarthBound, and UNDERTALE.</p>
+  </main>
 
-<script>
+  <footer>
+    <p>&copy; 2025 Starfall Crusaders. All rights reserved. Made with Love.</p>
+  </footer>
+
+  <script>
     function playSound(event) {
-    console.log('Sound function called');
-    try {
-        // Use an absolute path to the audio file
-        var audio = new Audio('selectsfx.wav');
+      event.preventDefault();
 
-        // Add an event listener to navigate when the sound ends
-        audio.addEventListener('ended', function () {
-            // Check if the link is an external link
-            var href = event.target.getAttribute('href');
-            var isExternalLink = href.startsWith('http') || href.startsWith('//');
+      const href = event.currentTarget.getAttribute('href');
+      const audio = new Audio('selectsfx.wav');
 
-            // Allow default behavior for external links or links with target="_blank"
-            if (isExternalLink || event.target.getAttribute('target') === '_blank') {
-                return;
-            }
-
-            // Navigate to the specified URL
-            window.location.href = href;
-        });
-
-        audio.play();
-    } catch (error) {
-        console.error('Error playing sound:', error);
-
-        // If there's an error, proceed with default behavior
-        var href = event.target.getAttribute('href');
+      audio.addEventListener('ended', () => {
         window.location.href = href;
+      });
+
+      audio.play().catch(() => {
+        window.location.href = href;
+      });
     }
 
-    // Prevent the default behavior immediately to avoid double-click issues
-    event.preventDefault();
-}
-</script>
+    // Attach sound effect only to internal links
+    document.querySelectorAll('a.internal').forEach(link => {
+      link.addEventListener('click', playSound);
+    });
+  </script>
 </body>
 </html>
