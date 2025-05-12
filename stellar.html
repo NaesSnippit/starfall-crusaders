@@ -1,81 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>Stellar</title>
-    <style>
-        body {
-            background-image: url('images/PurpleBG.PNG');
-            background-size: cover;
-            color: white;
-            font-family: 'pmfont', sans-serif;
-            text-align: center;
-        }
-        #blurb {
-            margin-top: 30px;
-            line-height: 1.5;
-        }
-        #nae-image {
-            max-width: 100%;
-            height: auto;
-            margin-top: 30px;
-        }
-        #back-button {
-            margin-top: 20px;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stellar Skyrockett — Starfall Crusaders</title>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="stellar.css"> <!-- Stellar's CSS -->
 </head>
 <body>
-    <h1>O' Wish Dragon</h1>
-    
-    <a href="trivia.html" id="back-button">&larr; Back</a>
 
+  <h1>STELLAR SKYROCKETT: STARFALL CRUSADER</h1>
+
+  <a href="trivia.html" id="back-button" onclick="playSound(event)">&larr; RETURN</a>
+
+  <div class="container">
     <div id="blurb">
-        <p>Stellar is lorem ipsum blah blah blah</p>
-        
+      <p><strong>Stellar Skyrockett</strong>, 275+. She/Her. One of the few Wish Dragons left — and bearer of the comet’s ancient will.</p>
+
+      <p>Kind, nurturing, and softly radiant, Stellar is the one who chose the four blessed by the Wish Comet. Why this generation skipped a fall? She’s not telling… and there’s a sadness in her eyes when asked.</p>
+
+      <p>She treats the team like her children, even when they don’t treat her like family. Her warmth is endless, her patience deep. But don’t mistake gentleness for weakness — there’s an old, stellar fire behind her calm.</p>
+
+      <p>She doesn’t fight unless she must. But when she does, it’s with elegance, grace, and the quiet strength of a star that refuses to burn out.</p>
+
+      <p>Whatever secrets she holds, she guards them for love. And maybe… to protect them from a truth they’re not ready for.</p>
     </div>
-    
-    <!-- Corrected the image source paths -->
-    <img src="images/Stellar.png" alt="Stellar" id="stellar-image">
-  
-    <script>
-        function playSound(event) {
-            console.log('Sound function called');
-            try {
-                // Use an absolute path to the audio file
-                var audio = new Audio('selectsfx.wav');
 
-                // Add an event listener to navigate when the sound ends
-                audio.addEventListener('ended', function () {
-                    // Check if the link is an external link
-                    var href = event.target.getAttribute('href');
-                    var isExternalLink = href.startsWith('http') || href.startsWith('//');
+    <img src="images/StellarWalking.gif" alt="Stellar Walking" id="stellar-image" />
+  </div>
 
-                    // Allow default behavior for external links or links with target="_blank"
-                    if (isExternalLink || event.target.getAttribute('target') === '_blank') {
-                        return;
-                    }
+  <script>
+    function playSound(event) {
+      event.preventDefault();
+      const href = event.target.getAttribute('href');
+      const audio = new Audio('selectsfx.wav');
 
-                    // Navigate to the specified URL
-                    window.location.href = href;
-                });
+      audio.addEventListener('ended', () => {
+        window.location.href = href;
+      });
 
-                audio.play();
-            } catch (error) {
-                console.error('Error playing sound:', error);
-
-                // If there's an error, proceed with default behavior
-                var href = event.target.getAttribute('href');
-                window.location.href = href;
-            }
-
-            // Prevent the default behavior immediately to avoid double-click issues
-            event.preventDefault();
-        }
-    </script>
+      audio.play().catch(() => {
+        window.location.href = href;
+      });
+    }
+  </script>
 </body>
 </html>
-
-
