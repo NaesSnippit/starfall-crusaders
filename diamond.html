@@ -1,1 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>♦ DIAMOND — Starfall File</title>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      background: #0e001f;
+      color: #f5e146;
+      font-family: 'Share Tech Mono', monospace;
+      padding: 2rem;
+      border: 6px solid transparent;
+      border-image: url('images/starborder.png') 30 round; /* Replace with your star-shaped border */
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: #db8eff;
+      text-align: center;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.5rem;
+    }
+
+    #back-button {
+      display: inline-block;
+      color: #f5e146;
+      text-decoration: none;
+      border: 1px solid #db8eff;
+      padding: 0.4rem 0.8rem;
+      margin-bottom: 2rem;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    #back-button:hover {
+      background: #db8eff;
+      color: #0e001f;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    #blurb {
+      max-width: 800px;
+      background: rgba(219, 142, 255, 0.1);
+      padding: 2rem;
+      border: 2px dashed #f5e146;
+      border-radius: 8px;
+      box-shadow: 0 0 20px #db8eff55;
+    }
+
+    #blurb p {
+      line-height: 1.6;
+      margin-bottom: 1.2rem;
+    }
+
+    .section-title {
+      color: #db8eff;
+      font-size: 1.4rem;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      border-bottom: 1px dashed #f5e146;
+      padding-bottom: 0.3rem;
+    }
+
+    #diamond-image {
+      margin-top: 2rem;
+      max-height: 300px;
+      border: 2px solid #db8eff;
+      border-radius: 4px;
+      box-shadow: 0 0 12px #f5e14688;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>♦ FILE: DIAMOND</h1>
+
+  <a href="trivia.html" id="back-button" onclick="playSound(event)">&larr; RETURN</a>
+
+  <div class="container">
+    <div id="blurb">
+      <div class="section-title">KNOWN DETAILS</div>
+      <p>She appeared, shimmered, and vanished — all before her fourteenth birthday. Backed by her father, **Virgil Odom**, one of the most powerful names in music, Diamond was launched into stardom at just 8 years old. Her real name? Still unknown. Her last confirmed public appearance? The 2019 tour finale in Tokyo — no photos since. Only holograms. Pre-recorded interviews. Silence.</p>
+
+      <p>The world still hums her choruses... but no one knows where she is now.</p>
+
+      <div class="section-title">ARCHIVAL BLUR • COMET FESTIVAL, 2015</div>
+      <p><strong>Diamond, 9</strong> — attitude sharper than her card corners.</p>
+
+      <p>While crowds danced under fireworks, Diamond ran a card table in the dark corners of the square. Streetlight glinting off fake gems, she dealt with the grace of a magician and the menace of a girl who already knew the odds were always in her favor.</p>
+
+      <p>Charles Couckee, all of 8 and full of confidence, dropped <strong>$300</strong> on a game of Queen of Hearts. His friend Ted begged him not to. Diamond just smiled.</p>
+
+      <p><em>"Same rules as always,"</em> she purred, flipping three cards down. <em>"You find her, you win. You miss... I buy dinner."</em></p>
+
+      <p>No one saw where the Queen went. But Diamond left with the cash — and a new legend stitched into the seams of the festival forever.</p>
+    </div>
+
+    <img src="images/diamondcard.png" alt="Diamond Promo Card" id="diamond-image" /> <!-- Optional image -->
+  </div>
+
+  <script>
+    function playSound(event) {
+      event.preventDefault();
+      const href = event.target.getAttribute('href');
+      const audio = new Audio('selectsfx.wav');
+
+      audio.addEventListener('ended', () => {
+        window.location.href = href;
+      });
+
+      audio.play().catch(() => {
+        window.location.href = href;
+      });
+    }
+  </script>
+</body>
+</html>
 
