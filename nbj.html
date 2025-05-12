@@ -1,180 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Monochrome — The Nuclear Blue Justice Fanpage</title>
-  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --nuclear-blue: #00aaff;
-      --black: #000;
-      --dark-gray: #1e1e1e;
-    }
-
-    body {
-      margin: 0;
-      padding: 0;
-      background-color: var(--black);
-      color: var(--nuclear-blue);
-      font-family: 'Share Tech Mono', monospace;
-    }
-
-    header {
-      text-align: center;
-      padding: 2rem;
-      background-color: var(--dark-gray);
-    }
-
-    header h1 {
-      font-size: 3em;
-      margin: 0;
-      text-shadow: 0 0 10px var(--nuclear-blue);
-    }
-
-    .content {
-      padding: 3rem;
-      background-color: var(--dark-gray);
-      box-shadow: 0 0 20px var(--nuclear-blue);
-      border-radius: 15px;
-      margin: 3rem auto;
-      width: 80%;
-    }
-
-    .content h2 {
-      font-size: 2.5em;
-      margin-bottom: 1rem;
-    }
-
-    .description {
-      background-color: rgba(0, 0, 0, 0.7);
-      padding: 1.5rem;
-      border: 2px solid var(--nuclear-blue);
-      border-radius: 10px;
-      box-shadow: 0 0 15px var(--nuclear-blue);
-      font-size: 1.1em;
-      margin-bottom: 2rem;
-      color: #fff;
-    }
-
-    .comment-section {
-      background-color: rgba(0, 0, 0, 0.7);
-      padding: 2rem;
-      border-radius: 10px;
-      box-shadow: 0 0 15px var(--nuclear-blue);
-    }
-
-    .comment-section h3 {
-      font-size: 1.8em;
-      margin-bottom: 1rem;
-    }
-
-    .comment-box {
-      width: 100%;
-      padding: 1rem;
-      background-color: #1e1e1e;
-      border: 1px solid var(--nuclear-blue);
-      border-radius: 10px;
-      color: var(--nuclear-blue);
-      font-size: 1.1em;
-    }
-
-    .comment-box button {
-      background-color: var(--nuclear-blue);
-      color: #fff;
-      padding: 0.7rem;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      margin-top: 1rem;
-      font-size: 1.1em;
-    }
-
-    .comment-box button:hover {
-      background-color: #0088cc;
-    }
-
-    .comments {
-      margin-top: 2rem;
-    }
-
-    .comment {
-      background-color: #333;
-      padding: 1rem;
-      margin-bottom: 1rem;
-      border-radius: 10px;
-      box-shadow: 0 0 10px var(--nuclear-blue);
-    }
-
-    .comment p {
-      margin: 0;
-      font-size: 1.1em;
-    }
-
-    footer {
-      text-align: center;
-      padding: 1rem;
-      background-color: var(--dark-gray);
-      margin-top: 3rem;
-      color: var(--nuclear-blue);
-    }
-
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Monochrome: The Nuclear Blue Justice</title>
+  <link rel="stylesheet" href="nbj.css" />
 </head>
 <body>
 
   <header>
-    <h1>Monochrome — The Nuclear Blue Justice</h1>
+    <h1>Monochrome: The Nuclear Blue Justice</h1>
   </header>
 
-  <div class="content">
-    <h2>About Monochrome</h2>
-    <div class="description">
-      <!-- Description left blank for users to fill in later -->
-      <p><strong>Description:</strong> <!-- Leave empty to fill in by users --></p>
-    </div>
+  <div class="container">
+    <section id="description">
+      <h2 class="section-title">About Monochrome</h2>
+      <p><!-- Add his backstory here --></p>
+    </section>
 
-    <div class="comment-section">
-      <h3>Leave a Comment</h3>
-      <div class="comment-box">
-        <textarea id="commentInput" rows="4" placeholder="Share your thoughts about Monochrome..."></textarea><br>
-        <button onclick="addComment()">Post Comment</button>
-      </div>
+    <section id="artwork-section">
+      <h2 class="section-title">Fan Artwork</h2>
+      <input type="file" id="artUpload" accept="image/*" />
+      <div id="artGallery"></div>
+    </section>
 
-      <div class="comments" id="commentsContainer">
-        <!-- Comments will be displayed here -->
-      </div>
-    </div>
+    <section id="comment-section">
+      <h2 class="section-title">Fan Comments</h2>
+      <input type="text" id="username" placeholder="Username (or leave blank for Anonymous)" />
+      <textarea id="comment-input" rows="4" placeholder="Write your comment..."></textarea>
+      <button onclick="addComment()">Post Comment</button>
+      <div id="comments"></div>
+    </section>
   </div>
 
   <footer>
-    <p>Fanpage created by The President of the Monochrome Fanclub</p>
+    Fanpage lovingly crafted by a devoted Monochrome admirer. Justice in blue never fades.
   </footer>
 
   <script>
-    function addComment() {
-      const commentInput = document.getElementById('commentInput');
-      const commentText = commentInput.value.trim();
+    // COMMENT SYSTEM
+    const commentInput = document.getElementById("comment-input");
+    const usernameInput = document.getElementById("username");
+    const commentsContainer = document.getElementById("comments");
 
-      if (commentText) {
-        const commentContainer = document.getElementById('commentsContainer');
+    let comments = JSON.parse(localStorage.getItem("monochromeComments")) || [];
 
-        // Create new comment element
-        const newComment = document.createElement('div');
-        newComment.classList.add('comment');
-        newComment.innerHTML = `<p>${commentText}</p>`;
-
-        // Add comment to the comments container
-        commentContainer.appendChild(newComment);
-
-        // Clear the input field
-        commentInput.value = '';
-      } else {
-        alert('Please write a comment before posting.');
-      }
+    function renderComments() {
+      commentsContainer.innerHTML = "";
+      comments.forEach(comment => {
+        const div = document.createElement("div");
+        div.className = "comment";
+        div.innerHTML = `<strong>${comment.user || 'Anonymous'}:</strong><br>${comment.text}`;
+        commentsContainer.appendChild(div);
+      });
     }
+
+    function addComment() {
+      const text = commentInput.value.trim();
+      const user = usernameInput.value.trim() || 'Anonymous';
+      if (!text) return;
+
+      const comment = { user, text };
+      comments.push(comment);
+      localStorage.setItem("monochromeComments", JSON.stringify(comments));
+
+      commentInput.value = "";
+      renderComments();
+    }
+
+    renderComments();
+
+    // ARTWORK SYSTEM
+    const artUpload = document.getElementById("artUpload");
+    const artGallery = document.getElementById("artGallery");
+
+    let artworks = JSON.parse(localStorage.getItem("monochromeArt")) || [];
+
+    function renderArtworks() {
+      artGallery.innerHTML = "";
+      artworks.forEach(src => {
+        const img = document.createElement("img");
+        img.src = src;
+        img.className = "art-img";
+        artGallery.appendChild(img);
+      });
+    }
+
+    artUpload.addEventListener("change", (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = () => {
+        artworks.push(reader.result);
+        localStorage.setItem("monochromeArt", JSON.stringify(artworks));
+        renderArtworks();
+      };
+      reader.readAsDataURL(file);
+    });
+
+    renderArtworks();
   </script>
 
 </body>
 </html>
-
