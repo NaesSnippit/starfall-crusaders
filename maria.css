@@ -43,6 +43,17 @@ h2 {
   box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
+.missing-photo {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  margin: 0 auto 20px auto;
+  display: block;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+
 .date-missing {
   font-size: 1.1em;
   margin-top: 20px;
