@@ -2,125 +2,69 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>♦ DIAMOND — Starfall File</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Diamond's Blackjack Booth — COMET FESTIVAL 2025</title>
+  <link rel="stylesheet" href="diamond-casino.css" />
   <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      background: #0e001f;
-      color: #f5e146;
-      font-family: 'Share Tech Mono', monospace;
-      padding: 2rem;
-      border: 6px solid transparent;
-      border-image: url('images/starborder.png') 30 round;
-    }
-
-    h1 {
-      font-size: 2.5rem;
-      color: #db8eff;
-      text-align: center;
-      letter-spacing: 0.1em;
-      margin-bottom: 0.5rem;
-    }
-
-    #back-button {
-      display: inline-block;
-      color: #f5e146;
-      text-decoration: none;
-      border: 1px solid #db8eff;
-      padding: 0.4rem 0.8rem;
-      margin-bottom: 2rem;
-      transition: background 0.3s, color 0.3s;
-    }
-
-    #back-button:hover {
-      background: #db8eff;
-      color: #0e001f;
-    }
-
-    .container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    #blurb {
-      max-width: 800px;
-      background: rgba(219, 142, 255, 0.1);
-      padding: 2rem;
-      border: 2px dashed #f5e146;
-      border-radius: 8px;
-      box-shadow: 0 0 20px #db8eff55;
-    }
-
-    #blurb p {
-      line-height: 1.6;
-      margin-bottom: 1.2rem;
-    }
-
-    .section-title {
-      color: #db8eff;
-      font-size: 1.4rem;
-      margin-top: 2rem;
-      margin-bottom: 1rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      border-bottom: 1px dashed #f5e146;
-      padding-bottom: 0.3rem;
-    }
-
-    #diamond-image {
-      margin-top: 2rem;
-      max-height: 300px;
-      border: 2px solid #db8eff;
-      border-radius: 4px;
-      box-shadow: 0 0 12px #f5e14688;
-    }
-  </style>
 </head>
 <body>
 
-  <h1>♦ FILE: DIAMOND</h1>
-
-  <a href="trivia.html" id="back-button" onclick="playSound(event)">&larr; RETURN</a>
+  <h1>🎴 DIAMOND’S BLACKJACK BOOTH</h1>
 
   <div class="container">
-    <div id="blurb">
-      <div class="section-title">KNOWN DETAILS</div>
-      <p><strong>Diamond</strong>, 9 years old. Blackjack hustler. Amateur sleight-of-hand expert. Nobody knows where she learned to count cards — but nobody wants to play against her twice.</p>
+    <div class="section-title">Booth #212 — COMET FESTIVAL, 2025</div>
+    <p>Looking for an easy win? Booth #212 has just what you need: a simple blackjack table run by a sweet 9-year-old named Diamond. She smiles, she shuffles, she deals — what could go wrong?</p>
 
-      <p>She's small, fast-talking, and always carries a marked deck. Most assume she’s just a kid with shiny shoes… until they’re missing their wallet, pride, and lunch money.</p>
+    <p>Games are just <strong>$10 per play</strong>. Beat the dealer, and you win <strong>cold, hard cash</strong>. Seriously. Diamond pays out from a glittery tin lunchbox labeled “NOT A BANK.”</p>
 
-      <div class="section-title">COMET FESTIVAL BLACKJACK TABLE</div>
-      <p>In a shadowy alley behind the comet vendors, Diamond set up a “friendly” game of blackjack. A foldout table. Plastic chips. One tiny stool. No mercy.</p>
+    <p>She looks innocent. She even wears glitter sneakers. But don’t let that fool you — rumor has it she’s never lost a game all weekend. Some say her deck's just lucky. Others say she's got tricks in those sleeves.</p>
 
-      <p>Charles Couckee walked up with confidence and a crumpled $300 billfold. She offered him a seat. He took it. Worst decision of his life.</p>
+    <p>Still, a few lucky winners have walked away with more than $100 in a single session. Will you be one of them?</p>
 
-      <p>She dealt smooth, smiled wide, and never once drew a card she didn’t already know. Charles hit on 17. She stood on a 20 she’d built from thin air and spite.</p>
+    <img src="images/diamond-booth.jpg" alt="Diamond's Blackjack Booth" id="booth-image" />
 
-      <p><em>“Better luck next year,”</em> she said, sliding the chips into her backpack and vanishing into the fireworks crowd.</p>
+    <div class="section-title">House Rules</div>
+    <ul id="house-rules">
+      <li>$10 per hand — exact change only, no IOUs.</li>
+      <li>No touching the cards. Seriously. Don’t.</li>
+      <li>Blackjack pays 2:1, unless Diamond says otherwise.</li>
+      <li>If she catches you counting cards, you owe her bubble tea.</li>
+      <li>All disputes resolved by a coin toss… flipped by Diamond.</li>
+    </ul>
 
-      <p>No one saw her again that night. The cards left behind weren’t hers. She switched the deck mid-hand.</p>
+    <button id="terms-button">Read Sketchy Terms & Conditions</button>
+
+    <div id="terms-modal" class="hidden">
+      <div class="modal-content">
+        <h2>Sketchy Terms & Conditions</h2>
+        <p>By playing at this booth, you agree that:</p>
+        <ul>
+          <li>Diamond reserves the right to reshuffle, re-deal, or reverse time mid-hand.</li>
+          <li>No refunds will be issued. Ever. Even if she laughs while taking your money.</li>
+          <li>You will not sue, whine, or tell a grown-up.</li>
+          <li>Any winnings over $50 are subject to "glitter tax" at Diamond’s discretion.</li>
+          <li>Participation may result in emotional damage, loss of allowance, or intense admiration for a tiny con artist.</li>
+        </ul>
+        <button id="close-button">Close</button>
+      </div>
     </div>
 
-    <img src="images/diamondcard.png" alt="Diamond Blackjack" id="diamond-image" />
+    <a href="festival-map.html" id="back-button">&larr; Back to Festival Map</a>
   </div>
 
   <script>
-    function playSound(event) {
-      event.preventDefault();
-      const href = event.target.getAttribute('href');
-      const audio = new Audio('selectsfx.wav');
+    const termsButton = document.getElementById('terms-button');
+    const termsModal = document.getElementById('terms-modal');
+    const closeButton = document.getElementById('close-button');
 
-      audio.addEventListener('ended', () => {
-        window.location.href = href;
-      });
+    termsButton.addEventListener('click', () => {
+      termsModal.classList.remove('hidden');
+    });
 
-      audio.play().catch(() => {
-        window.location.href = href;
-      });
-    }
+    closeButton.addEventListener('click', () => {
+      termsModal.classList.add('hidden');
+    });
   </script>
+
 </body>
 </html>
