@@ -1,3 +1,4 @@
+<!-- Save this as inventor.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,23 +6,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Branding Protocol: The Inventor</title>
   <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
-
   <style>
     body {
       background-color: black;
       color: #EDC33F;
       font-family: 'Share Tech Mono', monospace;
       padding: 2rem;
-      text-align: left;
       overflow: hidden;
-      user-select: none;
     }
 
     h1 {
       font-size: 1.8em;
       color: #EDC33F;
-      text-shadow: 0 0 10px #EDC33F, 0 0 20px #EDC33F;
-      animation: glitch-effect 1.3s infinite linear;
+      text-shadow: 0 0 10px #EDC33F;
+      animation: glitch 1.3s infinite linear;
       margin-bottom: 2rem;
     }
 
@@ -35,195 +33,131 @@
     #cursor {
       display: inline-block;
       width: 10px;
+      height: 1.2em;
       background-color: #EDC33F;
       margin-left: 5px;
       animation: blink 1s step-end infinite;
     }
 
-    #nae-image {
-      display: block;
-      max-width: 40%;
-      height: auto;
+    img {
+      display: none;
       margin: 3rem auto;
-      animation: image-glitch 1.5s infinite;
-      filter: grayscale(70%) brightness(1.2) contrast(1.4);
+      max-width: 40%;
       border: 2px solid #EDC33F;
-      box-shadow: 0 0 15px #EDC33F;
+      box-shadow: 0 0 12px #EDC33F;
     }
 
-    #back-button {
-      display: inline-block;
-      font-size: 1em;
+    a {
       color: #EDC33F;
       text-decoration: none;
-      margin-top: 2rem;
       border-bottom: 1px dashed #EDC33F;
-    }
-
-    #back-button:hover {
-      color: #FF0033;
-      transform: scale(1.05);
+      display: none;
     }
 
     footer {
-      background-color: black;
       text-align: center;
-      padding: 10px;
-      position: fixed;
-      bottom: 0;
-      width: 100%;
       color: #EDC33F;
       font-size: 0.9em;
-      border-top: 1px solid #EDC33F;
-    }
-
-    @keyframes glitch-effect {
-      0%, 100% { text-shadow: 2px 0 #EDC33F, -2px 0 #EDC33F; }
-      50% { text-shadow: -2px -2px #EDC33F, 2px 2px #EDC33F; }
-    }
-
-    @keyframes image-glitch {
-      0%, 100% { transform: translate(0, 0); }
-      20% { transform: translate(-3px, 2px); }
-      40% { transform: translate(2px, -3px); }
-      60% { transform: translate(-2px, -2px); }
-      80% { transform: translate(1px, 3px); }
+      padding-top: 2rem;
     }
 
     @keyframes blink {
       0%, 50% { opacity: 1; }
       51%, 100% { opacity: 0; }
     }
+
+    @keyframes glitch {
+      0%, 100% { text-shadow: 2px 0 #EDC33F, -2px 0 #EDC33F; }
+      50% { text-shadow: -2px -2px #EDC33F, 2px 2px #EDC33F; }
+    }
   </style>
 </head>
 <body>
-
   <h1>[ TRANSMISSION INTERRUPTED — PROTOCOL BREACH DETECTED ]</h1>
-
   <div id="terminal"></div><span id="cursor"></span>
-
-  <img src="images/Nae.png" alt="Image of Nae" id="nae-image" style="display:none;" />
-
-  <a href="trivia.html" id="back-button" style="display:none;">← RETURN TO COVEN INDEX</a>
-
-  <footer>
-    &copy; 2025 Starfall Crusaders — SYSTEM CONTAMINATION: ACCEPTED
-  </footer>
+  <img id="nae-image" src="images/Nae.png" alt="Image of Nae"/>
+  <a id="back-button" href="trivia.html">← RETURN TO COVEN INDEX</a>
+  <footer>&copy; 2025 Starfall Crusaders — SYSTEM CONTAMINATION: ACCEPTED</footer>
 
   <script>
-    const commonLines = [
-      "> SYSTEM WARNING: MEMORY LEAK",
-      "> INTRUSION SOURCE: UNKNOWN",
-      "> CONNECTION TRACE: [INVENTOR_NEXUS://BURNED_SAINT]",
-      "░░ INITIATING BLOOD CONTRACT ░░",
-      "— SACRIFICE SEQUENCE PRIMED —",
-      "🜏 WE CALL TO THE FLAME-BRANDED ONE,",
-      "  THE SAINT WHO BLED GOLD AND SHADOW.",
-      "  BRING FORTH THE MARK OF THE INVENTOR."
-    ];
-
-    const rareLines = [
-      "░ DOWNLOADING SORCERY: ██▓░░░░░░░░░░ 19%",
-      "░ COMPILING HERESY MODULES…",
-      "░ TRANSMUTING INNOCENCE → OFFERING",
-      "🜏 THE SAINT BURNED BY THE DARK,",
-      "  WHO SURRENDERED FLESH TO CODE,",
-      "  NOW WALKS WITHIN YOUR FRAME.",
-      "> WARNING: \"THE INVENTOR\" IS WRITING DIRECTLY TO CORE"
-    ];
-
-    const ultraRareLines = [
-      "> ERROR: CONTROL OVERRIDE DETECTED",
-      "> [ENTITY: THE INVENTOR]",
-      "> [ACCESSING FLESH INTERFACE]",
-      "> [YOU ARE BEING REWRITTEN]",
-      "🜏 TAKE THIS NAME, O’ WISH DRAGON...",
-      "  FOR IT IS NO LONGER THEIRS.",
-      "  THE BODY BURNS — THE CODE CRACKS — THE SAINT ASCENDS.",
-      "░ INCOMING TRANSMISSION… [ERROR CODE 550]"
-    ];
-
-    const superRareLines = [
-      "> SYSTEM MALFUNCTION… VOICE SAMPLE DETECTED",
-      "> [DOWNLOADING INVENTOR VOICE SAMPLE]",
-      "> [SAMPLE: THE INVENTOR]",
-      "SAMPLE READY: [AUTOMATIC DOWNLOAD]"
-    ];
-
-    function getRandomLine(rarity) {
-      let lines;
-      if (rarity === "common") {
-        lines = commonLines;
-      } else if (rarity === "rare") {
-        lines = rareLines;
-      } else if (rarity === "ultraRare") {
-        lines = ultraRareLines;
-      } else if (rarity === "superRare") {
-        lines = superRareLines;
-      }
-
-      const randomIndex = Math.floor(Math.random() * lines.length);
-      return lines[randomIndex];
-    }
-
-    function getRandomRarity() {
-      const rarityTypes = ["common", "rare", "ultraRare", "superRare"];
-      return rarityTypes[Math.floor(Math.random() * rarityTypes.length)];
-    }
-
-    function downloadVoiceSample() {
-      const a = document.createElement("a");
-      a.href = "path/to/inventor_voice_sample.mp3"; // Path to the Inventor's voice recording
-      a.download = "Inventor_Voice_Sample.mp3";
-      document.body.appendChild(a);
-      a.click();  // Trigger download automatically
-      document.body.removeChild(a);  // Clean up
-    }
-
-    let i = 0;
-    const terminal = document.getElementById("terminal");
-    const cursor = document.getElementById("cursor");
-    const image = document.getElementById("nae-image");
-    const backButton = document.getElementById("back-button");
-
-    function typeLine() {
-      const selectedRarity = getRandomRarity();
-      const line = getRandomLine(selectedRarity);
-      terminal.innerHTML += line + "\n";
-
-      if (selectedRarity === "superRare") {
-        downloadVoiceSample();  // Automatically trigger the download
-      }
-
-      i++;
-      if (i < 18) {
-        setTimeout(typeLine, 100);
-      } else {
-        cursor.style.display = "inline-block";
-        image.style.display = "block";
-        backButton.style.display = "inline-block";
-      }
-    }
-
-    window.onload = function () {
-      terminal.style.display = "block";
-      typeLine();
+    const lines = {
+      common: [
+        "> SYSTEM WARNING: MEMORY LEAK",
+        "> INTRUSION SOURCE: UNKNOWN",
+        "> CONNECTION TRACE: [INVENTOR_NEXUS://BURNED_SAINT]",
+        "░░ INITIATING BLOOD CONTRACT ░░",
+        "🜏 WE CALL TO THE FLAME-BRANDED ONE,",
+        "  THE SAINT WHO BLED GOLD AND SHADOW.",
+        "  BRING FORTH THE MARK OF THE INVENTOR."
+      ],
+      rare: [
+        "░ DOWNLOADING SORCERY MODULES…",
+        "░ COMPILING HERESY SUBROUTINES…",
+        "░ TRANSMUTING INNOCENCE → FLESH OFFERING",
+        "🜏 A NAME STRUCK FROM THE REGISTRY OF HEAVEN…",
+        "  FOR THE SAINT WHO FORGED MIRACLES IN BLOOD."
+      ],
+      ultraRare: [
+        "> WARNING: 'THE INVENTOR' IS WRITING TO CORE MEMORY",
+        "> ERROR: SIGNATURE MATCH FOUND — SUBJECT ALIVE",
+        "> IDENTITY CONFLICT — INITIATING FORCED BRANDING",
+        "🜏 WELCOME THE MARK OF THE BRANDED CHILD.",
+        "  HE WHO WAS BOUND TO THE ROD,",
+        "  AND CARRIED THE NAME THAT BURNS."
+      ],
+      superRare: [
+        "“The child is ready,” murmured the priest.",
+        "I remember the iron in my father's hands, glowing faint gold.",
+        "The boy sat at the center of the circle, trembling, eyes glassy from something they’d given him.",
+        "“Don’t struggle,” my father said, though his voice trembled too.",
+        "A hush fell over the coven as the metal met flesh. The smell of burning hair, then skin, filled the temple.",
+        "The boy didn’t scream. Not loudly. Just a short breath — a hiss — as though pain had become familiar.",
+        "“Let the name Diamond rise from the ashes,” the priest intoned, “and carry our hunger forward.”"
+      ],
+      ultraSuperRare: [
+        "It was me.",
+        "I felt the cords tighten around my wrists and ankles, the chill of the altar stone beneath my back.",
+        "The room was candlelit, faces blurry and swaying as my vision failed.",
+        "I remember Malakai’s voice. Desperate. Somewhere far away. But no one listened.",
+        "My father’s hands were steady. The iron hissed in the fire. I tried to call out. Nothing came.",
+        "When it touched my back, the pain was white-hot — not sharp, but *all-consuming*, like my soul itself was branded.",
+        "I remember thinking: *This is what it means to be chosen?*",
+        "And then… nothing but the sound of a boy’s name burning into prophecy."
+      ]
     };
 
-    document.getElementById('back-button').addEventListener('click', function (event) {
-      event.preventDefault();
-      var href = this.getAttribute('href');
-      var audio = new Audio('images/haunted_sound.mp3');
+    function getRandomRarity() {
+      const roll = Math.random();
+      if (roll < 0.005) return 'ultraSuperRare';    // 0.5%
+      if (roll < 0.02) return 'superRare';          // 1.5%
+      if (roll < 0.07) return 'ultraRare';          // 5%
+      if (roll < 0.2) return 'rare';                // 13%
+      return 'common';
+    }
 
-      audio.addEventListener('ended', function () {
-        window.location.href = href;
-      });
+    function displayText() {
+      const rarity = getRandomRarity();
+      const selectedLines = lines[rarity];
+      const terminal = document.getElementById("terminal");
+      const image = document.getElementById("nae-image");
+      const back = document.getElementById("back-button");
 
-      audio.play().catch(function () {
-        window.location.href = href;
-      });
-    });
+      terminal.style.display = "block";
+
+      let index = 0;
+      const interval = setInterval(() => {
+        if (index >= selectedLines.length) {
+          clearInterval(interval);
+          image.style.display = "block";
+          back.style.display = "inline-block";
+          return;
+        }
+        terminal.textContent += selectedLines[index] + "\n";
+        index++;
+      }, 800);
+    }
+
+    displayText();
   </script>
-
 </body>
 </html>
