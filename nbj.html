@@ -1,1 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Monochrome — The Nuclear Blue Justice Fanpage</title>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --nuclear-blue: #00aaff;
+      --black: #000;
+      --dark-gray: #1e1e1e;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: var(--black);
+      color: var(--nuclear-blue);
+      font-family: 'Share Tech Mono', monospace;
+    }
+
+    header {
+      text-align: center;
+      padding: 2rem;
+      background-color: var(--dark-gray);
+    }
+
+    header h1 {
+      font-size: 3em;
+      margin: 0;
+      text-shadow: 0 0 10px var(--nuclear-blue);
+    }
+
+    .content {
+      padding: 3rem;
+      background-color: var(--dark-gray);
+      box-shadow: 0 0 20px var(--nuclear-blue);
+      border-radius: 15px;
+      margin: 3rem auto;
+      width: 80%;
+    }
+
+    .content h2 {
+      font-size: 2.5em;
+      margin-bottom: 1rem;
+    }
+
+    .description {
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 1.5rem;
+      border: 2px solid var(--nuclear-blue);
+      border-radius: 10px;
+      box-shadow: 0 0 15px var(--nuclear-blue);
+      font-size: 1.1em;
+      margin-bottom: 2rem;
+      color: #fff;
+    }
+
+    .comment-section {
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 15px var(--nuclear-blue);
+    }
+
+    .comment-section h3 {
+      font-size: 1.8em;
+      margin-bottom: 1rem;
+    }
+
+    .comment-box {
+      width: 100%;
+      padding: 1rem;
+      background-color: #1e1e1e;
+      border: 1px solid var(--nuclear-blue);
+      border-radius: 10px;
+      color: var(--nuclear-blue);
+      font-size: 1.1em;
+    }
+
+    .comment-box button {
+      background-color: var(--nuclear-blue);
+      color: #fff;
+      padding: 0.7rem;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      margin-top: 1rem;
+      font-size: 1.1em;
+    }
+
+    .comment-box button:hover {
+      background-color: #0088cc;
+    }
+
+    .comments {
+      margin-top: 2rem;
+    }
+
+    .comment {
+      background-color: #333;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 0 10px var(--nuclear-blue);
+    }
+
+    .comment p {
+      margin: 0;
+      font-size: 1.1em;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: var(--dark-gray);
+      margin-top: 3rem;
+      color: var(--nuclear-blue);
+    }
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Monochrome — The Nuclear Blue Justice</h1>
+  </header>
+
+  <div class="content">
+    <h2>About Monochrome</h2>
+    <div class="description">
+      <!-- Description left blank for users to fill in later -->
+      <p><strong>Description:</strong> <!-- Leave empty to fill in by users --></p>
+    </div>
+
+    <div class="comment-section">
+      <h3>Leave a Comment</h3>
+      <div class="comment-box">
+        <textarea id="commentInput" rows="4" placeholder="Share your thoughts about Monochrome..."></textarea><br>
+        <button onclick="addComment()">Post Comment</button>
+      </div>
+
+      <div class="comments" id="commentsContainer">
+        <!-- Comments will be displayed here -->
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>Fanpage created by [Your Name]</p>
+  </footer>
+
+  <script>
+    function addComment() {
+      const commentInput = document.getElementById('commentInput');
+      const commentText = commentInput.value.trim();
+
+      if (commentText) {
+        const commentContainer = document.getElementById('commentsContainer');
+
+        // Create new comment element
+        const newComment = document.createElement('div');
+        newComment.classList.add('comment');
+        newComment.innerHTML = `<p>${commentText}</p>`;
+
+        // Add comment to the comments container
+        commentContainer.appendChild(newComment);
+
+        // Clear the input field
+        commentInput.value = '';
+      } else {
+        alert('Please write a comment before posting.');
+      }
+    }
+  </script>
+
+</body>
+</html>
 
