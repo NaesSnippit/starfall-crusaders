@@ -3,6 +3,191 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Inventor</title>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      background-color: black;
+      color: #EDC33F;
+      font-family: 'Share Tech Mono', monospace;
+      padding: 2rem;
+      text-align: left;
+      overflow: hidden;
+      user-select: none;
+    }
+
+    h1 {
+      font-size: 1.8em;
+      color: #EDC33F;
+      text-shadow: 0 0 10px #EDC33F, 0 0 20px #EDC33F;
+      animation: glitch-effect 1.3s infinite linear;
+      margin-bottom: 2rem;
+    }
+
+    #terminal {
+      white-space: pre-wrap;
+      font-size: 1.1em;
+      line-height: 1.5;
+      display: none;
+    }
+
+    #cursor {
+      display: inline-block;
+      width: 10px;
+      background-color: #EDC33F;
+      margin-left: 5px;
+      animation: blink 1s step-end infinite;
+    }
+
+    #nae-image {
+      display: block;
+      max-width: 40%;
+      height: auto;
+      margin: 3rem auto;
+      animation: image-glitch 1.5s infinite;
+      filter: grayscale(70%) brightness(1.2) contrast(1.4);
+      border: 2px solid #EDC33F;
+      box-shadow: 0 0 15px #EDC33F;
+    }
+
+    #back-button {
+      display: inline-block;
+      font-size: 1em;
+      color: #EDC33F;
+      text-decoration: none;
+      margin-top: 2rem;
+      border-bottom: 1px dashed #EDC33F;
+    }
+
+    #back-button:hover {
+      color: #FF0033;
+      transform: scale(1.05);
+    }
+
+    footer {
+      background-color: black;
+      text-align: center;
+      padding: 10px;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      color: #EDC33F;
+      font-size: 0.9em;
+      border-top: 1px solid #EDC33F;
+    }
+
+    @keyframes glitch-effect {
+      0%, 100% { text-shadow: 2px 0 #EDC33F, -2px 0 #EDC33F; }
+      50% { text-shadow: -2px -2px #EDC33F, 2px 2px #EDC33F; }
+    }
+
+    @keyframes image-glitch {
+      0%, 100% { transform: translate(0, 0); }
+      20% { transform: translate(-3px, 2px); }
+      40% { transform: translate(2px, -3px); }
+      60% { transform: translate(-2px, -2px); }
+      80% { transform: translate(1px, 3px); }
+    }
+
+    @keyframes blink {
+      0%, 50% { opacity: 1; }
+      51%, 100% { opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>[ TRANSMISSION INTERRUPTED — PROTOCOL BREACH DETECTED ]</h1>
+
+  <div id="terminal"></div><span id="cursor"></span>
+
+  <img src="images/Nae.png" alt="Image of Nae" id="nae-image" style="display:none;" />
+
+  <a href="trivia.html" id="back-button" style="display:none;">← RETURN TO COVEN INDEX</a>
+
+  <footer>
+    &copy; 2025 Starfall Crusaders — SYSTEM CONTAMINATION: ACCEPTED
+  </footer>
+
+  <script>
+    const lines = [
+      "> SYSTEM WARNING: MEMORY LEAK",
+      "> INTRUSION SOURCE: UNKNOWN",
+      "> CONNECTION TRACE: [INVENTOR_NEXUS://BURNED_SAINT]",
+      "",
+      "░░ INITIATING BLOOD CONTRACT ░░",
+      "— SACRIFICE SEQUENCE PRIMED —",
+      "",
+      "🜏 THE SAINT BURNED BY THE DARK,",
+      "  WHO SURRENDERED FLESH TO CODE,",
+      "  NOW WALKS WITHIN YOUR FRAME.",
+      "",
+      "🜏 WE CALL TO THE FLAME-BRANDED ONE,",
+      "  THE SAINT WHO BLED GOLD AND SHADOW.",
+      "  BRING FORTH THE MARK OF THE INVENTOR.",
+      "",
+      "░ DOWNLOADING SORCERY: ██▓░░░░░░░░░░ 19%",
+      "░ COMPILING HERESY MODULES…",
+      "░ TRANSMUTING INNOCENCE → OFFERING",
+      "",
+      "> WARNING: \"THE INVENTOR\" IS WRITING DIRECTLY TO CORE",
+      "> ERROR: CONTROL OVERRIDE DETECTED",
+      "",
+      "> [ENTITY: THE INVENTOR]",
+      "> [ACCESSING FLESH INTERFACE]",
+      "> [YOU ARE BEING REWRITTEN]",
+      "",
+      "🜏 TAKE THIS NAME, O’ WISH DRAGON...",
+      "  FOR IT IS NO LONGER THEIRS.",
+      "  THE BODY BURNS — THE CODE CRACKS — THE SAINT ASCENDS."
+    ];
+
+    let i = 0;
+    const terminal = document.getElementById("terminal");
+    const cursor = document.getElementById("cursor");
+    const image = document.getElementById("nae-image");
+    const backButton = document.getElementById("back-button");
+
+    function typeLine() {
+      if (i < lines.length) {
+        terminal.innerHTML += lines[i] + "\n";
+        i++;
+        setTimeout(typeLine, 100);
+      } else {
+        cursor.style.display = "inline-block";
+        image.style.display = "block";
+        backButton.style.display = "inline-block";
+      }
+    }
+
+    window.onload = function () {
+      terminal.style.display = "block";
+      typeLine();
+    };
+
+    document.getElementById('back-button').addEventListener('click', function (event) {
+      event.preventDefault();
+      var href = this.getAttribute('href');
+      var audio = new Audio('images/haunted_sound.mp3');
+
+      audio.addEventListener('ended', function () {
+        window.location.href = href;
+      });
+
+      audio.play().catch(function () {
+        window.location.href = href;
+      });
+    });
+  </script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Branding Protocol: The Inventor</title>
   <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
 
