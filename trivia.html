@@ -1,193 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>Starfall Crusaders - Characters</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <title>Starfall Crusaders - Characters</title>
+  <style>
+    body {
+      font-family: 'Share Tech Mono', monospace;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>
-            <img src="images/StarfallLogoFullHoriz.png" height="100" alt="Starfall Logo">
-        </h1>
-        <nav>
-            <ul>
-                <li><a href="index.html" class="nav-link">Home</a></li>
-                <li><a href="demo.html" class="nav-link">Game Demo</a></li>
-                <li><a href="fanart.html" class="nav-link">Fanart</a></li>
-                <li><a href="trivia.html" class="nav-link">Characters</a></li>
-                <li><a href="soundtrack.html" class="nav-link">Soundtrack</a></li>
-                <li><a href="https://www.tumblr.com/projectstarfallcrusaders/" class="nav-link">Tumblr</a></li>
-                <li><a href="https://twitter.com/StarfallCSaders" class="nav-link">Twitter</a></li>
-                <li><a href="https://www.youtube.com/@projectstarfallcrusaders" class="nav-link">YouTube</a></li>
-            </ul>
-        </nav>
-    </header>
-    <br>
-    <section id="main-content">
-        <h2>Characters</h2>
-        <ul>
-            <li><a href="charles.html">
-                <img src="images/charicons/charles.png" height="100" alt="Charles">
-            </a></li>
-            <li><a href="firefly.html">
-                <img src="images/charicons/firefly.png" height="100" alt="Firefly">
-            </a></li>
-            <li><a href="stellar.html">
-                <img src="images/charicons/stellar.png" height="100" alt="Stellar">
-            </a></li>
-            <li><a href="percy.html">
-                <img src="images/charicons/percy.png" height="100" alt="Percy">
-            </a></li>
-            <br>
-          <li><a href="ted.html">
-                <img src="images/charicons/ted.png" height="100" alt="Ted">
-            </a></li>
-         </ul>
-    </section>
+  <header>
+    <h1>
+      <img src="images/StarfallLogoFullHoriz.png" height="100" alt="Starfall Logo"/>
+    </h1>
+    <nav>
+      <ul>
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="demo.html" class="nav-link">Game Demo</a></li>
+        <li><a href="fanart.html" class="nav-link">Fanart</a></li>
+        <li><a href="trivia.html" class="nav-link">Characters</a></li>
+        <li><a href="soundtrack.html" class="nav-link">Soundtrack</a></li>
+        <li><a href="https://www.tumblr.com/projectstarfallcrusaders/" class="nav-link">Tumblr</a></li>
+        <li><a href="https://twitter.com/StarfallCSaders" class="nav-link">Twitter</a></li>
+        <li><a href="https://www.youtube.com/@projectstarfallcrusaders" class="nav-link">YouTube</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <footer>
-        <p>&copy; 2025 Starfall Crusaders. All rights reserved. Made with Love.</p>
-    </footer>
+  <br/>
 
-<script>
-    function playSound(event) {
-    console.log('Sound function called');
-    try {
-        // Use an absolute path to the audio file
-        var audio = new Audio('selectsfx.wav');
+  <section id="main-content">
+    <h2>Characters</h2>
+    <ul>
+      <li><a href="#" data-normal="charles.html" data-rare="cardgame.html"><img src="images/charicons/charles.png" height="100" alt="Charles" /></a></li>
+      <li><a href="#" data-normal="firefly.html" data-rare="errorpage.html"><img src="images/charicons/firefly.png" height="100" alt="Firefly" /></a></li>
+      <li><a href="#" data-normal="stellar.html" data-rare1="burned.html" data-rare2="fischer.html"><img src="images/charicons/stellar.png" height="100" alt="Stellar" /></a></li>
+      <li><a href="#" data-normal="percy.html" data-rare="gaoyama.html"><img src="images/charicons/percy.png" height="100" alt="Percy" /></a></li>
+      <li><a href="#" data-normal="ted.html" data-rare="nbj.html"><img src="images/charicons/ted.png" height="100" alt="Ted" /></a></li>
+    </ul>
+  </section>
 
-        // Add an event listener to navigate when the sound ends
-        audio.addEventListener('ended', function () {
-            // Check if the link is an external link
-            var href = event.target.getAttribute('href');
-            var isExternalLink = href.startsWith('http') || href.startsWith('//');
+  <footer>
+    <p>&copy; 2025 Starfall Crusaders. All rights reserved. Made with Love.</p>
+  </footer>
 
-            // Allow default behavior for external links or links with target="_blank"
-            if (isExternalLink || event.target.getAttribute('target') === '_blank') {
-                return;
-            }
+  <script>
+    const clickCounts = {};
 
-            // Navigate to the specified URL
-            window.location.href = href;
-        });
+    document.querySelectorAll('#main-content a').forEach(link => {
+      const charKey = link.querySelector('img').alt;
+      clickCounts[charKey] = 0;
 
-        audio.play();
-    } catch (error) {
-        console.error('Error playing sound:', error);
+      link.addEventListener('click', function (event) {
+        event.preventDefault();
 
-        // If there's an error, proceed with default behavior
-        var href = event.target.getAttribute('href');
-        window.location.href = href;
-    }
+        clickCounts[charKey]++;
+        const count = clickCounts[charKey];
+        const baseChance = 0.01;
+        const chance = Math.min(baseChance + count * 0.005, 0.10); // Max 10%
 
-    // Prevent the default behavior immediately to avoid double-click issues
-    event.preventDefault();
-}
-</script>
-      <script>
-    let clickCount = 0;
+        const rand = Math.random();
 
-    function handleRedirect(event) {
-      event.preventDefault(); // prevent default link behavior
-      clickCount++;
+        const rare1 = link.getAttribute('data-rare1');
+        const rare2 = link.getAttribute('data-rare2');
+        const rare = link.getAttribute('data-rare');
+        const normal = link.getAttribute('data-normal');
 
-      // Increase base probability slightly with more clicks
-      const baseChance = 0.01; // 1%
-      const chanceMultiplier = Math.min(clickCount * 0.005, 0.05); // Max 5%
-
-      const random = Math.random();
-
-      if (random < baseChance + chanceMultiplier) {
-        // Redirect to Page A (e.g., 70% of special cases)
-        if (Math.random() < 0.7) {
-          window.location.href = "nae.html";
-        } else {
-          // Redirect to Page B (30% of special cases)
-          window.location.href = "rosemarie.html";
+        // Handle multiple rare paths (e.g., Stellar)
+        if (rare1 && rare2) {
+          if (rand < chance) {
+            window.location.href = Math.random() < 0.7 ? rare1 : rare2;
+          } else {
+            window.location.href = normal;
+          }
         }
-      } else {
-        // Normal redirect
-        window.location.href = "stellar.html";
-      }
-    }
-  </script>
-     <script>
-    let clickCount = 0;
-
-    function handleRedirect(event) {
-      event.preventDefault(); // Stop default navigation
-      clickCount++;
-
-      const baseChance = 0.01; // 1%
-      const chance = Math.min(baseChance + clickCount * 0.005, 0.05); // Max 5%
-
-      if (Math.random() < chance) {
-        // Redirect to alternate page
-        window.location.href = "cardgame.html";
-      } else {
-        // Redirect to normal page
-        window.location.href = "charles.html";
-      }
-    }
-  </script>
-     <script>
-    let clickCount = 0;
-
-    function handleRedirect(event) {
-      event.preventDefault(); // Stop default navigation
-      clickCount++;
-
-      const baseChance = 0.01; // 1%
-      const chance = Math.min(baseChance + clickCount * 0.005, 0.05); // Max 5%
-
-      if (Math.random() < chance) {
-        // Redirect to alternate page
-        window.location.href = "nbj.html";
-      } else {
-        // Redirect to normal page
-        window.location.href = "ted.html";
-      }
-    }
-  </script>
-     <script>
-    let clickCount = 0;
-
-    function handleRedirect(event) {
-      event.preventDefault(); // Stop default navigation
-      clickCount++;
-
-      const baseChance = 0.01; // 1%
-      const chance = Math.min(baseChance + clickCount * 0.005, 0.05); // Max 5%
-
-      if (Math.random() < chance) {
-        // Redirect to alternate page
-        window.location.href = "gaoyama.html";
-      } else {
-        // Redirect to normal page
-        window.location.href = "percy.html";
-      }
-    }
-  </script>
-     <script>
-    let clickCount = 0;
-
-    function handleRedirect(event) {
-      event.preventDefault(); // Stop default navigation
-      clickCount++;
-
-      const baseChance = 0.01; // 1%
-      const chance = Math.min(baseChance + clickCount * 0.005, 0.05); // Max 5%
-
-      if (Math.random() < chance) {
-        // Redirect to alternate page
-        window.location.href = "errorpage.html";
-      } else {
-        // Redirect to normal page
-        window.location.href = "firefly.html";
-      }
-    }
+        // Handle single rare path
+        else if (rare) {
+          if (rand < chance) {
+            window.location.href = rare;
+          } else {
+            window.location.href = normal;
+          }
+        }
+        // Fallback
+        else {
+          window.location.href = normal;
+        }
+      });
+    });
   </script>
 </body>
 </html>
