@@ -24,8 +24,8 @@
 
     h1 {
       font-size: 4em;
-      color: red;
-      text-shadow: 0 0 5px rgba(255, 0, 0, 0.8), 0 0 10px rgba(255, 0, 0, 0.6);
+      color: #EDC33F;
+      text-shadow: 0 0 5px #EDC33F, 0 0 10px #EDC33F;
       animation: glitch-effect 1.5s infinite linear;
     }
 
@@ -51,29 +51,29 @@
       display: inline-block;
       margin-top: 20px;
       font-size: 1.5em;
-      color: #ff4c4c;
+      color: #EDC33F;
       text-decoration: none;
       transition: transform 0.3s, color 0.3s;
     }
 
     #back-button:hover {
-      color: white;
+      color: #4D1136;
       transform: scale(1.2) rotate(10deg);
     }
 
     @keyframes flicker {
       0%, 100% { color: rgba(255, 255, 255, 0.9); }
-      25%, 75% { color: rgba(255, 0, 0, 0.7); }
+      25%, 75% { color: #EDC33F; }
       50% { color: rgba(255, 255, 255, 0.9); }
     }
 
     @keyframes glitch-effect {
-      0%   { text-shadow: 2px 0 red, -2px 0 blue; }
-      20%  { text-shadow: -2px -2px red, 2px 2px blue; }
-      40%  { text-shadow: 2px 2px red, -2px -2px blue; }
-      60%  { text-shadow: -2px 0 red, 2px 0 blue; }
-      80%  { text-shadow: 2px 0 red, -2px 0 blue; }
-      100% { text-shadow: 2px 0 red, -2px 0 blue; }
+      0%   { text-shadow: 2px 0 #EDC33F, -2px 0 #4D1136; }
+      20%  { text-shadow: -2px -2px #EDC33F, 2px 2px #4D1136; }
+      40%  { text-shadow: 2px 2px #EDC33F, -2px -2px #4D1136; }
+      60%  { text-shadow: -2px 0 #EDC33F, 2px 0 #4D1136; }
+      80%  { text-shadow: 2px 0 #EDC33F, -2px 0 #4D1136; }
+      100% { text-shadow: 2px 0 #EDC33F, -2px 0 #4D1136; }
     }
 
     @keyframes text-flicker {
@@ -95,7 +95,7 @@
       position: fixed;
       bottom: 0;
       width: 100%;
-      color: #ff4c4c;
+      color: #EDC33F;
       font-size: 1em;
     }
   </style>
