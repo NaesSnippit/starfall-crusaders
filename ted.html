@@ -1,1 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ted Yold — Starfall Crusaders</title>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="ted.css">
+</head>
+<body>
+
+  <h1>TED YOLD</h1>
+
+  <a href="trivia.html" id="back-button" onclick="playSound(event)">&larr; RETURN</a>
+
+  <div class="container">
+    <div id="blurb">
+      <p><strong>Ted Yold</strong>, Dunno Age AGH. He/Him. A brilliant mind forged in the quiet, endless halls of the Yold Estate.</p>
+
+      <p>Charles Couckee's childhood best friend.</p>
+
+      <p>Placeholder</p>
+    </div>
+
+    <img src="images/TedYold.png" alt="Ted Yold Portrait" id="ted-image" />
+  </div>
+
+  <script>
+    function playSound(event) {
+      event.preventDefault();
+      const href = event.target.getAttribute('href');
+      const audio = new Audio('selectsfx.wav');
+
+      audio.addEventListener('ended', () => {
+        window.location.href = href;
+      });
+
+      audio.play().catch(() => {
+        window.location.href = href;
+      });
+    }
+  </script>
+</body>
+</html>
 
