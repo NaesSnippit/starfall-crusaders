@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap');
+
+body {
+  background: black url('images/plaguebg.png') no-repeat center center fixed;
+  background-size: cover;
+  color: #e0d8cf;
+  font-family: 'Courier New', monospace;
+  margin: 0;
+  padding: 0;
+}
+
+.overlay {
+  background: rgba(0, 0, 0, 0.85);
+  padding: 40px;
+  min-height: 100vh;
+}
+
+header {
+  text-align: center;
+  border-bottom: 2px solid crimson;
+  padding-bottom: 20px;
+}
+
+h1 {
+  font-family: 'UnifrakturCook', cursive;
+  font-size: 3em;
+  color: crimson;
+  margin-bottom: 0;
+  text-shadow: 0 0 10px red;
+}
+
+h2 {
+  font-size: 1.2em;
+  color: #aaa;
+  font-style: italic;
+}
+
+.intro, .commander {
+  margin: 40px auto;
+  max-width: 700px;
+  padding: 20px;
+  background-color: rgba(30, 0, 0, 0.7);
+  border-left: 4px solid crimson;
+  border-right: 4px solid crimson;
+}
+
+.intro p, .commander p {
+  line-height: 1.7;
+}
+
+h3 {
+  font-size: 1.8em;
+  color: crimson;
+  margin-bottom: 10px;
+}
+
+.recruit-box {
+  text-align: center;
+  background-color: #111;
+  padding: 20px;
+  border: 2px solid crimson;
+  border-radius: 10px;
+  margin: 40px auto;
+  max-width: 500px;
+}
+
+.recruit-box h4 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.recruit-box button {
+  background-color: crimson;
+  border: none;
+  color: black;
+  padding: 10px 20px;
+  font-size: 1em;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 0 10px crimson;
+  transition: background 0.2s;
+}
+
+.recruit-box button:hover {
+  background-color: darkred;
+  color: white;
+}
+
+footer {
+  margin-top: 60px;
+  text-align: center;
+  font-size: 0.9em;
+  color: #555;
+}
