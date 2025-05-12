@@ -4,26 +4,118 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <title>Nae</title>
+    <title>The Inventor</title>
     <style>
+        /* Eerie, ominous background */
         body {
-            background-image: url('images/PurpleBG.PNG');
+            background-image: url('images/HauntedBG.jpg'); /* Dark and eerie image */
             background-size: cover;
             color: white;
             font-family: 'pmfont', sans-serif;
             text-align: center;
+            animation: flicker 3s infinite;
+            overflow: hidden;
         }
+
+        /* Glitchy text effect */
+        h1 {
+            font-size: 4em;
+            color: red;
+            text-shadow: 0 0 5px rgba(255, 0, 0, 0.8), 0 0 10px rgba(255, 0, 0, 0.6);
+            animation: glitch-effect 1.5s infinite linear;
+        }
+
+        /* Fluctuating glitch for description */
         #blurb {
             margin-top: 30px;
-            line-height: 1.5;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.2em;
+            animation: text-flicker 2s infinite;
+            max-width: 90%;
+            margin-left: auto;
+            margin-right: auto;
         }
+
+        /* Eerie, flickering image of Nae */
         #nae-image {
             max-width: 100%;
             height: auto;
             margin-top: 30px;
+            animation: image-glitch 2s infinite;
         }
+
+        /* Back button with spooky hover effect */
         #back-button {
             margin-top: 20px;
+            font-size: 1.5em;
+            color: #ff4c4c;
+            text-decoration: none;
+            transition: transform 0.3s, color 0.3s;
+        }
+
+        #back-button:hover {
+            color: white;
+            transform: scale(1.2) rotate(10deg);
+        }
+
+        /* Animation for flickering text */
+        @keyframes flicker {
+            0% { color: rgba(255, 255, 255, 0.9); }
+            25% { color: rgba(255, 0, 0, 0.7); }
+            50% { color: rgba(255, 255, 255, 0.9); }
+            75% { color: rgba(255, 0, 0, 0.7); }
+            100% { color: rgba(255, 255, 255, 0.9); }
+        }
+
+        /* Glitch effect on text */
+        @keyframes glitch-effect {
+            0% {
+                text-shadow: 2px 0 red, -2px 0 blue;
+            }
+            20% {
+                text-shadow: -2px -2px red, 2px 2px blue;
+            }
+            40% {
+                text-shadow: 2px 2px red, -2px -2px blue;
+            }
+            60% {
+                text-shadow: -2px 0 red, 2px 0 blue;
+            }
+            80% {
+                text-shadow: 2px 0 red, -2px 0 blue;
+            }
+            100% {
+                text-shadow: 2px 0 red, -2px 0 blue;
+            }
+        }
+
+        /* Flickering text animation for description */
+        @keyframes text-flicker {
+            0% { opacity: 1; }
+            50% { opacity: 0.2; }
+            100% { opacity: 1; }
+        }
+
+        /* Image glitch effect */
+        @keyframes image-glitch {
+            0% { transform: translate(0, 0); }
+            25% { transform: translate(5px, -5px); }
+            50% { transform: translate(-5px, 5px); }
+            75% { transform: translate(5px, 0); }
+            100% { transform: translate(0, 0); }
+        }
+
+        /* Dark footer to complement the theme */
+        footer {
+            background-color: black;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            color: #ff4c4c;
+            font-size: 1em;
         }
     </style>
 </head>
@@ -42,15 +134,14 @@
         <p>Magicks of the Four Kings before us.'</p>
     </div>
     
-    <!-- Corrected the image source paths -->
     <img src="images/Nae.png" alt="Nae" id="nae-image">
-  
+
     <script>
         function playSound(event) {
             console.log('Sound function called');
             try {
                 // Use an absolute path to the audio file
-                var audio = new Audio('selectsfx.wav');
+                var audio = new Audio('images/haunted_sound.mp3'); // Example eerie sound
 
                 // Add an event listener to navigate when the sound ends
                 audio.addEventListener('ended', function () {
@@ -80,5 +171,9 @@
             event.preventDefault();
         }
     </script>
+    
+    <footer>
+        <p>&copy; 2025 Starfall Crusaders. Enter if you dare...</p>
+    </footer>
 </body>
 </html>
