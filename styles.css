@@ -1,115 +1,180 @@
 @font-face {
-    font-family: 'pmfont';
-    src: url('pmfont.otf') format('opentype');
-  }
+  font-family: 'pmfont';
+  src: url('pmfont.otf') format('opentype');
+}
 
 html {
-    background: url(images/Untitled1782_20250511160449.png) no-repeat center center fixed; 
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+  background: url(images/Untitled1782_20250511160449.png) no-repeat center center fixed;
+  background-size: cover;
+  height: 100%;
 }
 
 body {
-    font-family: 'pmfont', monospace;
-    margin: 0;
-    padding: 0;
-    color: white; /* Set default text color to white */
+  font-family: 'pmfont', monospace;
+  margin: 0;
+  padding: 0;
+  color: white;
+  overflow-x: hidden;
+  height: 100%;
 }
 
 header {
-    background-color: black; /* Updated to dark blue background color */
-    text-align: center;
-    padding: 0.5em;
+  background-color: #000; /* Dark background for header */
+  text-align: center;
+  padding: 1em;
 }
 
 header h1 a {
-    text-decoration: none;
-    color: white;
-    font-size: 24px;
-    padding: 0;
+  text-decoration: none;
+  color: white;
+  font-size: 2.5em;
+  font-weight: bold;
+  padding: 0;
+  letter-spacing: 1px;
 }
 
 header h1 a:hover {
-    color: black;
+  color: #66b3ff;
+  text-shadow: 0 0 10px #66b3ff, 0 0 20px #66b3ff;
 }
 
 nav ul {
-    display: inline-block;
-    list-style-type: none;
-    margin: 0;
-    width: auto;
-    text-align: center;
-    padding: 0;
-    background-color: black; /* Slightly darker blue for the list */
-    border-radius: 6px;
+  display: inline-block;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background-color: #000;
+  border-radius: 6px;
+  text-align: center;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
 }
 
 nav ul li {
-    display: inline;
-    margin-right: 7px;
-    margin-left: 7px;
+  display: inline;
+  margin-right: 7px;
+  margin-left: 7px;
 }
 
 nav a {
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  padding: 10px;
 }
 
 nav a:hover {
-    color: #66b3ff;
+  color: #66b3ff;
 }
 
 nav a.active {
-    color: #66b3ff;
+  color: #66b3ff;
+  text-decoration: underline;
 }
 
 #main-content {
-    background-color: transparent;
-    text-align: center;
-    border-radius: 4px;
-    background-color: rgba(0, 0, 0, 0.5);
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 3px;
-    padding-bottom: 3px;
-    border-radius: 4px;
-    width: 85vw;
+  background-color: rgba(0, 0, 0, 0.8);
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1.5rem;
+  border-radius: 12px;
+  width: 80vw;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.7);
 }
 
 #main-content ul {
-    display: inline-block;
-    list-style-type: none;
-    margin: 0;
-    width: auto;
-    text-align: center;
-    padding: 0;
+  display: inline-block;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
 }
 
 #main-content ul li {
-    display: inline;
-    margin-right: 7px;
-    margin-left: 7px;
+  display: inline;
+  margin-right: 7px;
+  margin-left: 7px;
 }
 
 #main-content ul li a:link {
-    text-decoration: none;
-  }
+  text-decoration: none;
+}
 
 footer {
-    background-color: #black; /* Updated to dark blue background color */
-    text-align: center;
-    padding: 0;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    font-size: 13px;
+  background-color: #000;
+  text-align: center;
+  padding: 1rem;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  font-size: 13px;
+  color: white;
 }
 
 #main-content h2 {
-    color: #black; /* Light blue heading color for contrast */
+  color: #66b3ff;
+  font-size: 2em;
+  letter-spacing: 1px;
 }
+
+#back-button {
+  display: block;
+  text-align: center;
+  font-size: 1.2em;
+  color: white;
+  padding: 10px;
+  margin-top: 20px;
+  text-decoration: none;
+  border-radius: 8px;
+  background-color: #444;
+  transition: background-color 0.3s ease;
+}
+
+#back-button:hover {
+  background-color: #66b3ff;
+  color: #000;
+  text-shadow: 0 0 15px #66b3ff;
+}
+
+/* Floating Island Effect for Dialogue */
+#blurb {
+  width: 50%;
+  line-height: 1.5;
+  font-size: 1.1em;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 2rem;
+  border: 2px solid #66b3ff;
+  border-radius: 10px;
+  box-shadow: 0 0 20px #66b3ff;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#blurb:hover {
+  transform: translateY(-10px) rotateX(4deg) rotateY(4deg);
+  box-shadow: 0 0 30px #66b3ff, 0 0 60px #66b3ff;
+}
+
+#blurb p {
+  margin: 0.8em 0;
+}
+
+#charles-image {
+  width: 45%;
+  max-width: 100%;
+  border: 2px solid #66b3ff;
+  border-radius: 10px;
+  box-shadow: 0 0 15px #66b3ff;
+}
+
+/* Additional Style Tweaks for Content */
+#main-content h3, #main-content p {
+  color: #ffffff;
+  font-size: 1.1em;
+}
+
+#main-content .important-text {
+  color: #66b3ff;
+  font-weight: bold;
+}
+
