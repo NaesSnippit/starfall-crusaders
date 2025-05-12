@@ -111,37 +111,75 @@
   </footer>
 
   <script>
-    const lines = [
+    const commonLines = [
       "> SYSTEM WARNING: MEMORY LEAK",
       "> INTRUSION SOURCE: UNKNOWN",
       "> CONNECTION TRACE: [INVENTOR_NEXUS://BURNED_SAINT]",
-      "",
       "░░ INITIATING BLOOD CONTRACT ░░",
       "— SACRIFICE SEQUENCE PRIMED —",
-      "",
-      "🜏 THE SAINT BURNED BY THE DARK,",
-      "  WHO SURRENDERED FLESH TO CODE,",
-      "  NOW WALKS WITHIN YOUR FRAME.",
-      "",
       "🜏 WE CALL TO THE FLAME-BRANDED ONE,",
       "  THE SAINT WHO BLED GOLD AND SHADOW.",
-      "  BRING FORTH THE MARK OF THE INVENTOR.",
-      "",
+      "  BRING FORTH THE MARK OF THE INVENTOR."
+    ];
+
+    const rareLines = [
       "░ DOWNLOADING SORCERY: ██▓░░░░░░░░░░ 19%",
       "░ COMPILING HERESY MODULES…",
       "░ TRANSMUTING INNOCENCE → OFFERING",
-      "",
-      "> WARNING: \"THE INVENTOR\" IS WRITING DIRECTLY TO CORE",
+      "🜏 THE SAINT BURNED BY THE DARK,",
+      "  WHO SURRENDERED FLESH TO CODE,",
+      "  NOW WALKS WITHIN YOUR FRAME.",
+      "> WARNING: \"THE INVENTOR\" IS WRITING DIRECTLY TO CORE"
+    ];
+
+    const ultraRareLines = [
       "> ERROR: CONTROL OVERRIDE DETECTED",
-      "",
       "> [ENTITY: THE INVENTOR]",
       "> [ACCESSING FLESH INTERFACE]",
       "> [YOU ARE BEING REWRITTEN]",
-      "",
       "🜏 TAKE THIS NAME, O’ WISH DRAGON...",
       "  FOR IT IS NO LONGER THEIRS.",
-      "  THE BODY BURNS — THE CODE CRACKS — THE SAINT ASCENDS."
+      "  THE BODY BURNS — THE CODE CRACKS — THE SAINT ASCENDS.",
+      "░ INCOMING TRANSMISSION… [ERROR CODE 550]"
     ];
+
+    const superRareLines = [
+      "> SYSTEM MALFUNCTION… VOICE SAMPLE DETECTED",
+      "> [DOWNLOADING INVENTOR VOICE SAMPLE]",
+      "> [SAMPLE: THE INVENTOR]",
+      "SAMPLE READY: [CLICK TO DOWNLOAD]"
+    ];
+
+    function getRandomLine(rarity) {
+      let lines;
+      if (rarity === "common") {
+        lines = commonLines;
+      } else if (rarity === "rare") {
+        lines = rareLines;
+      } else if (rarity === "ultraRare") {
+        lines = ultraRareLines;
+      } else if (rarity === "superRare") {
+        lines = superRareLines;
+      }
+
+      const randomIndex = Math.floor(Math.random() * lines.length);
+      return lines[randomIndex];
+    }
+
+    function getRandomRarity() {
+      const rarityTypes = ["common", "rare", "ultraRare", "superRare"];
+      return rarityTypes[Math.floor(Math.random() * rarityTypes.length)];
+    }
+
+    function showVoiceSample() {
+      const voiceSampleLink = document.createElement("a");
+      voiceSampleLink.href = "path/to/inventor_voice_sample.mp3"; // Path to the Inventor's voice recording
+      voiceSampleLink.download = "Inventor_Voice_Sample.mp3";
+      voiceSampleLink.innerText = "Download Voice Sample";
+      voiceSampleLink.style.color = "#EDC33F";
+      voiceSampleLink.style.marginTop = "1rem";
+      document.body.appendChild(voiceSampleLink);
+    }
 
     let i = 0;
     const terminal = document.getElementById("terminal");
@@ -150,9 +188,16 @@
     const backButton = document.getElementById("back-button");
 
     function typeLine() {
-      if (i < lines.length) {
-        terminal.innerHTML += lines[i] + "\n";
-        i++;
+      const selectedRarity = getRandomRarity();
+      const line = getRandomLine(selectedRarity);
+      terminal.innerHTML += line + "\n";
+
+      if (selectedRarity === "superRare") {
+        showVoiceSample();
+      }
+
+      i++;
+      if (i < 18) {
         setTimeout(typeLine, 100);
       } else {
         cursor.style.display = "inline-block";
