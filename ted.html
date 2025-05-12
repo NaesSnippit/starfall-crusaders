@@ -1,72 +1,42 @@
-:root {
-  --neon-blue: #007bff;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ted Yold — Starfall Crusaders</title>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="ted.css">
+</head>
+<body style="background: url('images/ted-yold-bg.png') no-repeat center center fixed; background-size: cover;">
 
-body {
-  margin: 0;
-  padding: 0;
-  background: url('images/Untitled1782_20250511160449.png') no-repeat center center fixed;
-  background-size: cover;
-  filter: hue-rotate(180deg); /* Applying the hue shift for a blue tint */
-  font-family: 'Share Tech Mono', monospace;
-  color: var(--neon-blue);
-  overflow: hidden;
-}
+  <h1>TED YOLD</h1>
 
-h1 {
-  text-align: center;
-  font-size: 2.5em;
-  margin-top: 2rem;
-  text-shadow: 0 0 10px var(--neon-blue), 0 0 20px var(--neon-blue);
-}
+  <a href="trivia.html" id="back-button" onclick="playSound(event)">&larr; RETURN</a>
 
-.container {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  padding: 3rem;
-  gap: 3rem;
-  flex-wrap: wrap;
-}
+  <div class="container">
+    <div id="blurb">
+      <p><strong>Ted Yold</strong>, 19(?). He/Him. Charles' childhood best friend.</p>
 
-#blurb {
-  width: 50%;
-  line-height: 1.6;
-  font-size: 1.1em;
-  background: rgba(0, 0, 0, 0.65);
-  padding: 1.5rem;
-  border: 1px solid var(--neon-blue);
-  box-shadow: 0 0 20px var(--neon-blue);
-  border-radius: 15px;
-  transform-style: preserve-3d;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
+      <p>Placeholder text here</p>
+    </div>
 
-#blurb:hover {
-  transform: perspective(1000px) rotateX(4deg) rotateY(-4deg) translateY(-10px);
-  box-shadow: 0 0 30px var(--neon-blue), 0 0 60px var(--neon-blue);
-}
+    <img src="images/TedYold.png" alt="Ted Yold Portrait" id="ted-image" />
+  </div>
 
-#ted-image {
-  width: 25%; /* Smaller size for the image */
-  max-width: 25%;
-  border: 2px solid var(--neon-blue);
-  border-radius: 10px;
-  box-shadow: 0 0 15px var(--neon-blue);
-}
+  <script>
+    function playSound(event) {
+      event.preventDefault();
+      const href = event.target.getAttribute('href');
+      const audio = new Audio('selectsfx.wav');
 
-#back-button {
-  display: block;
-  text-align: center;
-  margin: 2rem auto;
-  font-size: 1.2em;
-  color: var(--neon-blue);
-  text-decoration: none;
-  border-bottom: 1px dashed var(--neon-blue);
-  width: fit-content;
-}
+      audio.addEventListener('ended', () => {
+        window.location.href = href;
+      });
 
-#back-button:hover {
-  color: #fff;
-  text-shadow: 0 0 10px var(--neon-blue);
-}
+      audio.play().catch(() => {
+        window.location.href = href;
+      });
+    }
+  </script>
+</body>
+</html>
