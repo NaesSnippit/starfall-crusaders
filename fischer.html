@@ -44,11 +44,48 @@
       <span class="close" onclick="closeForm()" aria-label="Close form">&times;</span>
       <h3 id="modalTitle">Submit a Tip</h3>
       <form id="tipForm" onsubmit="handleSubmit(event)">
-        <label for="name">Your Name:</label><br />
-        <input type="text" id="name" name="name" required /><br />
+        <label for="name">Your Name:</label>
+        <input type="text" id="name" name="name" required />
 
-        <label for="email">Email Address:</label><br />
-        <input type="email" id="email" name="email" required /><br />
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" name="email" required />
 
-        <label for="tip">Tip Information:</label><br />
-        <textarea id="tip" n
+        <label for="tip">Tip Information:</label>
+        <textarea id="tip" name="tip" rows="5" required></textarea>
+
+        <button type="submit">Submit Tip</button>
+      </form>
+      <div id="thankYouMessage" style="display:none;">Thank you. Your tip has been submitted.</div>
+    </div>
+  </div>
+
+  <!-- JavaScript for Modal Logic -->
+  <script>
+    function openForm() {
+      document.getElementById("tipModal").style.display = "block";
+      document.getElementById("tipModal").setAttribute("aria-hidden", "false");
+    }
+
+    function closeForm() {
+      document.getElementById("tipModal").style.display = "none";
+      document.getElementById("tipModal").setAttribute("aria-hidden", "true");
+      document.getElementById("thankYouMessage").style.display = "none";
+      document.getElementById("tipForm").reset();
+    }
+
+    function handleSubmit(event) {
+      event.preventDefault(); // Prevent form reload
+      document.getElementById("tipForm").style.display = "none";
+      document.getElementById("thankYouMessage").style.display = "block";
+    }
+
+    // Close modal if user clicks outside it
+    window.onclick = function(event) {
+      const modal = document.getElementById("tipModal");
+      if (event.target === modal) {
+        closeForm();
+      }
+    };
+  </script>
+</body>
+</html>
