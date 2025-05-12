@@ -1,1 +1,72 @@
+:root {
+  --neon-red: #FF073A;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: url('images/Untitled1782_20250511160449.png') no-repeat center center fixed;
+  background-size: cover;
+  font-family: 'Share Tech Mono', monospace;
+  color: var(--neon-red);
+  overflow: hidden;
+}
+
+h1 {
+  text-align: center;
+  font-size: 2.5em;
+  margin-top: 2rem;
+  text-shadow: 0 0 10px var(--neon-red), 0 0 20px var(--neon-red);
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 3rem;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+#blurb {
+  width: 50%;
+  line-height: 1.6;
+  font-size: 1.1em;
+  background: rgba(0, 0, 0, 0.65);
+  padding: 1.5rem;
+  border: 1px solid var(--neon-red);
+  box-shadow: 0 0 20px var(--neon-red);
+  border-radius: 15px;
+  transform-style: preserve-3d;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+#blurb:hover {
+  transform: perspective(1000px) rotateX(4deg) rotateY(-4deg) translateY(-10px);
+  box-shadow: 0 0 30px var(--neon-red), 0 0 60px var(--neon-red);
+}
+
+#percy-image {
+  width: 25%;
+  max-width: 25%;
+  border: 2px solid var(--neon-red);
+  border-radius: 10px;
+  box-shadow: 0 0 15px var(--neon-red);
+}
+
+#back-button {
+  display: block;
+  text-align: center;
+  margin: 2rem auto;
+  font-size: 1.2em;
+  color: var(--neon-red);
+  text-decoration: none;
+  border-bottom: 1px dashed var(--neon-red);
+  width: fit-content;
+}
+
+#back-button:hover {
+  color: #fff;
+  text-shadow: 0 0 10px var(--neon-red);
+}
 
