@@ -5,37 +5,119 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Charles Couckee — Starfall Crusaders</title>
   <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="charles.css">
+  <style>
+    :root {
+      --neon-green: #39FF14;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: url('images/Untitled1782_20250511160449.png') no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Share Tech Mono', monospace;
+      color: var(--neon-green);
+      overflow: hidden;
+      position: relative;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: rgba(57, 255, 20, 0.25);
+      mix-blend-mode: hue;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.5em;
+      margin-top: 2rem;
+      text-shadow: 0 0 10px var(--neon-green), 0 0 20px var(--neon-green);
+      position: relative;
+      z-index: 1;
+    }
+
+    .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 3rem;
+      gap: 3rem;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 1;
+    }
+
+    #blurb {
+      width: 50%;
+      line-height: 1.6;
+      font-size: 1.1em;
+      background: rgba(0, 0, 0, 0.65);
+      padding: 1.5rem;
+      border: 1px solid var(--neon-green);
+      box-shadow: 0 0 20px var(--neon-green);
+      border-radius: 15px;
+      transform-style: preserve-3d;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    #blurb:hover {
+      transform: perspective(1000px) rotateX(4deg) rotateY(-4deg) translateY(-10px);
+      box-shadow: 0 0 30px var(--neon-green), 0 0 60px var(--neon-green);
+    }
+
+    #charles-image {
+      width: 50%;
+      max-width: 50%;
+      border: 2px solid var(--neon-green);
+      border-radius: 10px;
+      box-shadow: 0 0 15px var(--neon-green);
+    }
+
+    #back-button {
+      display: block;
+      text-align: center;
+      margin: 2rem auto;
+      font-size: 1.2em;
+      color: var(--neon-green);
+      text-decoration: none;
+      border-bottom: 1px dashed var(--neon-green);
+      width: fit-content;
+      position: relative;
+      z-index: 1;
+    }
+
+    #back-button:hover {
+      color: #fff;
+      text-shadow: 0 0 10px var(--neon-green);
+    }
+  </style>
 </head>
 <body>
 
-  <header>
-    <h1>CHARLES COUCKEE: STARFALL CRUSADER</h1>
-    <a href="trivia.html" id="back-button" onclick="playSound(event)">&larr; RETURN</a>
-  </header>
+  <h1>CHARLES COUCKEE</h1>
 
-  <main class="container">
+  <a href="trivia.html" id="back-button" onclick="playSound(event)">&larr; RETURN</a>
+
+  <div class="container">
     <div id="blurb">
-      <p><strong>Charles Couckee</strong>, 19. He/Him. Pansexual. First to rise, and first to carry the banner of the Starfall Crusaders.</p>
+      <p><strong>Charles Couckee</strong>, 19. He/Him. Ted’s childhood best friend.</p>
 
-      <p>A genuine heart with a restless mind, Charles spends his rare free moments sketching blueprints or doodling characters that may never make it into reality. His room? An organized chaos of half-built gadgets and colorful tools.</p>
+      <p>Charles has a huge heart and the absolute worst anxiety of anyone you’ll meet. He’s afraid of being abandoned, and always tries to go the extra mile to make people happy—sometimes too far. Charles is a worrier who rarely sees himself as good enough, but he’s surprisingly reliable when the chips are down.</p>
 
-      <p>He leads not because he wants to — but because someone has to, and no one else will. With his Star Power balanced across multiple disciplines, Charles is the team's flexible backbone, always adapting to meet the chaos head-on.</p>
-
-      <p>He's the kind of friend who’d fix your bike at 2 a.m. and still apologize for waking you with the clanking tools. Loyal to a fault, protective to the end — even if it means putting himself last.</p>
-
-      <p>One day, he’ll take a break. Until then, he’ll keep moving forward… even if he’s running on fumes and friendship.</p>
+      <p>Though he isn't as flashy as the others, he holds the team together. He also hits things with a comically large hammer.</p>
     </div>
 
-    <div class="image-container">
-      <img src="images/CharlesWalking.gif" alt="Animated sprite of Charles walking" id="charles-image" />
-    </div>
-  </main>
+    <img src="images/charles-idle.gif" alt="Charles Couckee Portrait" id="charles-image" />
+  </div>
 
   <script>
     function playSound(event) {
       event.preventDefault();
-      const href = event.currentTarget.getAttribute('href');
+      const href = event.target.getAttribute('href');
       const audio = new Audio('selectsfx.wav');
 
       audio.addEventListener('ended', () => {
@@ -43,11 +125,9 @@
       });
 
       audio.play().catch(() => {
-        // Fallback in case audio can't play
         window.location.href = href;
       });
     }
   </script>
-
 </body>
 </html>
