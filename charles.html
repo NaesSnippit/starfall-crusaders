@@ -5,15 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Charles Couckee — Starfall Crusaders</title>
   <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="charles.css"> <!-- Include the external charles.css file -->
+  <link rel="stylesheet" href="charles.css">
 </head>
 <body>
 
-  <h1>CHARLES COUCKEE: STARFALL CRUSADER</h1>
+  <header>
+    <h1>CHARLES COUCKEE: STARFALL CRUSADER</h1>
+    <a href="trivia.html" id="back-button" onclick="playSound(event)">&larr; RETURN</a>
+  </header>
 
-  <a href="trivia.html" id="back-button" onclick="playSound(event)">&larr; RETURN</a>
-
-  <div class="container">
+  <main class="container">
     <div id="blurb">
       <p><strong>Charles Couckee</strong>, 19. He/Him. Pansexual. First to rise, and first to carry the banner of the Starfall Crusaders.</p>
 
@@ -26,13 +27,15 @@
       <p>One day, he’ll take a break. Until then, he’ll keep moving forward… even if he’s running on fumes and friendship.</p>
     </div>
 
-    <img src="images/CharlesWalking.gif" alt="Charles Walking" id="charles-image" />
-  </div>
+    <div class="image-container">
+      <img src="images/CharlesWalking.gif" alt="Animated sprite of Charles walking" id="charles-image" />
+    </div>
+  </main>
 
   <script>
     function playSound(event) {
       event.preventDefault();
-      const href = event.target.getAttribute('href');
+      const href = event.currentTarget.getAttribute('href');
       const audio = new Audio('selectsfx.wav');
 
       audio.addEventListener('ended', () => {
@@ -40,9 +43,11 @@
       });
 
       audio.play().catch(() => {
+        // Fallback in case audio can't play
         window.location.href = href;
       });
     }
   </script>
+
 </body>
 </html>
