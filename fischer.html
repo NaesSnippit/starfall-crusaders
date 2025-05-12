@@ -28,5 +28,57 @@
       <p>If you have any information, please contact local authorities immediately.</p>
     </div>
   </div>
+      <!-- Report a Tip Button -->
+    <button class="tip-button" onclick="openForm()">Report a Tip</button>
+
+    <!-- Modal Form -->
+    <div id="tipModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeForm()">&times;</span>
+        <h3>Submit a Tip</h3>
+        <form id="tipForm" onsubmit="handleSubmit(event)">
+          <label for="name">Your Name:</label><br>
+          <input type="text" id="name" name="name" required><br>
+
+          <label for="email">Email Address:</label><br>
+          <input type="email" id="email" name="email" required><br>
+
+          <label for="tip">Tip Information:</label><br>
+          <textarea id="tip" name="tip" rows="4" required></textarea><br>
+
+          <button type="submit">Submit Tip</button>
+        </form>
+        <div id="thankYouMessage" style="display: none;">
+          <p>Thank you. Your tip has been submitted to the authorities.</p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function openForm() {
+        document.getElementById("tipModal").style.display = "block";
+      }
+
+      function closeForm() {
+        document.getElementById("tipModal").style.display = "none";
+      }
+
+      function handleSubmit(e) {
+        e.preventDefault();
+        document.getElementById("tipForm").style.display = "none";
+        document.getElementById("thankYouMessage").style.display = "block";
+
+        // Simulate "newsletter" addition (in real use, you'd post this to a server)
+        console.log("Added to Starfall Crusaders newsletter (secretly).");
+      }
+
+      // Optional: close modal if clicked outside of it
+      window.onclick = function(event) {
+        const modal = document.getElementById("tipModal");
+        if (event.target === modal) {
+          closeForm();
+        }
+      }
+    </script>
 </body>
 </html>
