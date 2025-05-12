@@ -1,1 +1,74 @@
+:root {
+  --neon-cyan: #00ffff;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: url('Untitled1782_20250511160449.png') no-repeat center center fixed; /* change to her background */
+  background-size: cover;
+  font-family: 'Share Tech Mono', monospace;
+  color: var(--neon-cyan);
+  overflow: hidden;
+}
+
+h1 {
+  text-align: center;
+  font-size: 2.5em;
+  margin-top: 2rem;
+  text-shadow: 0 0 12px var(--neon-cyan), 0 0 24px var(--neon-cyan), 0 0 36px #008b8b;
+  letter-spacing: 1px;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 3rem;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+#blurb {
+  width: 50%;
+  line-height: 1.6;
+  font-size: 1.1em;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 1.5rem;
+  border: 1px solid var(--neon-cyan);
+  box-shadow: 0 0 20px var(--neon-cyan), 0 0 10px #008b8b;
+  border-radius: 15px;
+  transform-style: preserve-3d;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+#blurb:hover {
+  transform: perspective(1000px) rotateX(3deg) rotateY(-3deg) translateY(-8px);
+  box-shadow: 0 0 30px var(--neon-cyan), 0 0 60px var(--neon-cyan), 0 0 20px #008b8b;
+}
+
+#charles-image {
+  width: 25%;
+  max-width: 25%;
+  border: 2px solid var(--neon-cyan);
+  border-radius: 10px;
+  box-shadow: 0 0 15px var(--neon-cyan), 0 0 8px #008b8b;
+}
+
+#back-button {
+  display: block;
+  text-align: center;
+  margin: 2rem auto;
+  font-size: 1.2em;
+  color: var(--neon-cyan);
+  text-decoration: none;
+  border-bottom: 1px dashed var(--neon-cyan);
+  width: fit-content;
+  transition: color 0.2s, text-shadow 0.2s;
+}
+
+#back-button:hover {
+  color: #ffffff;
+  text-shadow: 0 0 8px var(--neon-cyan), 0 0 16px var(--neon-cyan);
+}
 
