@@ -5,7 +5,7 @@
 body {
   margin: 0;
   padding: 0;
-  background: url('Untitled1782_20250511160449.png') no-repeat center center fixed; /* change to her background */
+  background: url('images/Untitled1782_20250511160449.png') no-repeat center center fixed; /* change to her background */
   background-size: cover;
   font-family: 'Share Tech Mono', monospace;
   color: var(--neon-cyan);
