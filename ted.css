@@ -1,63 +1,72 @@
+:root {
+  --neon-blue: #007bff;
+}
+
 body {
-  background-color: #0d1b2a;
-  font-family: 'Share Tech Mono', monospace;
-  color: #cceeff;
   margin: 0;
   padding: 0;
-  text-align: center;
+  background: url('images/Untitled1782_20250511160449.png') no-repeat center center fixed;
+  background-size: cover;
+  filter: hue-rotate(180deg); /* Applying the hue shift for a blue tint */
+  font-family: 'Share Tech Mono', monospace;
+  color: var(--neon-blue);
+  overflow: hidden;
 }
 
 h1 {
-  background: linear-gradient(90deg, #1f4068, #16213e);
-  color: #00ffff;
-  padding: 20px;
-  font-size: 2rem;
-  letter-spacing: 2px;
-  text-shadow: 0 0 5px #00ffff;
-}
-
-#back-button {
-  display: inline-block;
-  margin: 20px;
-  padding: 10px 15px;
-  background-color: #1b2f47;
-  color: #00ffff;
-  text-decoration: none;
-  border-radius: 6px;
-  border: 1px solid #00ffff;
-  text-shadow: 0 0 3px #00ffff;
-}
-
-#back-button:hover {
-  background-color: #12263a;
-  color: #cceeff;
-  border-color: #cceeff;
+  text-align: center;
+  font-size: 2.5em;
+  margin-top: 2rem;
+  text-shadow: 0 0 10px var(--neon-blue), 0 0 20px var(--neon-blue);
 }
 
 .container {
-  max-width: 800px;
-  margin: auto;
-  padding: 20px;
-  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 3rem;
+  gap: 3rem;
+  flex-wrap: wrap;
 }
 
 #blurb {
-  background-color: #16213e;
-  padding: 20px;
-  border: 1px solid #00ffff66;
-  border-radius: 10px;
-  font-size: 16px;
-  line-height: 1.7;
-  box-shadow: 0 0 10px #00ffff33;
-  color: #e0f7ff;
+  width: 50%;
+  line-height: 1.6;
+  font-size: 1.1em;
+  background: rgba(0, 0, 0, 0.65);
+  padding: 1.5rem;
+  border: 1px solid var(--neon-blue);
+  box-shadow: 0 0 20px var(--neon-blue);
+  border-radius: 15px;
+  transform-style: preserve-3d;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+#blurb:hover {
+  transform: perspective(1000px) rotateX(4deg) rotateY(-4deg) translateY(-10px);
+  box-shadow: 0 0 30px var(--neon-blue), 0 0 60px var(--neon-blue);
 }
 
 #ted-image {
+  width: 25%; /* Smaller size for the image */
+  max-width: 25%;
+  border: 2px solid var(--neon-blue);
+  border-radius: 10px;
+  box-shadow: 0 0 15px var(--neon-blue);
+}
+
+#back-button {
   display: block;
-  margin: 30px auto 10px;
-  max-width: 300px;
-  height: auto;
-  border-radius: 12px;
-  border: 3px solid #00ffff;
-  box-shadow: 0 0 15px #00ffff66;
+  text-align: center;
+  margin: 2rem auto;
+  font-size: 1.2em;
+  color: var(--neon-blue);
+  text-decoration: none;
+  border-bottom: 1px dashed var(--neon-blue);
+  width: fit-content;
+}
+
+#back-button:hover {
+  color: #fff;
+  text-shadow: 0 0 10px var(--neon-blue);
 }
