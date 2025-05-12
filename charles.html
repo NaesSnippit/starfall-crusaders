@@ -1,80 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>Charles</title>
-    <style>
-        body {
-            background-image: url('images/PurpleBG.PNG');
-            background-size: cover;
-            color: white;
-            font-family: 'pmfont', sans-serif;
-            text-align: center;
-        }
-        #blurb {
-            margin-top: 30px;
-            line-height: 1.5;
-        }
-        #nae-image {
-            max-width: 100%;
-            height: auto;
-            margin-top: 30px;
-        }
-        #back-button {
-            margin-top: 20px;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Charles Couckee — Starfall Crusaders</title>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --neon-green: #39FF14;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: url('images/PurpleBG.PNG') no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Share Tech Mono', monospace;
+      color: var(--neon-green);
+      overflow: hidden;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.5em;
+      margin-top: 2rem;
+      text-shadow: 0 0 10px var(--neon-green), 0 0 20px var(--neon-green);
+    }
+
+    .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 3rem;
+      gap: 3rem;
+    }
+
+    #blurb {
+      width: 50%;
+      line-height: 1.6;
+      font-size: 1.1em;
+      background: rgba(0, 0, 0, 0.65);
+      padding: 1.5rem;
+      border: 1px solid var(--neon-green);
+      box-shadow: 0 0 20px var(--neon-green);
+      border-radius: 15px;
+      transform-style: preserve-3d;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    #blurb:hover {
+      transform: perspective(1000px) rotateX(4deg) rotateY(-4deg) translateY(-10px);
+      box-shadow: 0 0 30px var(--neon-green), 0 0 60px var(--neon-green);
+    }
+
+    #charles-image {
+      width: 45%;
+      max-width: 100%;
+      border: 2px solid var(--neon-green);
+      border-radius: 10px;
+      box-shadow: 0 0 15px var(--neon-green);
+    }
+
+    #back-button {
+      display: block;
+      text-align: center;
+      margin: 2rem auto;
+      font-size: 1.2em;
+      color: var(--neon-green);
+      text-decoration: none;
+      border-bottom: 1px dashed var(--neon-green);
+      width: fit-content;
+    }
+
+    #back-button:hover {
+      color: #fff;
+      text-shadow: 0 0 10px var(--neon-green);
+    }
+  </style>
 </head>
 <body>
-    <h1>An Empath</h1>
-    
-    <a href="trivia.html" id="back-button">&larr; Back</a>
 
+  <h1>CHARLES COUCKEE — STARFALL CRUSADER</h1>
+
+  <a href="trivia.html" id="back-button" onclick="playSound(event)">&larr; RETURN</a>
+
+  <div class="container">
     <div id="blurb">
-        <p>Charles is lorem ipsum blah blah blah</p>
-        
+      <p><strong>Charles Couckee</strong>, 19. He/Him. Pansexual. First to rise, and first to carry the banner of the Starfall Crusaders.</p>
+
+      <p>A genuine heart with a restless mind, Charles spends his rare free moments sketching blueprints or doodling characters that may never make it into reality. His room? An organized chaos of half-built gadgets and colorful tools.</p>
+
+      <p>He leads not because he wants to — but because someone has to, and no one else will. With his Star Power balanced across multiple disciplines, Charles is the team's flexible backbone, always adapting to meet the chaos head-on.</p>
+
+      <p>He's the kind of friend who’d fix your bike at 2 a.m. and still apologize for waking you with the clanking tools. Loyal to a fault, protective to the end — even if it means putting himself last.</p>
+
+      <p>One day, he’ll take a break. Until then, he’ll keep moving forward… even if he’s running on fumes and friendship.</p>
     </div>
-    
-    <!-- Corrected the image source paths -->
-    <img src="images/Charles.png" alt="Charles" id="charles-image">
-  
-    <script>
-        function playSound(event) {
-            console.log('Sound function called');
-            try {
-                // Use an absolute path to the audio file
-                var audio = new Audio('selectsfx.wav');
 
-                // Add an event listener to navigate when the sound ends
-                audio.addEventListener('ended', function () {
-                    // Check if the link is an external link
-                    var href = event.target.getAttribute('href');
-                    var isExternalLink = href.startsWith('http') || href.startsWith('//');
+    <img src="images/CharlesWalking.gif" alt="Charles Walking" id="charles-image" />
+  </div>
 
-                    // Allow default behavior for external links or links with target="_blank"
-                    if (isExternalLink || event.target.getAttribute('target') === '_blank') {
-                        return;
-                    }
+  <script>
+    function playSound(event) {
+      event.preventDefault();
+      const href = event.target.getAttribute('href');
+      const audio = new Audio('selectsfx.wav');
 
-                    // Navigate to the specified URL
-                    window.location.href = href;
-                });
+      audio.addEventListener('ended', () => {
+        window.location.href = href;
+      });
 
-                audio.play();
-            } catch (error) {
-                console.error('Error playing sound:', error);
-
-                // If there's an error, proceed with default behavior
-                var href = event.target.getAttribute('href');
-                window.location.href = href;
-            }
-
-            // Prevent the default behavior immediately to avoid double-click issues
-            event.preventDefault();
-        }
-    </script>
+      audio.play().catch(() => {
+        window.location.href = href;
+      });
+    }
+  </script>
 </body>
 </html>
-
