@@ -1,81 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>Firefly</title>
-    <style>
-        body {
-            background-image: url('images/PurpleBG.PNG');
-            background-size: cover;
-            color: white;
-            font-family: 'pmfont', sans-serif;
-            text-align: center;
-        }
-        #blurb {
-            margin-top: 30px;
-            line-height: 1.5;
-        }
-        #nae-image {
-            max-width: 100%;
-            height: auto;
-            margin-top: 30px;
-        }
-        #back-button {
-            margin-top: 20px;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hestia "Firefly" Abrams — Starfall Crusaders</title>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="firefly.css">
 </head>
 <body>
-    <h1>Elven Warrior</h1>
-    
-    <a href="trivia.html" id="back-button">&larr; Back</a>
 
+  <h1>HESTIA “FIREFLY” ABRAMS: STARFALL CRUSADER</h1>
+
+  <a href="trivia.html" id="back-button" onclick="playSound(event)">&larr; RETURN</a>
+
+  <div class="container">
     <div id="blurb">
-        <p>Firefly em ipsum blah blah blah</p>
-        
+      <p><strong>Hestia “Firefly” Abrams</strong>, <strong>19</strong>. She/Her. Elfling. Fire-born and steel-bound.</p>
+
+      <p>High atop Ernestop Mountain, Hestia lives among the mist and wind — a spark contained by circuitry. Her fire used to threaten her life, burning from within, until a sleek cybernetic exoskeleton saved her. Now? That fire fuels everything: her travel, her battles, her cooking (albeit slightly charred).</p>
+
+      <p>She’s sharp-witted, heat-tempered, and fiercely independent. She doesn’t take orders well — especially when it comes to the Plaguebringers. Their existence sets her teeth on edge and her circuits to glow. When Charles offers to help defeat them, Firefly steps forward. Not to thank him. To challenge him. This fight is hers.</p>
+
+      <p>She laughs like a crackling flame. She fights like a wildfire. She loves like a hearthfire — warm, rare, and fiercely protected.</p>
+
+      <p>Don’t try to put her out. Just try to keep up.</p>
     </div>
-    
-    <!-- Corrected the image source paths -->
-    <img src="images/Firefly.png" alt="Firefly" id="firefly-image">
-  
-    <script>
-        function playSound(event) {
-            console.log('Sound function called');
-            try {
-                // Use an absolute path to the audio file
-                var audio = new Audio('selectsfx.wav');
 
-                // Add an event listener to navigate when the sound ends
-                audio.addEventListener('ended', function () {
-                    // Check if the link is an external link
-                    var href = event.target.getAttribute('href');
-                    var isExternalLink = href.startsWith('http') || href.startsWith('//');
+    <img src="images/Firefly.png" alt="Firefly Portrait" id="charles-image" />
+  </div>
 
-                    // Allow default behavior for external links or links with target="_blank"
-                    if (isExternalLink || event.target.getAttribute('target') === '_blank') {
-                        return;
-                    }
+  <script>
+    function playSound(event) {
+      event.preventDefault();
+      const href = event.target.getAttribute('href');
+      const audio = new Audio('selectsfx.wav');
 
-                    // Navigate to the specified URL
-                    window.location.href = href;
-                });
+      audio.addEventListener('ended', () => {
+        window.location.href = href;
+      });
 
-                audio.play();
-            } catch (error) {
-                console.error('Error playing sound:', error);
-
-                // If there's an error, proceed with default behavior
-                var href = event.target.getAttribute('href');
-                window.location.href = href;
-            }
-
-            // Prevent the default behavior immediately to avoid double-click issues
-            event.preventDefault();
-        }
-    </script>
+      audio.play().catch(() => {
+        window.location.href = href;
+      });
+    }
+  </script>
 </body>
 </html>
-
-
