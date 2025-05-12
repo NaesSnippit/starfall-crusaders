@@ -1,0 +1,65 @@
+:root {
+  --sunset-orange: #ff4500;
+  --sunset-gold: #ffb347;
+  --sunset-purple: #8b008b;
+  --dark-bg: #1a0000;
+  --highlight: #ffd700;
+}
+
+body {
+  margin: 0;
+  background: linear-gradient(to bottom, var(--sunset-purple), var(--sunset-orange), var(--dark-bg));
+  color: var(--highlight);
+  font-family: 'Share Tech Mono', monospace;
+  padding: 2rem;
+  background-attachment: fixed;
+}
+
+h1 {
+  text-align: center;
+  font-size: 3rem;
+  color: var(--sunset-gold);
+  text-shadow: 0 0 10px var(--sunset-purple);
+}
+
+.container {
+  max-width: 900px;
+  margin: auto;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 2rem;
+  border: 2px dashed var(--sunset-gold);
+  border-radius: 10px;
+  box-shadow: 0 0 20px var(--sunset-orange);
+}
+
+#booth-image {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  margin-top: 1rem;
+  border: 2px solid var(--sunset-gold);
+  box-shadow: 0 0 10px var(--highlight);
+}
+
+a#back-button {
+  display: inline-block;
+  margin-top: 1.5rem;
+  color: var(--highlight);
+  text-decoration: none;
+  border: 1px solid var(--sunset-purple);
+  padding: 0.4rem 0.8rem;
+  transition: all 0.3s ease;
+}
+
+a#back-button:hover {
+  background: var(--sunset-purple);
+  color: #000;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--highlight);
+  color: var(--sunset-orange);
+  text-transform: uppercase;
+}
