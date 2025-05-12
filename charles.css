@@ -9,7 +9,18 @@ body {
   background-size: cover;
   font-family: 'Share Tech Mono', monospace;
   color: var(--neon-green);
-  /* Removed overflow: hidden so nothing gets clipped */
+  overflow: hidden;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: rgba(57, 255, 20, 0.25); /* subtle green tint */
+  mix-blend-mode: hue;
+  pointer-events: none;
+  z-index: 0;
 }
 
 h1 {
@@ -17,21 +28,23 @@ h1 {
   font-size: 2.5em;
   margin-top: 2rem;
   text-shadow: 0 0 10px var(--neon-green), 0 0 20px var(--neon-green);
+  position: relative;
+  z-index: 1;
 }
 
 .container {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: flex-start;
   padding: 3rem;
   gap: 3rem;
   flex-wrap: wrap;
-  max-width: 1200px;
-  margin: 0 auto;
+  position: relative;
+  z-index: 1;
 }
 
 #blurb {
-  flex: 1 1 300px;
+  width: 50%;
   line-height: 1.6;
   font-size: 1.1em;
   background: rgba(0, 0, 0, 0.65);
@@ -39,6 +52,7 @@ h1 {
   border: 1px solid var(--neon-green);
   box-shadow: 0 0 20px var(--neon-green);
   border-radius: 15px;
+  transform-style: preserve-3d;
   transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
@@ -48,13 +62,11 @@ h1 {
 }
 
 #charles-image {
-  flex: 1 1 250px;
-  max-width: 100%;
-  height: auto;
+  width: 50%; /* same as text container */
+  max-width: 50%;
   border: 2px solid var(--neon-green);
   border-radius: 10px;
   box-shadow: 0 0 15px var(--neon-green);
-  object-fit: contain;
 }
 
 #back-button {
@@ -66,6 +78,8 @@ h1 {
   text-decoration: none;
   border-bottom: 1px dashed var(--neon-green);
   width: fit-content;
+  position: relative;
+  z-index: 1;
 }
 
 #back-button:hover {
