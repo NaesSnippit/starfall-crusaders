@@ -8,52 +8,65 @@
   <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
 </head>
 <body>
+  <!-- Background Music -->
   <audio id="bg-music" src="audio/lofi.mp3" loop autoplay></audio>
 
+  <!-- Header -->
   <div class="header">
     <h1>♠ Blackjack Booth #212! Diamond ♠</h1>
     <p id="diamond-dialogue">Let's have fun, OK?</p>
   </div>
 
+  <!-- Game Container -->
   <div class="game-container">
+
+    <!-- Credits and Bet -->
     <div class="credits-bet">
       <p id="credits-display">Credits: 1000</p>
       <label for="bet-input">Bet</label>
       <input type="number" id="bet-input" value="100" min="1" step="1" />
     </div>
 
+    <!-- Player Hand -->
     <div class="hand-container">
       <h2>Your Hand</h2>
       <div id="player-cards" class="card-row"></div>
       <p id="player-total">Total: 0</p>
     </div>
 
+    <!-- Dealer (Diamond) Hand -->
     <div class="hand-container">
       <h2>Diamond's Hand</h2>
       <div id="dealer-cards" class="card-row"></div>
       <p id="dealer-total">Total: 0</p>
     </div>
 
+    <!-- Action Buttons -->
     <div id="buttons">
       <button id="deal-btn">Deal</button>
       <button id="hit-btn" disabled>Hit</button>
       <button id="stand-btn" disabled>Stand</button>
     </div>
 
+    <!-- Outcome -->
     <div id="outcome"></div>
+
+    <!-- Win/Loss Record -->
     <p id="record">Wins: 0 | Losses: 0</p>
 
+    <!-- Session History -->
     <div id="session-history" class="history-panel">
-      <!-- Game results will be prepended here -->
+      <!-- Previous game results will appear here -->
     </div>
 
+    <!-- Bottom Buttons -->
     <div class="bottom-buttons">
       <button id="settings-btn">⚙ Rules & Settings</button>
       <button id="info-btn">ℹ About Diamond</button>
     </div>
   </div>
 
-  <!-- Modals -->
+  <!-- Settings Modal -->
   <div id="settings-modal" class="modal hidden">
     <div class="modal-content">
       <h2>Blackjack Rules & Settings</h2>
@@ -72,6 +85,7 @@
     </div>
   </div>
 
+  <!-- Info Modal -->
   <div id="info-modal" class="modal hidden">
     <div class="modal-content">
       <h2>Who is Diamond?</h2>
@@ -80,6 +94,7 @@
     </div>
   </div>
 
+  <!-- Script -->
   <script src="blackjack.js"></script>
 </body>
 </html>
