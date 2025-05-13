@@ -44,32 +44,32 @@
   </div>
 
   <!-- Settings Modal -->
-  <div id="settings-modal" class="modal hidden">
-    <div class="modal-content">
-      <h2>Blackjack Rules & Settings</h2>
-      <ul>
-        <li>Try to get as close to 21 as possible without going over.</li>
-        <li>Face cards are worth 10, Aces are worth 1 or 11.</li>
-        <li>Dealer (Diamond) must hit until 17 or higher.</li>
-        <li>If both bust, you still lose. Diamond’s rules.</li>
-        <li>Sometimes Diamond cheats. She's saving up for a hoverboard.</li>
-      </ul>
-      <label for="music-volume">Music Volume</label>
-      <input type="range" id="music-volume" min="0" max="1" step="0.01" value="1">
-      <label for="sfx-volume">SFX Volume</label>
-      <input type="range" id="sfx-volume" min="0" max="1" step="0.01" value="1">
-      <button class="close-modal">Close</button>
-    </div>
+<div id="settings-modal" class="modal hidden">
+  <div class="modal-content">
+    <h2>Blackjack Rules & Settings</h2>
+    <ul>
+      <li>Try to get as close to 21 as possible without going over.</li>
+      <li>Face cards are worth 10, Aces are worth 1 or 11.</li>
+      <li>Dealer (Diamond) must hit until 17 or higher.</li>
+      <li>If both bust, you still lose. Diamond’s rules.</li>
+      <li>Sometimes Diamond cheats. She's saving up for a hoverboard.</li>
+    </ul>
+    <label for="music-volume">Music Volume</label>
+    <input type="range" id="music-volume" min="0" max="1" step="0.01" value="1">
+    <label for="sfx-volume">SFX Volume</label>
+    <input type="range" id="sfx-volume" min="0" max="1" step="0.01" value="1">
+    <button id="close-settings" class="close-modal">Close</button> <!-- FIX -->
   </div>
+</div>
 
-  <!-- Info Modal -->
-  <div id="info-modal" class="modal hidden">
-    <div class="modal-content">
-      <h2>Who is Diamond?</h2>
-      <p>Diamond is a young girl from Eagle Village. She's saving up for a new violin so she can perform at her first recital. She's excellent at slight of hand, but she <em>promises</em> everything is fair... probably.</p>
-      <button class="close-modal">Close</button>
-    </div>
+<!-- Info Modal -->
+<div id="info-modal" class="modal hidden">
+  <div class="modal-content">
+    <h2>Who is Diamond?</h2>
+    <p>Diamond is a young girl from Eagle Village. She's saving up for a new violin so she can perform at her first recital. She's excellent at slight of hand, but she <em>promises</em> everything is fair... probably.</p>
+    <button id="close-info" class="close-modal">Close</button> <!-- FIX -->
   </div>
+</div>
 
   <script src="blackjack.js"></script>
   <script>
