@@ -116,3 +116,4 @@
   document.getElementById('close-settings').onclick = () =>
     document.getElementById('settings-modal').classList.add('hidden');
 })();
+
