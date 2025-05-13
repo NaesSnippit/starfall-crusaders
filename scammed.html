@@ -25,7 +25,7 @@
     <div class="hand-container">
       <h2>Diamond's Hand</h2>
       <div id="dealer-cards" class="card-row"></div>
-      <p id="dealer-total">Total: ??</p>
+      <p id="dealer-total">Total: 0</p>
     </div>
 
     <div id="buttons">
@@ -37,10 +37,13 @@
     <div id="outcome"></div>
     <p id="record">Wins: 0 | Losses: 0</p>
 
-    <button id="settings-btn">⚙ Rules & Settings</button>
+    <div class="bottom-buttons">
+      <button id="settings-btn">⚙ Rules & Settings</button>
+      <button id="info-btn">ℹ About Diamond</button>
+    </div>
   </div>
 
-  <!-- Modal -->
+  <!-- Settings Modal -->
   <div id="settings-modal" class="modal hidden">
     <div class="modal-content">
       <h2>Blackjack Rules & Settings</h2>
@@ -49,19 +52,55 @@
         <li>Face cards are worth 10, Aces are worth 1 or 11.</li>
         <li>Dealer (Diamond) must hit until 17 or higher.</li>
         <li>If both bust, you still lose. Diamond’s rules.</li>
-        <li>Sometimes Diamond cheats. She's saving up for a new violin.</li>
+        <li>Sometimes Diamond cheats. She's saving up for a hoverboard.</li>
       </ul>
-
       <label for="music-volume">Music Volume</label>
       <input type="range" id="music-volume" min="0" max="1" step="0.01" value="1">
-
       <label for="sfx-volume">SFX Volume</label>
       <input type="range" id="sfx-volume" min="0" max="1" step="0.01" value="1">
+      <button class="close-modal">Close</button>
+    </div>
+  </div>
 
-      <button id="close-settings">Close</button>
+  <!-- Info Modal -->
+  <div id="info-modal" class="modal hidden">
+    <div class="modal-content">
+      <h2>Who is Diamond?</h2>
+      <p>Diamond is a young girl from Eagle Village. She's saving up for a new violin so she can perform at her first recital. She's excellent at slight of hand, but she <em>promises</em> everything is fair... probably.</p>
+      <button class="close-modal">Close</button>
     </div>
   </div>
 
   <script src="blackjack.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const modals = document.querySelectorAll('.modal');
+      const closeButtons = document.querySelectorAll('.close-modal');
+      const settingsBtn = document.getElementById('settings-btn');
+      const infoBtn = document.getElementById('info-btn');
+      const settingsModal = document.getElementById('settings-modal');
+      const infoModal = document.getElementById('info-modal');
+
+      settingsBtn.addEventListener('click', () => {
+        settingsModal.classList.remove('hidden');
+      });
+
+      infoBtn.addEventListener('click', () => {
+        infoModal.classList.remove('hidden');
+      });
+
+      closeButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          modals.forEach(modal => modal.classList.add('hidden'));
+        });
+      });
+
+      window.addEventListener('click', (e) => {
+        modals.forEach(modal => {
+          if (e.target === modal) modal.classList.add('hidden');
+        });
+      });
+    });
+  </script>
 </body>
 </html>
