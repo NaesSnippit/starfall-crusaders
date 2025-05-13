@@ -17,6 +17,7 @@
     font-size: 2.5rem;
     color: #c77dff;
     text-shadow: 0 0 12px #9d4edd;
+    margin-bottom: 0.5rem;
   }
 
   .buttons {
@@ -45,31 +46,65 @@
     box-shadow: 0 0 16px #ff66cc;
   }
 
-  .game-area {
+  .game-container {
+    width: 90%;
+    max-width: 1000px;
     display: flex;
-    justify-content: center;
-    gap: 60px;
-    margin-top: 40px;
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 60px;
   }
 
-  .hand {
+  .credits-bet {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  #credits-display {
+    font-size: 1.1rem;
+    color: #ffb3ff;
+    text-shadow: 0 0 5px #aa66ff;
+  }
+
+  #bet-input {
+    background: #1a002f;
+    border: 2px solid #c77dff;
+    color: #e0aaff;
+    padding: 6px 12px;
+    border-radius: 8px;
+    width: 80px;
+    font-size: 1rem;
+    box-shadow: 0 0 6px #ff55cc;
+  }
+
+  label[for="bet-input"] {
+    color: #ff99ff;
+    font-size: 1rem;
+  }
+
+  .hand-container {
     background: rgba(0, 0, 0, 0.3);
     padding: 20px;
     border-radius: 16px;
     box-shadow: 0 0 15px rgba(255, 0, 255, 0.2);
     text-align: center;
-    min-width: 260px;
+    margin: 20px 0;
+    width: 100%;
+    max-width: 600px;
     backdrop-filter: blur(8px);
   }
 
-  .hand h2 {
-    font-size: 1.2rem;
+  .hand-container h2 {
+    font-size: 1.4rem;
     margin-bottom: 10px;
     color: #e285ff;
   }
 
-  .cards {
+  .card-row {
     display: flex;
     justify-content: center;
     gap: 8px;
@@ -99,12 +134,37 @@
     font-weight: bold;
     color: #ff77ff;
     text-shadow: 0 0 5px #ff0088;
+    text-align: center;
   }
 
   #record {
     margin-top: 10px;
     font-size: 1rem;
     color: #a05eff;
+    text-align: center;
+  }
+
+  .history-panel {
+    margin-top: 30px;
+    width: 100%;
+    max-width: 600px;
+    background: rgba(20, 0, 40, 0.4);
+    border: 1px solid #aa44ff;
+    border-radius: 12px;
+    padding: 15px;
+    color: #ddccff;
+    font-size: 0.9rem;
+    max-height: 200px;
+    overflow-y: auto;
+    box-shadow: 0 0 10px #c84cff;
+  }
+
+  .bottom-buttons {
+    margin-top: 30px;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   .modal {
