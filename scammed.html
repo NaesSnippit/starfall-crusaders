@@ -66,30 +66,27 @@
     <button id="settings-btn">⚙ Rules & Settings</button>
   </div>
 
-  <!-- Trigger Button -->
-  <button id="open-settings">Open Settings</button>
 
-  <!-- Modal -->
-  <div id="settings-modal" class="modal hidden">
-    <div class="modal-content">
-      <h2>Blackjack Rules & Settings</h2>
-      <ul>
-        <li>Try to get as close to 21 as possible without going over.</li>
-        <li>Face cards are worth 10, Aces are worth 1 or 11.</li>
-        <li>Dealer (Diamond) must hit until 17 or higher.</li>
-        <li>If both bust, you still lose. Diamond’s rules.</li>
-        <li>Sometimes Diamond cheats. She's saving up for a hoverboard.</li>
-      </ul>
+  <div id="settings-modal" class="hidden">
+  <div class="modal-content">
+    <h2>Blackjack Rules & Settings</h2>
+    <ul>
+      <li>Try to get as close to 21 as possible without going over.</li>
+      <li>Face cards are worth 10, Aces are worth 1 or 11.</li>
+      <li>Dealer (Diamond) must hit until 17 or higher.</li>
+      <li>If both bust, you still lose. Diamond’s rules.</li>
+      <li>Sometimes Diamond cheats. She's saving up for a hoverboard.</li>
+    </ul>
 
-      <label for="music-volume">Music Volume</label>
-      <input type="range" id="music-volume" min="0" max="1" step="0.01" value="1">
+    <label for="music-volume">Music Volume</label>
+    <input type="range" id="music-volume" min="0" max="1" step="0.01" value="1">
 
-      <label for="sfx-volume">SFX Volume</label>
-      <input type="range" id="sfx-volume" min="0" max="1" step="0.01" value="1">
+    <label for="sfx-volume">SFX Volume</label>
+    <input type="range" id="sfx-volume" min="0" max="1" step="0.01" value="1">
 
-      <button id="close-settings">Close</button>
-    </div>
+    <button id="close-button">Close</button>
   </div>
+</div>
 
   <script>
     // Ensure DOM is fully loaded before running this code
