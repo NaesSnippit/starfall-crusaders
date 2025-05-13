@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Diamond's Blackjack Booth</title>
+  <title>Blackjack vs Diamond — You've Been Scammed!</title>
   <link rel="stylesheet" href="scammed.css" />
   <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
 </head>
@@ -11,17 +11,17 @@
 
   <div class="game-header">
     <h1>♠ SCAMMED BY DIAMOND ♠</h1>
-    <p>Try your luck. Play a round of blackjack against a nine year old's coded pet project.</p>
+    <p>Try your luck. Beat the kid dealer (who maybe cheats). Good luck.</p>
   </div>
 
   <div class="game-area">
     <div class="hand-section">
-      <h2>Your Hand</h2>
+      <h2>Your Hand (<span id="player-total">0</span>)</h2>
       <div class="card-row" id="player-hand"></div>
     </div>
 
     <div class="hand-section">
-      <h2>Dealer's Hand</h2>
+      <h2>Diamond’s Hand (<span id="dealer-total">??</span>)</h2>
       <div class="card-row" id="dealer-hand"></div>
     </div>
 
@@ -32,12 +32,20 @@
     </div>
 
     <div id="result"></div>
+    <div id="diamond-dialogue">Ready to get wrecked by a 9-year-old?</div>
   </div>
 
-  <!-- Music and SFX Menu -->
-  <div class="audio-menu">
-    <button id="menu-toggle">🎛 Sound Settings</button>
-    <div id="menu-panel" class="hidden">
+  <div class="settings-menu">
+    <button id="settings-toggle">⚙️ Settings & Rules</button>
+    <div id="settings-panel" class="hidden">
+      <h3>Blackjack Rules</h3>
+      <ul>
+        <li>Get as close to 21 as possible without busting.</li>
+        <li>Face cards are worth 10, Aces are 1 or 11.</li>
+        <li>Dealer hits until 17. Unless she's cheating.</li>
+        <li>If you bust, you lose. If she wins, she gloats.</li>
+      </ul>
+
       <label>
         Music Volume:
         <input type="range" id="music-volume" min="0" max="1" step="0.01" value="0.5">
