@@ -43,16 +43,16 @@
     </div>
   </div>
 
-  <!-- Settings Modal -->
+  <!-- Modals -->
   <div id="settings-modal" class="modal hidden">
     <div class="modal-content">
       <h2>Blackjack Rules & Settings</h2>
       <ul>
-        <li>Try to get as close to 21 as possible without going over.</li>
+        <li>Get as close to 21 as possible without going over.</li>
         <li>Face cards are worth 10, Aces are worth 1 or 11.</li>
-        <li>Dealer (Diamond) must hit until 17 or higher.</li>
+        <li>Dealer (Diamond) hits until 17 or higher.</li>
         <li>If both bust, you still lose. Diamond’s rules.</li>
-        <li>Sometimes Diamond cheats. She's saving up for a new violin.</li>
+        <li>Diamond might cheat. She needs violin money.</li>
       </ul>
       <label for="music-volume">Music Volume</label>
       <input type="range" id="music-volume" min="0" max="1" step="0.01" value="1">
@@ -62,49 +62,13 @@
     </div>
   </div>
 
-  <!-- Info Modal -->
   <div id="info-modal" class="modal hidden">
     <div class="modal-content">
       <h2>Who is Diamond?</h2>
-      <p>Diamond is a young girl from Eagle Village. She's saving up for a new violin so she can perform at her first recital. She's excellent at slight of hand, but she <em>promises</em> everything is fair... probably.</p>
+      <p>Diamond is from Eagle Village and dreams of playing violin. Slight of hand is her thing—but she *swears* she plays fair... kinda.</p>
       <button class="close-modal" id="close-info">Close</button>
     </div>
   </div>
-
-  <script>
-    // Modal logic
-    const settingsBtn = document.getElementById('settings-btn');
-    const infoBtn = document.getElementById('info-btn');
-    const settingsModal = document.getElementById('settings-modal');
-    const infoModal = document.getElementById('info-modal');
-    const closeSettings = document.getElementById('close-settings');
-    const closeInfo = document.getElementById('close-info');
-
-    settingsBtn.addEventListener('click', () => {
-      settingsModal.classList.remove('hidden');
-    });
-
-    infoBtn.addEventListener('click', () => {
-      infoModal.classList.remove('hidden');
-    });
-
-    closeSettings.addEventListener('click', () => {
-      settingsModal.classList.add('hidden');
-    });
-
-    closeInfo.addEventListener('click', () => {
-      infoModal.classList.add('hidden');
-    });
-
-    window.addEventListener('click', (e) => {
-      if (e.target === settingsModal) {
-        settingsModal.classList.add('hidden');
-      }
-      if (e.target === infoModal) {
-        infoModal.classList.add('hidden');
-      }
-    });
-  </script>
 
   <script src="blackjack.js"></script>
 </body>
