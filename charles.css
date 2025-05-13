@@ -17,7 +17,7 @@ body::before {
   content: '';
   position: fixed;
   inset: 0;
-  background: rgba(57, 255, 20, 0.25); /* subtle green tint */
+  background: rgba(57, 255, 20, 0.25);
   mix-blend-mode: hue;
   pointer-events: none;
   z-index: 0;
@@ -38,13 +38,15 @@ h1 {
   align-items: flex-start;
   padding: 3rem;
   gap: 3rem;
-  flex-wrap: wrap;
+  flex-wrap: nowrap; /* force one-line layout */
   position: relative;
   z-index: 1;
+  max-height: 80vh;
+  overflow: hidden;
 }
 
 #blurb {
-  width: 50%;
+  width: 60%;
   line-height: 1.6;
   font-size: 1.1em;
   background: rgba(0, 0, 0, 0.65);
@@ -62,11 +64,14 @@ h1 {
 }
 
 #charles-image {
-  width: 12.5%; /* same as text container */
-  max-width: 25%;
+  max-height: 60vh;
+  width: auto;
+  max-width: 30vw;
+  object-fit: contain;
   border: 2px solid var(--neon-green);
   border-radius: 10px;
   box-shadow: 0 0 15px var(--neon-green);
+  align-self: flex-start;
 }
 
 #back-button {
