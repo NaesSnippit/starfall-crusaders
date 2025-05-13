@@ -49,30 +49,32 @@ body {
   transform: scale(1.1);
 }
 
-.audio-menu {
+.settings-menu {
   position: fixed;
   top: 15px;
   right: 15px;
   text-align: left;
 }
 
-#audio-menu label {
-  display: block;
-  margin: 10px 0;
-  color: #fff;
-}
-
-#audio-menu input[type="range"] {
-  width: 100%;
-}
-
-#menu-panel {
+#settings-panel {
   background: #1a001f;
   padding: 10px;
   border: 2px solid #ff99ff;
   border-radius: 10px;
   margin-top: 10px;
-  width: 200px;
+  width: 250px;
+  color: #ffd6ff;
+}
+
+#diamond-dialogue {
+  margin: 20px auto;
+  font-size: 1.2rem;
+  font-style: italic;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 10px;
+  border-radius: 8px;
+  max-width: 400px;
+  box-shadow: 0 0 8px #ff33cc;
 }
 
 .hidden {
