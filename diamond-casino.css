@@ -131,6 +131,25 @@ h1 {
   cursor: pointer;
 }
 
+#play-button {
+  display: inline-block;
+  background: linear-gradient(135deg, gold, purple);
+  color: black;
+  font-family: 'Share Tech Mono', monospace;
+  padding: 10px 20px;
+  margin-top: 15px;
+  text-decoration: none;
+  border: 2px solid #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px gold, 0 0 5px purple;
+  transition: background 0.3s, transform 0.2s;
+}
+
+#play-button:hover {
+  background: linear-gradient(135deg, purple, gold);
+  transform: scale(1.05);
+}
+
 .modal-content button:hover {
   background: #ff6b81;
 }
