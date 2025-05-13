@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let dealerCardHidden = true;
   let history = [];
 
-  // DOM references
+  // DOM elements
   const playerCardsDiv = document.getElementById('player-cards');
   const dealerCardsDiv = document.getElementById('dealer-cards');
   const playerTotal = document.getElementById('player-total');
@@ -23,11 +23,16 @@ document.addEventListener('DOMContentLoaded', () => {
   const music = document.getElementById('bg-music');
   const creditsDisplay = document.getElementById('credits-display');
   const sessionHistory = document.getElementById('session-history');
+  const betInput = document.getElementById('bet-input');
 
-  // Button event listeners
-  document.getElementById('deal-btn').addEventListener('click', deal);
-  document.getElementById('hit-btn').addEventListener('click', hit);
-  document.getElementById('stand-btn').addEventListener('click', stand);
+  const dealBtn = document.getElementById('deal-btn');
+  const hitBtn = document.getElementById('hit-btn');
+  const standBtn = document.getElementById('stand-btn');
+
+  // Button listeners
+  dealBtn.addEventListener('click', deal);
+  hitBtn.addEventListener('click', hit);
+  standBtn.addEventListener('click', stand);
 
   // Modal controls
   document.getElementById('settings-btn').addEventListener('click', () => {
@@ -46,16 +51,11 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('info-modal').classList.add('hidden');
   });
 
-  // Volume controls
   document.getElementById('music-volume').addEventListener('input', (e) => {
     music.volume = parseFloat(e.target.value);
   });
 
-  document.getElementById('sfx-volume').addEventListener('input', (e) => {
-    // Implement SFX volume handling if needed
-  });
-
-  // Game functions (you can expand as needed)
+  // Game Setup
   function createDeck() {
     deck = [];
     for (let suit of suits) {
@@ -81,17 +81,14 @@ document.addEventListener('DOMContentLoaded', () => {
   function calculateHandValue(hand) {
     let total = 0;
     let aces = 0;
-
     for (let card of hand) {
       total += getCardValue(card);
       if (card.value === 'A') aces++;
     }
-
     while (total > 21 && aces > 0) {
       total -= 10;
       aces--;
     }
-
     return total;
   }
 
@@ -100,11 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
     hand.forEach((card, index) => {
       const cardEl = document.createElement('div');
       cardEl.className = 'card';
-      if (index === 0 && hideFirstCard) {
-        cardEl.innerHTML = '🂠';
-      } else {
-        cardEl.innerHTML = `${card.value}${card.suit}`;
-      }
+      cardEl.innerHTML = (index === 0 && hideFirstCard) ? '🂠' : `${card.value}${card.suit}`;
       container.appendChild(cardEl);
     });
   }
@@ -112,32 +105,37 @@ document.addEventListener('DOMContentLoaded', () => {
   function updateDisplay() {
     renderHand(playerHand, playerCardsDiv);
     renderHand(dealerHand, dealerCardsDiv, dealerCardHidden);
-
     playerTotal.textContent = `Player Total: ${calculateHandValue(playerHand)}`;
     dealerTotal.textContent = dealerCardHidden ? `Dealer Total: ?` : `Dealer Total: ${calculateHandValue(dealerHand)}`;
-
     creditsDisplay.textContent = `Credits: ${credits}`;
     record.textContent = `Wins: ${wins} | Losses: ${losses}`;
   }
 
   function deal() {
-    if (currentBet > credits || currentBet <= 0) {
-      alert("Invalid bet amount.");
+    const bet = parseInt(betInput.value);
+    if (isNaN(bet) || bet <= 0 || bet > credits) {
+      alert("Enter a valid bet within your credits.");
       return;
     }
 
+    currentBet = bet;
     createDeck();
     shuffleDeck();
 
     playerHand = [deck.pop(), deck.pop()];
     dealerHand = [deck.pop(), deck.pop()];
     dealerCardHidden = true;
-
     outcome.textContent = '';
+
+    hitBtn.disabled = false;
+    standBtn.disabled = false;
+    dealBtn.disabled = true;
+
     updateDisplay();
   }
 
   function hit() {
+    if (!deck.length) return alert("No cards left in the deck!");
     playerHand.push(deck.pop());
     updateDisplay();
 
@@ -151,8 +149,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function stand() {
     dealerCardHidden = false;
-
     while (calculateHandValue(dealerHand) < 17) {
+      if (!deck.length) break; // prevent infinite loop
       dealerHand.push(deck.pop());
     }
 
@@ -177,6 +175,9 @@ document.addEventListener('DOMContentLoaded', () => {
   function endRound() {
     updateDisplay();
     updateHistory();
+    hitBtn.disabled = true;
+    standBtn.disabled = true;
+    dealBtn.disabled = false;
   }
 
   function updateHistory() {
@@ -185,5 +186,8 @@ document.addEventListener('DOMContentLoaded', () => {
     sessionHistory.innerHTML = history.slice(-5).map(res => `<li>${res}</li>`).join('');
   }
 
+  // Disable gameplay buttons initially
+  hitBtn.disabled = true;
+  standBtn.disabled = true;
 });
 </script>
