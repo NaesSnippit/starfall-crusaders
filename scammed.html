@@ -6,91 +6,6 @@
   <title>♠ Blackjack Booth #212! Diamond ♠</title>
   <link rel="stylesheet" href="scammed.css" />
   <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
-  <style>
-    body {
-      background: #1a1a2e;
-      color: #f0eaff;
-      font-family: 'Share Tech Mono', monospace;
-      margin: 0;
-      padding: 0;
-      text-align: center;
-    }
-
-    .hidden {
-      display: none;
-    }
-
-    .modal {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.7);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
-    }
-
-    .modal-content {
-      background: #2e003e;
-      color: #ffe600;
-      padding: 30px;
-      border-radius: 12px;
-      max-width: 500px;
-      border: 3px solid #ffd700;
-      box-shadow: 0 0 20px #7d2bc4;
-      text-align: left;
-    }
-
-    button {
-      background-color: #5a1c87;
-      color: #fff;
-      border: 2px solid #ffd700;
-      padding: 10px 20px;
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 1em;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background-color 0.2s ease;
-      margin: 5px;
-    }
-
-    button:hover {
-      background-color: #7d2bc4;
-    }
-
-    #record {
-      margin-top: 10px;
-    }
-
-    .header h1 {
-      margin-bottom: 0;
-    }
-
-    input[type="range"] {
-      width: 100%;
-      margin: 10px 0;
-    }
-
-    label {
-      display: block;
-      margin-top: 15px;
-      color: #ffef90;
-    }
-
-    .card-row {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    .game-container {
-      padding: 20px;
-    }
-  </style>
 </head>
 <body>
   <audio id="bg-music" src="audio/lofi.mp3" loop autoplay></audio>
@@ -110,7 +25,7 @@
     <div class="hand-container">
       <h2>Diamond's Hand</h2>
       <div id="dealer-cards" class="card-row"></div>
-      <p id="dealer-total">Total: 0</p>
+      <p id="dealer-total">Total: ??</p>
     </div>
 
     <div id="buttons">
@@ -134,7 +49,7 @@
         <li>Face cards are worth 10, Aces are worth 1 or 11.</li>
         <li>Dealer (Diamond) must hit until 17 or higher.</li>
         <li>If both bust, you still lose. Diamond’s rules.</li>
-        <li>Sometimes Diamond cheats. She's saving up for a hoverboard.</li>
+        <li>Sometimes Diamond cheats. She's saving up for a new violin.</li>
       </ul>
 
       <label for="music-volume">Music Volume</label>
@@ -147,38 +62,6 @@
     </div>
   </div>
 
-  <!-- Modal JS -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const settingsBtn = document.getElementById('settings-btn');
-      const settingsModal = document.getElementById('settings-modal');
-      const closeSettingsBtn = document.getElementById('close-settings');
-
-      if (!settingsBtn || !settingsModal || !closeSettingsBtn) {
-        console.error("Modal buttons not found in the DOM.");
-        return;
-      }
-
-      // Open modal when "Settings" button is clicked
-      settingsBtn.addEventListener('click', () => {
-        settingsModal.classList.remove('hidden'); // Show modal
-      });
-
-      // Close modal when "Close" button is clicked
-      closeSettingsBtn.addEventListener('click', () => {
-        settingsModal.classList.add('hidden'); // Hide modal
-      });
-
-      // Close the modal when clicking anywhere outside the modal content
-      window.addEventListener('click', (e) => {
-        if (e.target === settingsModal) {
-          settingsModal.classList.add('hidden'); // Hide modal
-        }
-      });
-    });
-  </script>
-
-  <!-- Game Logic -->
   <script src="blackjack.js"></script>
 </body>
 </html>
