@@ -5,19 +5,23 @@ body {
   color: #ffe7f0;
   text-align: center;
 }
+
 .header {
   padding: 20px;
   background: rgba(0, 0, 0, 0.6);
 }
+
 h1 {
   color: #ffd700;
   text-shadow: 1px 1px 5px #800080;
 }
+
 #diamond-dialogue {
   font-style: italic;
   margin-top: 10px;
   color: #ffb3f6;
 }
+
 .game-container {
   margin: 20px auto;
   max-width: 800px;
@@ -25,15 +29,19 @@ h1 {
   padding: 20px;
   border-radius: 12px;
 }
+
+.hand-container {
+  margin-bottom: 20px;
+}
+
 .card-row {
   display: flex;
   justify-content: center;
   gap: 10px;
+  flex-wrap: wrap;
   margin: 10px 0;
 }
-.hand-container {
-  margin-bottom: 20px;
-}
+
 button {
   margin: 5px;
   padding: 10px 20px;
@@ -45,15 +53,22 @@ button {
   cursor: pointer;
   transition: transform 0.2s;
 }
+
 button:hover {
   transform: scale(1.05);
   background-color: #ba68c8;
 }
+
 #outcome {
   font-size: 1.5em;
   margin: 10px 0;
 }
-#settings-modal {
+
+#record {
+  margin-top: 10px;
+}
+
+.modal {
   position: fixed;
   top: 0;
   left: 0;
@@ -63,18 +78,31 @@ button:hover {
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 1000;
 }
+
+.modal-content {
+  background: #330033;
+  color: #ffe600;
+  padding: 30px;
+  border-radius: 12px;
+  max-width: 500px;
+  border: 3px solid #ffd700;
+  box-shadow: 0 0 20px #7d2bc4;
+  text-align: left;
+}
+
 .hidden {
   display: none;
 }
-.modal-content {
-  background: #330033;
-  padding: 20px;
-  border-radius: 10px;
-  width: 90%;
-  max-width: 500px;
-  text-align: left;
-}
+
 input[type="range"] {
   width: 100%;
+  margin: 10px 0;
+}
+
+label {
+  display: block;
+  margin-top: 15px;
+  color: #ffef90;
 }
