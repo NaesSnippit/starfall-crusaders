@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
     updateUI();
   };
 
-  // Buttons
+  // --- Game Buttons ---
   document.getElementById('deal-btn').onclick = () => {
     shuffleDeck();
     playerHand = [deck.pop(), deck.pop()];
@@ -113,20 +113,13 @@ document.addEventListener('DOMContentLoaded', () => {
     endGame();
   };
 
-  // Settings modal
-  document.getElementById('settings-btn').onclick = () => {
-    document.getElementById('settings-modal').classList.remove('hidden');
-  };
+  // --- Music volume slider hookup ---
+  const bgMusic = document.getElementById('bg-music');
+  const musicSlider = document.getElementById('music-volume');
+  if (bgMusic && musicSlider) {
+    musicSlider.addEventListener('input', () => {
+      bgMusic.volume = parseFloat(musicSlider.value);
+    });
+  }
 
-  document.getElementById('close-settings').onclick = () => {
-    document.getElementById('settings-modal').classList.add('hidden');
-  };
-
-  // Optional: close settings if clicking outside content
-  window.addEventListener('click', (e) => {
-    const modal = document.getElementById('settings-modal');
-    if (e.target === modal) {
-      modal.classList.add('hidden');
-    }
-  });
 });
