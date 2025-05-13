@@ -67,12 +67,21 @@
     const settingsModal = document.getElementById('settings-modal');
     const closeSettingsBtn = document.getElementById('close-settings');
 
+    // Show the modal when settings button is clicked
     settingsBtn.addEventListener('click', () => {
-      settingsModal.classList.remove('hidden'); // Show the modal
+      settingsModal.classList.remove('hidden');
     });
 
+    // Hide the modal when close button is clicked
     closeSettingsBtn.addEventListener('click', () => {
-      settingsModal.classList.add('hidden'); // Hide the modal
+      settingsModal.classList.add('hidden');
+    });
+
+    // Prevent clicking outside of the modal to close it
+    window.addEventListener('click', (e) => {
+      if (e.target === settingsModal) {
+        settingsModal.classList.add('hidden');
+      }
     });
   </script>
 
