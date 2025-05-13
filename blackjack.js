@@ -38,6 +38,7 @@ document.getElementById('close-info').addEventListener('click', () => {
   document.getElementById('info-modal').classList.add('hidden');
 });
 
+// Music and SFX volume handlers
 document.getElementById('music-volume').addEventListener('input', (e) => {
   music.volume = parseFloat(e.target.value);
 });
@@ -202,3 +203,11 @@ function createCardElement(card, hidden = false) {
   };
   return cardDiv;
 }
+
+// Fix for modal visibility closing
+const closeModal = (modalId) => {
+  document.getElementById(modalId).classList.add('hidden');
+};
+
+document.getElementById('close-settings').addEventListener('click', () => closeModal('settings-modal'));
+document.getElementById('close-info').addEventListener('click', () => closeModal('info-modal'));
