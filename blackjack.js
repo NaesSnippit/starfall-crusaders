@@ -37,27 +37,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const updateUI = () => {
     document.getElementById('player-total').textContent = `Total: ${getTotal(playerHand)}`;
-    const reveal = document.getElementById('deal-btn').disabled === true ? getTotal(dealerHand) : '??';
-    document.getElementById('dealer-total').textContent = `Total: ${reveal}`;
+    const dealerTotalDisplay = document.getElementById('deal-btn').disabled
+      ? getTotal(dealerHand)
+      : '??';
+    document.getElementById('dealer-total').textContent = `Total: ${dealerTotalDisplay}`;
     document.getElementById('record').textContent = `Wins: ${wins} | Losses: ${losses}`;
   };
 
   const randomDialogue = () => {
     const totalLosses = losses - wins;
-    const d = totalLosses > 3 ? dialogue.snarky : dialogue.sweet;
-    return d[Math.floor(Math.random() * d.length)];
+    const lines = totalLosses > 3 ? dialogue.snarky : dialogue.sweet;
+    return lines[Math.floor(Math.random() * lines.length)];
   };
 
   const cheatIfLosing = () => {
     let dTotal = getTotal(dealerHand);
     let pTotal = getTotal(playerHand);
 
-    // Dealer cheats more if losing
     if (dTotal < 17 || (dTotal < pTotal && dTotal < 21)) {
       dealerHand.push(deck.pop());
     }
 
-    // Rarely swap a card to cheat
     if (Math.random() < 0.2 && dTotal < pTotal) {
       dealerHand[0] = deck.pop();
     }
@@ -74,18 +74,24 @@ document.addEventListener('DOMContentLoaded', () => {
     else if (pTotal === dTotal) win = false; // Diamond wins ties
     else win = false;
 
-    const outcomeText = win ? "You win! Diamond scowls." : "You lose. Diamond snickers.";
-    document.getElementById('outcome').textContent = outcomeText;
+    document.getElementById('outcome').textContent = win
+      ? "You win! Diamond scowls."
+      : "You lose. Diamond snickers.";
     document.getElementById('diamond-dialogue').textContent = randomDialogue();
     win ? wins++ : losses++;
+
     document.getElementById('deal-btn').disabled = false;
     document.getElementById('hit-btn').disabled = true;
     document.getElementById('stand-btn').disabled = true;
     updateUI();
   };
 
-  // --- Game Buttons ---
-  document.getElementById('deal-btn').onclick = () => {
+  // -- Game Controls --
+  const dealBtn = document.getElementById('deal-btn');
+  const hitBtn = document.getElementById('hit-btn');
+  const standBtn = document.getElementById('stand-btn');
+
+  dealBtn.onclick = () => {
     shuffleDeck();
     playerHand = [deck.pop(), deck.pop()];
     dealerHand = [deck.pop(), deck.pop()];
@@ -93,33 +99,33 @@ document.addEventListener('DOMContentLoaded', () => {
     renderHand(dealerHand, 'dealer-cards', true);
     updateUI();
     document.getElementById('outcome').textContent = '';
-    document.getElementById('deal-btn').disabled = true;
-    document.getElementById('hit-btn').disabled = false;
-    document.getElementById('stand-btn').disabled = false;
+    dealBtn.disabled = true;
+    hitBtn.disabled = false;
+    standBtn.disabled = false;
     document.getElementById('diamond-dialogue').textContent = "Good luck! You're gonna need it~";
   };
 
-  document.getElementById('hit-btn').onclick = () => {
+  hitBtn.onclick = () => {
     playerHand.push(deck.pop());
     renderHand(playerHand, 'player-cards');
     updateUI();
     if (getTotal(playerHand) > 21) endGame();
   };
 
-  document.getElementById('stand-btn').onclick = () => {
+  standBtn.onclick = () => {
     cheatIfLosing();
-    renderHand(dealerHand, 'dealer-cards', false);
+    renderHand(dealerHand, 'dealer-cards');
     updateUI();
     endGame();
   };
 
-  // --- Music volume slider hookup ---
+  // -- Volume Control --
   const bgMusic = document.getElementById('bg-music');
   const musicSlider = document.getElementById('music-volume');
+
   if (bgMusic && musicSlider) {
     musicSlider.addEventListener('input', () => {
       bgMusic.volume = parseFloat(musicSlider.value);
     });
   }
-
 });
