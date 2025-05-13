@@ -82,7 +82,7 @@
   </style>
 </head>
 <body>
-  <audio id="bg-music" src="audio/lofi.mp3" loop autoplay></audio>
+  <audio id="bg-music" src="audio/lofi.mp3" loop></audio>
 
   <div class="header">
     <h1>♠ Blackjack Booth #212! Diamond ♠</h1>
@@ -136,37 +136,36 @@
     </div>
   </div>
 
-  <!-- Modal Logic -->
+  <!-- Modal JS -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const settingsBtn = document.getElementById('settings-btn');
       const settingsModal = document.getElementById('settings-modal');
       const closeSettingsBtn = document.getElementById('close-settings');
 
-      // Log just in case something fails silently
-      console.log('Modal setup ready');
+      if (!settingsBtn || !settingsModal || !closeSettingsBtn) {
+        console.error("Modal buttons not found in the DOM.");
+        return;
+      }
 
       settingsBtn.addEventListener('click', () => {
-        console.log('Opening settings modal');
-        settingsModal.classList.remove('hidden');
+      settingsModal.classList.remove('hidden');
       });
-
+  
       closeSettingsBtn.addEventListener('click', () => {
-        console.log('Closing settings modal');
-        settingsModal.classList.add('hidden');
+      settingsModal.classList.add('hidden');
       });
-
-      // Optional: close modal when clicking outside modal-content
+  
+      // Optional: click outside modal to close
       window.addEventListener('click', (e) => {
         if (e.target === settingsModal) {
-          console.log('Clicked outside modal-content');
           settingsModal.classList.add('hidden');
         }
       });
     });
   </script>
 
-  <!-- Blackjack Game Logic -->
+  <!-- Game Logic -->
   <script src="blackjack.js"></script>
 </body>
 </html>
