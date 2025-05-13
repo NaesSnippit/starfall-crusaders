@@ -112,24 +112,21 @@ document.addEventListener('DOMContentLoaded', () => {
     endGame();
   };
 
-  // Modal Logic
-  document.getElementById('settings-btn').onclick = () => {
-    document.getElementById('settings-modal').classList.remove('hidden');
-  };
+    // Modal Logic (Combined)
+  const settingsBtn = document.getElementById('settings-btn');
+  const infoBtn = document.getElementById('info-btn');
+  const settingsModal = document.getElementById('settings-modal');
+  const infoModal = document.getElementById('info-modal');
+  const closeSettings = document.getElementById('close-settings');
+  const closeInfo = document.getElementById('close-info');
 
-  document.getElementById('close-settings').onclick = () => {
-    document.getElementById('settings-modal').classList.add('hidden');
-  };
+  settingsBtn.onclick = () => settingsModal.classList.remove('hidden');
+  infoBtn.onclick = () => infoModal.classList.remove('hidden');
+
+  closeSettings.onclick = () => settingsModal.classList.add('hidden');
+  closeInfo.onclick = () => infoModal.classList.add('hidden');
 
   window.onclick = (e) => {
-    if (e.target === document.getElementById('settings-modal')) {
-      document.getElementById('settings-modal').classList.add('hidden');
-    }
+    if (e.target === settingsModal) settingsModal.classList.add('hidden');
+    if (e.target === infoModal) infoModal.classList.add('hidden');
   };
-
-  if (bgMusic && musicSlider) {
-    musicSlider.addEventListener('input', () => {
-      bgMusic.volume = parseFloat(musicSlider.value);
-    });
-  }
-});
