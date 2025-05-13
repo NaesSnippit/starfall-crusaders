@@ -5,113 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Charles Couckee — Starfall Crusaders</title>
   <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --neon-green: #39FF14;
-    }
-
-    body {
-      margin: 0;
-      padding: 0;
-      background: url('images/Untitled1782_20250511160449.png') no-repeat center center fixed;
-      background-size: cover;
-      font-family: 'Share Tech Mono', monospace;
-      color: var(--neon-green);
-      overflow: hidden;
-      position: relative;
-    }
-
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background: rgba(57, 255, 20, 0.25);
-      mix-blend-mode: hue;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    h1 {
-      text-align: center;
-      font-size: 2.5em;
-      margin-top: 2rem;
-      text-shadow: 0 0 10px var(--neon-green), 0 0 20px var(--neon-green);
-      position: relative;
-      z-index: 1;
-    }
-
-    .container {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      padding: 3rem;
-      gap: 3rem;
-      flex-wrap: wrap;
-      position: relative;
-      z-index: 1;
-    }
-
-    #blurb {
-      width: 50%;
-      line-height: 1.6;
-      font-size: 1.1em;
-      background: rgba(0, 0, 0, 0.65);
-      padding: 1.5rem;
-      border: 1px solid var(--neon-green);
-      box-shadow: 0 0 20px var(--neon-green);
-      border-radius: 15px;
-      transform-style: preserve-3d;
-      transition: transform 0.4s ease, box-shadow 0.4s ease;
-    }
-
-    #blurb:hover {
-      transform: perspective(1000px) rotateX(4deg) rotateY(-4deg) translateY(-10px);
-      box-shadow: 0 0 30px var(--neon-green), 0 0 60px var(--neon-green);
-    }
-
-    #charles-image {
-      width: 50%;
-      max-width: 50%;
-      border: 2px solid var(--neon-green);
-      border-radius: 10px;
-      box-shadow: 0 0 15px var(--neon-green);
-    }
-
-    #back-button {
-      display: block;
-      text-align: center;
-      margin: 2rem auto;
-      font-size: 1.2em;
-      color: var(--neon-green);
-      text-decoration: none;
-      border-bottom: 1px dashed var(--neon-green);
-      width: fit-content;
-      position: relative;
-      z-index: 1;
-    }
-
-    #back-button:hover {
-      color: #fff;
-      text-shadow: 0 0 10px var(--neon-green);
-    }
-  </style>
+  <link rel="stylesheet" href="charles.css">
 </head>
-<body>
+<body style="color: #39FF14;"> <!-- Neon green text -->
 
-  <h1>CHARLES COUCKEE</h1>
+  <h1>CHARLES COUCKEE: STARFALL CRUSADER</h1>
 
-  <a href="trivia.html" id="back-button" onclick="playSound(event)">&larr; RETURN</a>
+  <a href="trivia.html" id="back-button" onclick="playSound(event)" style="color: #39FF14;">&larr; RETURN</a>
 
   <div class="container">
     <div id="blurb">
       <p><strong>Charles Couckee</strong>, 19. He/Him. Ted’s childhood best friend.</p>
 
-      <p>Charles has a huge heart and the absolute worst anxiety of anyone you’ll meet. He’s afraid of being abandoned, and always tries to go the extra mile to make people happy—sometimes too far. Charles is a worrier who rarely sees himself as good enough, but he’s surprisingly reliable when the chips are down.</p>
+      <p>Charles has a huge heart and the absolute worst anxiety of anyone you’ll meet. He’s afraid of being abandoned, and always tries to go the extra mile to make people happy—sometimes too far.</p>
 
-      <p>Though he isn't as flashy as the others, he holds the team together. He also hits things with a comically large hammer.</p>
+      <p>He’s a chronic worrier who rarely sees himself as good enough, but when things get tough, he’s surprisingly dependable.</p>
+
+      <p>Though not flashy like some of the others, he holds the Starfall Crusaders together — both emotionally and tactically. He also hits things with a comically large hammer. It’s very therapeutic.</p>
     </div>
 
-    <img src="images/CharlesWalking.gif" alt="Charles Couckee Portrait" id="charles-image" />
+    <img src="images/CharlesWalking.gif" alt="Charles Couckee Walking Animation" id="charles-image" />
   </div>
 
   <script>
