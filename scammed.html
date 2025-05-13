@@ -93,39 +93,50 @@
   </style>
 </head>
 <body>
+  <!-- Background Music -->
   <audio id="bg-music" src="audio/lofi.mp3" loop autoplay></audio>
 
+  <!-- Header -->
   <div class="header">
     <h1>♠ Blackjack Booth #212! Diamond ♠</h1>
     <p id="diamond-dialogue">Let's have fun, OK?</p>
   </div>
 
+  <!-- Game Area -->
   <div class="game-container">
+
+    <!-- Player Hand -->
     <div class="hand-container">
       <h2>Your Hand</h2>
       <div id="player-cards" class="card-row"></div>
       <p id="player-total">Total: 0</p>
     </div>
 
+    <!-- Dealer Hand -->
     <div class="hand-container">
       <h2>Diamond's Hand</h2>
       <div id="dealer-cards" class="card-row"></div>
       <p id="dealer-total">Total: 0</p>
     </div>
 
+    <!-- Game Buttons -->
     <div id="buttons">
       <button id="deal-btn">Deal</button>
       <button id="hit-btn" disabled>Hit</button>
       <button id="stand-btn" disabled>Stand</button>
     </div>
 
+    <!-- Game Outcome -->
     <div id="outcome"></div>
+
+    <!-- Win/Loss Record -->
     <p id="record">Wins: 0 | Losses: 0</p>
 
+    <!-- Settings Button -->
     <button id="settings-btn">⚙ Rules & Settings</button>
   </div>
 
-  <!-- Modal -->
+  <!-- Settings Modal -->
   <div id="settings-modal" class="modal hidden">
     <div class="modal-content">
       <h2>Blackjack Rules & Settings</h2>
@@ -147,7 +158,7 @@
     </div>
   </div>
 
-  <!-- Modal JS -->
+  <!-- Modal JavaScript -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const settingsBtn = document.getElementById('settings-btn');
