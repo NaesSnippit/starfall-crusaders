@@ -1,21 +1,19 @@
 body {
   margin: 0;
   font-family: 'Share Tech Mono', monospace;
-  background: linear-gradient(to bottom, #4b0082, #ffcc70);
+  background: linear-gradient(to bottom, #3c1361, #f3d46b);
   color: #ffe7f0;
   text-align: center;
 }
 
 .header {
   padding: 20px;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(40, 10, 80, 0.6);
 }
-
 h1 {
   color: #ffd700;
-  text-shadow: 1px 1px 5px #800080;
+  text-shadow: 2px 2px 8px #8000ff;
 }
-
 #diamond-dialogue {
   font-style: italic;
   margin-top: 10px;
@@ -25,84 +23,83 @@ h1 {
 .game-container {
   margin: 20px auto;
   max-width: 800px;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(20, 0, 40, 0.5);
   padding: 20px;
   border-radius: 12px;
-}
-
-.hand-container {
-  margin-bottom: 20px;
+  box-shadow: 0 0 20px #aa00ff;
 }
 
 .card-row {
   display: flex;
   justify-content: center;
   gap: 10px;
-  flex-wrap: wrap;
   margin: 10px 0;
 }
-
+.hand-container {
+  margin-bottom: 20px;
+}
 button {
   margin: 5px;
   padding: 10px 20px;
   font-size: 1rem;
-  background-color: #9c27b0;
+  background-color: #8000ff;
   color: #fff8dc;
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  transition: transform 0.2s;
+  transition: transform 0.2s, background-color 0.2s;
 }
-
 button:hover {
   transform: scale(1.05);
-  background-color: #ba68c8;
+  background-color: #a64dff;
 }
 
+.bottom-buttons {
+  margin-top: 20px;
+}
 #outcome {
   font-size: 1.5em;
   margin: 10px 0;
 }
-
-#record {
-  margin-top: 10px;
-}
-
-.modal {
+#settings-modal,
+#info-modal {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(10, 0, 30, 0.9);
+  background: rgba(20, 0, 30, 0.85);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1000;
 }
-
-.modal-content {
-  background: #330033;
-  color: #ffe600;
-  padding: 30px;
-  border-radius: 12px;
-  max-width: 500px;
-  border: 3px solid #ffd700;
-  box-shadow: 0 0 20px #7d2bc4;
-  text-align: left;
-}
-
 .hidden {
   display: none;
 }
-
+.modal-content {
+  background: #2e003e;
+  padding: 30px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 500px;
+  color: #ffd;
+  text-align: left;
+  box-shadow: 0 0 30px #d0a0ff;
+}
+.modal-content h2 {
+  color: #ffd700;
+}
+.modal-content button {
+  background-color: #9c27b0;
+  margin-top: 20px;
+}
 input[type="range"] {
   width: 100%;
-  margin: 10px 0;
+  margin-top: 10px;
 }
-
 label {
   display: block;
   margin-top: 15px;
-  color: #ffef90;
+  color: #ffe66d;
 }
