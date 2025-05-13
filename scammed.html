@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Blackjack vs Diamond — You've Been Scammed!</title>
+  <link rel="stylesheet" href="scammed.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="game-header">
+    <h1>♠ SCAMMED BY DIAMOND ♠</h1>
+    <p>Try your luck. Play a round of blackjack against a very suspicious dealer AI.</p>
+  </div>
+
+  <div class="game-area">
+    <div class="hand-section">
+      <h2>Your Hand</h2>
+      <div class="card-row" id="player-hand"></div>
+    </div>
+
+    <div class="hand-section">
+      <h2>Dealer's Hand</h2>
+      <div class="card-row" id="dealer-hand"></div>
+    </div>
+
+    <div class="controls">
+      <button id="deal-button">Deal</button>
+      <button id="hit-button" disabled>Hit</button>
+      <button id="stand-button" disabled>Stand</button>
+    </div>
+
+    <div id="result"></div>
+  </div>
+
+  <!-- Music and SFX Menu -->
+  <div class="audio-menu">
+    <button id="menu-toggle">🎛 Sound Settings</button>
+    <div id="menu-panel" class="hidden">
+      <label>
+        Music Volume:
+        <input type="range" id="music-volume" min="0" max="1" step="0.01" value="0.5">
+      </label>
+      <label>
+        SFX Volume:
+        <input type="range" id="sfx-volume" min="0" max="1" step="0.01" value="0.5">
+      </label>
+    </div>
+  </div>
+
+  <audio id="lofi-music" loop autoplay>
+    <source src="audio/lofi.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <script src="blackjack.js"></script>
+</body>
+</html>
