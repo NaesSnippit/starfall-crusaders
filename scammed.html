@@ -79,10 +79,21 @@
       margin-top: 15px;
       color: #ffef90;
     }
+
+    .card-row {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .game-container {
+      padding: 20px;
+    }
   </style>
 </head>
 <body>
-  <audio id="bg-music" src="audio/lofi.mp3" loop></audio>
+  <audio id="bg-music" src="audio/lofi.mp3" loop autoplay></audio>
 
   <div class="header">
     <h1>♠ Blackjack Booth #212! Diamond ♠</h1>
@@ -149,14 +160,13 @@
       }
 
       settingsBtn.addEventListener('click', () => {
-      settingsModal.classList.remove('hidden');
+        settingsModal.classList.remove('hidden');
       });
-  
+
       closeSettingsBtn.addEventListener('click', () => {
-      settingsModal.classList.add('hidden');
+        settingsModal.classList.add('hidden');
       });
-  
-      // Optional: click outside modal to close
+
       window.addEventListener('click', (e) => {
         if (e.target === settingsModal) {
           settingsModal.classList.add('hidden');
