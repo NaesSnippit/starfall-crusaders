@@ -3,6 +3,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const ranks = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
   let deck, playerHand, dealerHand, wins = 0, losses = 0;
 
+  const dealBtn = document.getElementById('deal-btn');
+  const hitBtn = document.getElementById('hit-btn');
+  const standBtn = document.getElementById('stand-btn');
+  const bgMusic = document.getElementById('bg-music');
+  const musicSlider = document.getElementById('music-volume');
+
   const dialogue = {
     sweet: ["Aw, tough luck! Want a sticker?", "You'll get me next time! Maybe."],
     snarky: ["Yikes, you're bad at this.", "Are you even trying?", "This is getting sad. For you."]
@@ -37,9 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const updateUI = () => {
     document.getElementById('player-total').textContent = `Total: ${getTotal(playerHand)}`;
-    const dealerTotalDisplay = document.getElementById('deal-btn').disabled
-      ? getTotal(dealerHand)
-      : '??';
+    const dealerTotalDisplay = dealBtn.disabled ? getTotal(dealerHand) : '??';
     document.getElementById('dealer-total').textContent = `Total: ${dealerTotalDisplay}`;
     document.getElementById('record').textContent = `Wins: ${wins} | Losses: ${losses}`;
   };
@@ -66,13 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const endGame = () => {
     const pTotal = getTotal(playerHand);
     const dTotal = getTotal(dealerHand);
-    let win;
-
-    if (pTotal > 21) win = false;
-    else if (dTotal > 21) win = true;
-    else if (pTotal > dTotal) win = true;
-    else if (pTotal === dTotal) win = false; // Diamond wins ties
-    else win = false;
+    let win = (pTotal <= 21 && (dTotal > 21 || pTotal > dTotal));
 
     document.getElementById('outcome').textContent = win
       ? "You win! Diamond scowls."
@@ -80,16 +78,11 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('diamond-dialogue').textContent = randomDialogue();
     win ? wins++ : losses++;
 
-    document.getElementById('deal-btn').disabled = false;
-    document.getElementById('hit-btn').disabled = true;
-    document.getElementById('stand-btn').disabled = true;
+    dealBtn.disabled = false;
+    hitBtn.disabled = true;
+    standBtn.disabled = true;
     updateUI();
   };
-
-  // -- Game Controls --
-  const dealBtn = document.getElementById('deal-btn');
-  const hitBtn = document.getElementById('hit-btn');
-  const standBtn = document.getElementById('stand-btn');
 
   dealBtn.onclick = () => {
     shuffleDeck();
@@ -119,9 +112,20 @@ document.addEventListener('DOMContentLoaded', () => {
     endGame();
   };
 
-  // -- Volume Control --
-  const bgMusic = document.getElementById('bg-music');
-  const musicSlider = document.getElementById('music-volume');
+  // Modal Logic
+  document.getElementById('settings-btn').onclick = () => {
+    document.getElementById('settings-modal').classList.remove('hidden');
+  };
+
+  document.getElementById('close-settings').onclick = () => {
+    document.getElementById('settings-modal').classList.add('hidden');
+  };
+
+  window.onclick = (e) => {
+    if (e.target === document.getElementById('settings-modal')) {
+      document.getElementById('settings-modal').classList.add('hidden');
+    }
+  };
 
   if (bgMusic && musicSlider) {
     musicSlider.addEventListener('input', () => {
