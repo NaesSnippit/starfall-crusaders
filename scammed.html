@@ -6,6 +6,12 @@
   <title>♠ Blackjack Booth #212! Diamond ♠</title>
   <link rel="stylesheet" href="scammed.css" />
   <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <style>
+    /* Include .hidden style here just to be sure */
+    .hidden {
+      display: none;
+    }
+  </style>
 </head>
 <body>
   <audio id="bg-music" src="audio/lofi.mp3" loop autoplay></audio>
@@ -62,26 +68,26 @@
   </div>
 
   <script>
-    // Modal functionality
-    const settingsBtn = document.getElementById('settings-btn');
-    const settingsModal = document.getElementById('settings-modal');
-    const closeSettingsBtn = document.getElementById('close-settings');
+    // Ensure DOM is fully loaded before running this code
+    document.addEventListener('DOMContentLoaded', () => {
+      const settingsBtn = document.getElementById('settings-btn');
+      const settingsModal = document.getElementById('settings-modal');
+      const closeSettingsBtn = document.getElementById('close-settings');
 
-    // Show the modal when settings button is clicked
-    settingsBtn.addEventListener('click', () => {
-      settingsModal.classList.remove('hidden');
-    });
+      settingsBtn.addEventListener('click', () => {
+        settingsModal.classList.remove('hidden');
+      });
 
-    // Hide the modal when close button is clicked
-    closeSettingsBtn.addEventListener('click', () => {
-      settingsModal.classList.add('hidden');
-    });
-
-    // Prevent clicking outside of the modal to close it
-    window.addEventListener('click', (e) => {
-      if (e.target === settingsModal) {
+      closeSettingsBtn.addEventListener('click', () => {
         settingsModal.classList.add('hidden');
-      }
+      });
+
+      // Optional: Close modal if clicked outside modal-content
+      window.addEventListener('click', (e) => {
+        if (e.target === settingsModal) {
+          settingsModal.classList.add('hidden');
+        }
+      });
     });
   </script>
 
