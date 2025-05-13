@@ -6,6 +6,10 @@ let playerHand = [];
 let dealerHand = [];
 let wins = 0;
 let losses = 0;
+let credits = 1000;
+let currentBet = 0;
+let dealerCardHidden = true;
+let history = [];
 
 const playerCardsDiv = document.getElementById('player-cards');
 const dealerCardsDiv = document.getElementById('dealer-cards');
@@ -14,10 +18,13 @@ const dealerTotal = document.getElementById('dealer-total');
 const outcome = document.getElementById('outcome');
 const record = document.getElementById('record');
 const music = document.getElementById('bg-music');
+const creditsDisplay = document.getElementById('credits-display');
+const sessionHistory = document.getElementById('session-history');
 
 document.getElementById('deal-btn').addEventListener('click', deal);
 document.getElementById('hit-btn').addEventListener('click', hit);
 document.getElementById('stand-btn').addEventListener('click', stand);
+
 document.getElementById('settings-btn').addEventListener('click', () => {
   document.getElementById('settings-modal').classList.remove('hidden');
 });
@@ -31,7 +38,6 @@ document.getElementById('close-info').addEventListener('click', () => {
   document.getElementById('info-modal').classList.add('hidden');
 });
 
-// Volume sliders
 document.getElementById('music-volume').addEventListener('input', (e) => {
   music.volume = parseFloat(e.target.value);
 });
@@ -78,6 +84,15 @@ function calculateTotal(hand) {
 }
 
 function deal() {
+  const betInput = parseInt(document.getElementById('bet-input').value);
+  if (isNaN(betInput) || betInput <= 0 || betInput > credits) {
+    outcome.textContent = 'Invalid bet';
+    return;
+  }
+
+  currentBet = betInput;
+  credits -= currentBet;
+  dealerCardHidden = true;
   createDeck();
   shuffleDeck();
   playerHand = [deck.pop(), deck.pop()];
@@ -86,6 +101,7 @@ function deal() {
   document.getElementById('stand-btn').disabled = false;
   outcome.textContent = '';
   displayCards();
+  updateCredits();
 }
 
 function hit() {
@@ -93,12 +109,13 @@ function hit() {
   displayCards();
   const total = calculateTotal(playerHand);
   if (total > 21) {
-    endGame('You busted!');
     losses++;
+    endGame('You busted!');
   }
 }
 
 function stand() {
+  dealerCardHidden = false;
   while (calculateTotal(dealerHand) < 17) {
     dealerHand.push(deck.pop());
   }
@@ -107,14 +124,15 @@ function stand() {
   const dealerScore = calculateTotal(dealerHand);
 
   if (dealerScore > 21 || playerScore > dealerScore) {
-    endGame('You win!');
     wins++;
+    credits += currentBet * 2;
+    endGame('You win!');
   } else if (playerScore < dealerScore) {
+    losses++;
     endGame('Diamond wins.');
-    losses++;
   } else {
+    credits += currentBet; // push
     endGame("It's a tie! Diamond still wins.");
-    losses++;
   }
 }
 
@@ -124,10 +142,23 @@ function endGame(message) {
   document.getElementById('stand-btn').disabled = true;
   displayCards();
   updateRecord();
+  updateCredits();
+  updateHistory(message);
 }
 
 function updateRecord() {
   record.textContent = `Wins: ${wins} | Losses: ${losses}`;
+}
+
+function updateCredits() {
+  creditsDisplay.textContent = `Credits: ${credits}`;
+}
+
+function updateHistory(result) {
+  const entry = document.createElement('div');
+  entry.className = 'history-entry';
+  entry.textContent = `Bet ${currentBet} → ${result}`;
+  sessionHistory.prepend(entry);
 }
 
 function displayCards() {
@@ -139,18 +170,26 @@ function displayCards() {
     playerCardsDiv.appendChild(cardElement);
   });
 
-  dealerHand.forEach(card => {
-    const cardElement = createCardElement(card);
+  dealerHand.forEach((card, index) => {
+    const cardElement = createCardElement(card, dealerCardHidden && index === 0);
     dealerCardsDiv.appendChild(cardElement);
   });
 
   playerTotal.textContent = `Total: ${calculateTotal(playerHand)}`;
-  dealerTotal.textContent = `Total: ${calculateTotal(dealerHand)}`;
+  dealerTotal.textContent = `Total: ${
+    dealerCardHidden ? '?' : calculateTotal(dealerHand)
+  }`;
 }
 
-function createCardElement(card) {
+function createCardElement(card, hidden = false) {
   const cardDiv = document.createElement('div');
   cardDiv.className = 'card';
+  if (hidden) {
+    cardDiv.textContent = '🂠';
+    cardDiv.style.background = 'linear-gradient(45deg, #290628, #450b3d)';
+    return cardDiv;
+  }
+
   const filename = `cards/${card.value}${card.suit}.png`;
   const img = new Image();
   img.src = filename;
