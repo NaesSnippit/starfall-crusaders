@@ -136,30 +136,37 @@
     </div>
   </div>
 
-  <!-- Modal JS -->
+  <!-- Modal Logic -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const settingsBtn = document.getElementById('settings-btn');
       const settingsModal = document.getElementById('settings-modal');
       const closeSettingsBtn = document.getElementById('close-settings');
 
+      // Log just in case something fails silently
+      console.log('Modal setup ready');
+
       settingsBtn.addEventListener('click', () => {
+        console.log('Opening settings modal');
         settingsModal.classList.remove('hidden');
       });
 
       closeSettingsBtn.addEventListener('click', () => {
+        console.log('Closing settings modal');
         settingsModal.classList.add('hidden');
       });
 
+      // Optional: close modal when clicking outside modal-content
       window.addEventListener('click', (e) => {
         if (e.target === settingsModal) {
+          console.log('Clicked outside modal-content');
           settingsModal.classList.add('hidden');
         }
       });
     });
   </script>
 
-  <!-- Game Logic -->
+  <!-- Blackjack Game Logic -->
   <script src="blackjack.js"></script>
 </body>
 </html>
