@@ -62,8 +62,8 @@ h1 {
 }
 
 #charles-image {
-  width: 50%; /* same as text container */
-  max-width: 50%;
+  width: 12.5%; /* same as text container */
+  max-width: 25%;
   border: 2px solid var(--neon-green);
   border-radius: 10px;
   box-shadow: 0 0 15px var(--neon-green);
