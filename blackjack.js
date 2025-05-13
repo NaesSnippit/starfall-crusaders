@@ -1,4 +1,4 @@
-(() => {
+document.addEventListener('DOMContentLoaded', () => {
   const suits = ['H', 'D', 'C', 'S'];
   const ranks = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
   let deck, playerHand, dealerHand, wins = 0, losses = 0;
@@ -37,7 +37,7 @@
 
   const updateUI = () => {
     document.getElementById('player-total').textContent = `Total: ${getTotal(playerHand)}`;
-    const reveal = document.getElementById('deal-btn').disabled === true ? '??' : getTotal(dealerHand);
+    const reveal = document.getElementById('deal-btn').disabled === true ? getTotal(dealerHand) : '??';
     document.getElementById('dealer-total').textContent = `Total: ${reveal}`;
     document.getElementById('record').textContent = `Wins: ${wins} | Losses: ${losses}`;
   };
@@ -52,11 +52,12 @@
     let dTotal = getTotal(dealerHand);
     let pTotal = getTotal(playerHand);
 
+    // Dealer cheats more if losing
     if (dTotal < 17 || (dTotal < pTotal && dTotal < 21)) {
       dealerHand.push(deck.pop());
     }
 
-    // Very rare — card swap
+    // Rarely swap a card to cheat
     if (Math.random() < 0.2 && dTotal < pTotal) {
       dealerHand[0] = deck.pop();
     }
@@ -83,6 +84,7 @@
     updateUI();
   };
 
+  // Buttons
   document.getElementById('deal-btn').onclick = () => {
     shuffleDeck();
     playerHand = [deck.pop(), deck.pop()];
@@ -111,9 +113,20 @@
     endGame();
   };
 
-  document.getElementById('settings-btn').onclick = () =>
+  // Settings modal
+  document.getElementById('settings-btn').onclick = () => {
     document.getElementById('settings-modal').classList.remove('hidden');
-  document.getElementById('close-settings').onclick = () =>
-    document.getElementById('settings-modal').classList.add('hidden');
-})();
+  };
 
+  document.getElementById('close-settings').onclick = () => {
+    document.getElementById('settings-modal').classList.add('hidden');
+  };
+
+  // Optional: close settings if clicking outside content
+  window.addEventListener('click', (e) => {
+    const modal = document.getElementById('settings-modal');
+    if (e.target === modal) {
+      modal.classList.add('hidden');
+    }
+  });
+});
