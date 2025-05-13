@@ -5,22 +5,19 @@ body {
   color: #ffe7f0;
   text-align: center;
 }
-
 .header {
   padding: 20px;
   background: rgba(0, 0, 0, 0.6);
 }
-
 h1 {
   color: #ffd700;
   text-shadow: 1px 1px 5px #800080;
 }
-
 #diamond-dialogue {
   font-style: italic;
   margin-top: 10px;
+  color: #ffb3f6;
 }
-
 .game-container {
   margin: 20px auto;
   max-width: 800px;
@@ -28,18 +25,15 @@ h1 {
   padding: 20px;
   border-radius: 12px;
 }
-
 .card-row {
   display: flex;
   justify-content: center;
   gap: 10px;
   margin: 10px 0;
 }
-
 .hand-container {
   margin-bottom: 20px;
 }
-
 button {
   margin: 5px;
   padding: 10px 20px;
@@ -51,17 +45,14 @@ button {
   cursor: pointer;
   transition: transform 0.2s;
 }
-
 button:hover {
   transform: scale(1.05);
   background-color: #ba68c8;
 }
-
 #outcome {
   font-size: 1.5em;
   margin: 10px 0;
 }
-
 #settings-modal {
   position: fixed;
   top: 0;
@@ -73,11 +64,9 @@ button:hover {
   justify-content: center;
   align-items: center;
 }
-
 .hidden {
   display: none;
 }
-
 .modal-content {
   background: #330033;
   padding: 20px;
@@ -86,7 +75,6 @@ button:hover {
   max-width: 500px;
   text-align: left;
 }
-
 input[type="range"] {
   width: 100%;
 }
